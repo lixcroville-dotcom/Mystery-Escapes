@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/app.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/menu.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/ui/seal.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/ui/seal_v5.png" id="3"]
 
 [node name="MysteryEscape" type="Control"]
 layout_mode = 3

@@ -15,9 +15,9 @@ check(len(main)==100,f'Expected 100 main cases, got {len(main)}')
 original_hash='44651e5b3679d47ab9ead3438c631845a3d7e439dab997a0065a37028a90d7c8'
 current_hash=hashlib.sha256(json.dumps(main[:50],ensure_ascii=False,sort_keys=True).encode()).hexdigest()
 check(current_hash==original_hash,'One of the original V3 first 50 case definitions changed')
-check(len(kids)==10,f'Expected 10 junior cases, got {len(kids)}')
+check(len(kids)==20,f'Expected 20 junior cases, got {len(kids)}')
 check([case['id'] for case in main]==list(range(1,101)),'Main case IDs are not sequential')
-check([case['id'] for case in kids]==list(range(101,111)),'Junior case IDs are not sequential')
+check([case['id'] for case in kids]==list(range(101,121)),'Junior case IDs are not sequential')
 counts=Counter()
 for case in main+kids:
     check(bool(case.get('title_fr') and case.get('title_en')),'Case missing bilingual title '+str(case.get('id')))
@@ -74,6 +74,9 @@ for name in ('sliding','code','cipher','hidden','logic','inventory','lock','memo
     check((ROOT/f'assets/ui/apparatus_{name}.png').is_file(),f'Missing apparatus image {name}')
 check((ROOT/'assets/ui/icons/kids.png').exists(),'Missing junior mode icon')
 check((ROOT/'.github/workflows/ios-ipa.yml').is_file(),'Missing iOS workflow')
+check((ROOT/'assets/ui/seal_v5.png').exists(),'Missing V5 logo')
+check((ROOT/'assets/ui/loading_background.png').exists(),'Missing V5 cinematic background')
+check('func show_opening()' in app and 'func close_opening()' in app,'Missing V5 opening')
 print(f'Levels: {len(main)} main + {len(kids)} junior, stages: {sum(len(v["stages"]) for v in main+kids)}')
 print('Puzzle families:',dict(counts))
 if errors:

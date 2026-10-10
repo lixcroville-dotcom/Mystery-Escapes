@@ -2922,6 +2922,15 @@
           "Key",
           "Lens"
         ]
+      },
+      {
+        "type": "code",
+        "answer": "5397",
+        "question_fr": "Rapport crypté : A=5, B=3. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=5, B=3. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 51 — La lettre scellée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3012,6 +3021,21 @@
         "hint_en": "Shift each letter backward by 6.",
         "encoded": "VRGT",
         "shift": 6
+      },
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          36,
+          33,
+          26,
+          30
+        ],
+        "question_fr": "Le registre révèle la suite 4, 6, 11, 19, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 6, 11, 19, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 52 — La table du cartographe. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3076,6 +3100,15 @@
         "question_en": "The wiring diagram uses complements to 5: 3,4,2,1. Decode the four wire numbers in order.",
         "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
         "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot WYLBCL a été chiffré par César (+7). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word WYLBCL was encoded with Caesar (+7). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 7 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 53 — La montre brisée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3161,6 +3194,22 @@
           "CANDLE",
           "PHOTO"
         ]
+      },
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          0,
+          0,
+          2,
+          2,
+          0
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 54 — Le tiroir sans clé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3235,6 +3284,27 @@
         "question_en": "The first wheel points WEST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
         "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
         "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°2. Le registre d’accès prouve que le badge n°2 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #2. The entry log proves badge #2 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 55 — Le testament codé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3307,6 +3377,15 @@
         "question_en": "Listen to the melody and repeat the notes in the same order.",
         "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
         "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "code",
+        "answer": "4666",
+        "question_fr": "Rapport crypté : A=4, B=6. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=4, B=6. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 56 — Le portrait effacé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3370,6 +3449,21 @@
         "question_en": "The dials follow a rule: first = 3, second = +3, third = +4 (modulo 10).",
         "hint_fr": "Après 9, reviens à 0. Les valeurs sont 3, 6, 0.",
         "hint_en": "Wrap back to zero after 9. The dials are 3, 6, 0."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          34,
+          40,
+          37,
+          30
+        ],
+        "question_fr": "Le registre révèle la suite 4, 7, 13, 22, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 7, 13, 22, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 57 — Les quatre témoins. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3459,6 +3553,15 @@
           "58",
           "55"
         ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot VXKABK a été chiffré par César (+6). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word VXKABK was encoded with Caesar (+6). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 6 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 58 — Le jardin d’hiver. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3511,6 +3614,24 @@
         "question_en": "The register shows 11:30. The second alarm sounds 60 minutes later. Set that time.",
         "hint_fr": "Ajoute 60 minutes, sans oublier le passage à l’heure suivante.",
         "hint_en": "Add 60 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          3,
+          3,
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 59 — La serrure inversée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3605,6 +3726,27 @@
           "01110",
           "00000"
         ]
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°1. Le registre d’accès prouve que le badge n°1 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #1. The entry log proves badge #1 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 60 — Le pacte secret. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
@@ -3673,6 +3815,15 @@
         "question_en": "Cipher notebook: A=2, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
         "hint_fr": "Calcule D : 2×2+4+3 puis garde le chiffre des unités.",
         "hint_en": "Calculate D: 2×2+4+3; keep the units digit."
+      },
+      {
+        "type": "code",
+        "answer": "3351",
+        "question_fr": "Rapport crypté : A=3, B=3. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=3, B=3. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 61 — Le protocole bleu. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -3737,6 +3888,21 @@
         "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
         "hint_fr": "La séquence contient 7 éléments.",
         "hint_en": "The sequence has 7 symbols."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          44,
+          38,
+          34,
+          41
+        ],
+        "question_fr": "Le registre révèle la suite 4, 8, 15, 25, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 8, 15, 25, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 62 — La chambre des ondes. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -3807,6 +3973,15 @@
           "THE VISITOR",
           "THE TECHNICIAN"
         ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot UWJZAJ a été chiffré par César (+5). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word UWJZAJ was encoded with Caesar (+5). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 5 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 5 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 63 — La note clandestine. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -3869,6 +4044,23 @@
         "question_en": "An inscription was erased. Find this 7-letter word.",
         "hint_fr": "Le mot commence par PA.",
         "hint_en": "The word starts with PA."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 64 — Le badge disparu. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -3932,6 +4124,27 @@
           "Key",
           "Lens"
         ]
+      },
+      {
+        "type": "deduction",
+        "answer": 3,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°4. Le registre d’accès prouve que le badge n°4 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #4. The entry log proves badge #4 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 65 — La console oubliée. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4014,6 +4227,15 @@
         "hint_en": "Shift each letter backward by 6.",
         "encoded": "XUYK",
         "shift": 6
+      },
+      {
+        "type": "code",
+        "answer": "2620",
+        "question_fr": "Rapport crypté : A=2, B=6. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=2, B=6. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 66 — Le carnet du veilleur. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4078,6 +4300,21 @@
         "question_en": "The wiring diagram uses complements to 5: 3,4,1,2. Decode the four wire numbers in order.",
         "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
         "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          42,
+          45,
+          48,
+          38
+        ],
+        "question_fr": "Le registre révèle la suite 4, 9, 17, 28, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 9, 17, 28, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 67 — Le couloir magnétique. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4162,6 +4399,15 @@
           "CANDLE",
           "PHOTO"
         ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot TVIYZI a été chiffré par César (+4). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word TVIYZI was encoded with Caesar (+4). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 4 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 68 — L’ordinateur silencieux. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4236,6 +4482,22 @@
         "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
         "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
         "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 69 — Le coffre d’ozone. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4293,6 +4555,27 @@
         "question_en": "Listen to the melody and repeat the notes in the same order.",
         "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
         "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°3. Le registre d’accès prouve que le badge n°3 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #3. The entry log proves badge #3 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 70 — La preuve photographique. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
@@ -4377,6 +4660,15 @@
         "question_en": "The dials follow a rule: first = 5, second = +3, third = +4 (modulo 10).",
         "hint_fr": "Après 9, reviens à 0. Les valeurs sont 5, 8, 2.",
         "hint_en": "Wrap back to zero after 9. The dials are 5, 8, 2."
+      },
+      {
+        "type": "code",
+        "answer": "7333",
+        "question_fr": "Rapport crypté : A=7, B=3. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=7, B=3. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 71 — La valise 17. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4466,6 +4758,21 @@
           "122",
           "119"
         ]
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          33,
+          36,
+          30,
+          26
+        ],
+        "question_fr": "Le registre révèle la suite 4, 6, 11, 19, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 6, 11, 19, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 72 — Le dernier passage. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4518,6 +4825,15 @@
         "question_en": "The register shows 12:30. The second alarm sounds 90 minutes later. Set that time.",
         "hint_fr": "Ajoute 90 minutes, sans oublier le passage à l’heure suivante.",
         "hint_en": "Add 90 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot SUHXYH a été chiffré par César (+3). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word SUHXYH was encoded with Caesar (+3). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 3 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 3 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 73 — Le masque anonyme. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4611,6 +4927,24 @@
           "01110",
           "00000"
         ]
+      },
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 74 — L’alphabet miroir. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4670,6 +5004,27 @@
         "question_en": "Cipher notebook: A=4, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
         "hint_fr": "Calcule D : 2×4+4+3 puis garde le chiffre des unités.",
         "hint_en": "Calculate D: 2×4+4+3; keep the units digit."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°2. Le registre d’accès prouve que le badge n°2 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #2. The entry log proves badge #2 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 75 — La caisse scellée. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4753,6 +5108,15 @@
         "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
         "hint_fr": "La séquence contient 6 éléments.",
         "hint_en": "The sequence has 6 symbols."
+      },
+      {
+        "type": "code",
+        "answer": "6602",
+        "question_fr": "Rapport crypté : A=6, B=6. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=6, B=6. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 76 — Le reflet de minuit. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4823,6 +5187,21 @@
           "THE VISITOR",
           "THE TECHNICIAN"
         ]
+      },
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          40,
+          30,
+          37,
+          34
+        ],
+        "question_fr": "Le registre révèle la suite 4, 7, 13, 22, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 7, 13, 22, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 77 — Le mécanisme du port. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4885,6 +5264,15 @@
         "question_en": "An inscription was erased. Find this 7-letter word.",
         "hint_fr": "Le mot commence par AR.",
         "hint_en": "The word starts with AR."
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot RTGWXG a été chiffré par César (+2). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word RTGWXG was encoded with Caesar (+2). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 2 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 2 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 78 — La fausse identité. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -4948,6 +5336,23 @@
           "Key",
           "Lens"
         ]
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          3,
+          3,
+          1,
+          1,
+          3,
+          3
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 79 — Le manuscrit chiffré. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -5039,6 +5444,27 @@
         "hint_en": "Shift each letter backward by 6.",
         "encoded": "RATK",
         "shift": 6
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°1. Le registre d’accès prouve que le badge n°1 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #1. The entry log proves badge #1 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 80 — L’ultime transmission. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
@@ -5120,6 +5546,15 @@
         "question_en": "The wiring diagram uses complements to 5: 2,3,1,4. Decode the four wire numbers in order.",
         "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
         "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "code",
+        "answer": "5397",
+        "question_fr": "Rapport crypté : A=5, B=3. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=5, B=3. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 81 — Une ombre au théâtre. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5203,6 +5638,21 @@
           "CANDLE",
           "PHOTO"
         ]
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          34,
+          38,
+          44,
+          41
+        ],
+        "question_fr": "Le registre révèle la suite 4, 8, 15, 25, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 8, 15, 25, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 82 — Le registre des billets. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5277,6 +5727,15 @@
         "question_en": "The first wheel points WEST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
         "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
         "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot WYLBCL a été chiffré par César (+7). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word WYLBCL was encoded with Caesar (+7). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 7 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 83 — Le rideau rouge. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5334,6 +5793,22 @@
         "question_en": "Listen to the melody and repeat the notes in the same order.",
         "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
         "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 84 — Le cadran fendu. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5397,6 +5872,27 @@
         "question_en": "The dials follow a rule: first = 7, second = +3, third = +4 (modulo 10).",
         "hint_fr": "Après 9, reviens à 0. Les valeurs sont 7, 0, 4.",
         "hint_en": "Wrap back to zero after 9. The dials are 7, 0, 4."
+      },
+      {
+        "type": "deduction",
+        "answer": 3,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°4. Le registre d’accès prouve que le badge n°4 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #4. The entry log proves badge #4 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 85 — Les empreintes croisées. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5497,6 +5993,15 @@
           "106",
           "103"
         ]
+      },
+      {
+        "type": "code",
+        "answer": "4666",
+        "question_fr": "Rapport crypté : A=4, B=6. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=4, B=6. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 86 — La chambre sans fenêtre. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5549,6 +6054,21 @@
         "question_en": "The register shows 02:30. The second alarm sounds 120 minutes later. Set that time.",
         "hint_fr": "Ajoute 120 minutes, sans oublier le passage à l’heure suivante.",
         "hint_en": "Add 120 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          48,
+          38,
+          42,
+          45
+        ],
+        "question_fr": "Le registre révèle la suite 4, 9, 17, 28, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 9, 17, 28, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 87 — Le numéro de quai. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5644,6 +6164,15 @@
           "01110",
           "00000"
         ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot VXKABK a été chiffré par César (+6). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word VXKABK was encoded with Caesar (+6). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 6 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 88 — Le témoin des horloges. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5703,6 +6232,24 @@
         "question_en": "Cipher notebook: A=6, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
         "hint_fr": "Calcule D : 2×6+4+3 puis garde le chiffre des unités.",
         "hint_en": "Calculate D: 2×6+4+3; keep the units digit."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 89 — La trace effacée. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5765,6 +6312,27 @@
         "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
         "hint_fr": "La séquence contient 5 éléments.",
         "hint_en": "The sequence has 5 symbols."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°3. Le registre d’accès prouve que le badge n°3 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #3. The entry log proves badge #3 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 90 — Le dossier inachevé. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
@@ -5841,6 +6409,15 @@
           "THE VISITOR",
           "THE TECHNICIAN"
         ]
+      },
+      {
+        "type": "code",
+        "answer": "3351",
+        "question_fr": "Rapport crypté : A=3, B=3. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=3, B=3. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 91 — L’accord du conservateur. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -5903,6 +6480,21 @@
         "question_en": "An inscription was erased. Find this 6-letter word.",
         "hint_fr": "Le mot commence par IN.",
         "hint_en": "The word starts with IN."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          26,
+          33,
+          30,
+          36
+        ],
+        "question_fr": "Le registre révèle la suite 4, 6, 11, 19, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 6, 11, 19, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 92 — La boîte à musique. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -5966,6 +6558,15 @@
           "Key",
           "Lens"
         ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot UWJZAJ a été chiffré par César (+5). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word UWJZAJ was encoded with Caesar (+5). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 5 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 5 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 93 — La route des symboles. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6056,6 +6657,23 @@
         "hint_en": "Shift each letter backward by 6.",
         "encoded": "BKTZ",
         "shift": 6
+      },
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 94 — Le labyrinthe des archives. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6120,6 +6738,27 @@
         "question_en": "The wiring diagram uses complements to 5: 4,2,1,3. Decode the four wire numbers in order.",
         "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
         "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°2. Le registre d’accès prouve que le badge n°2 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #2. The entry log proves badge #2 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 95 — La troisième signature. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6221,6 +6860,15 @@
           "CANDLE",
           "PHOTO"
         ]
+      },
+      {
+        "type": "code",
+        "answer": "2620",
+        "question_fr": "Rapport crypté : A=2, B=6. Le troisième chiffre est (2×A+3×B) modulo 10. Le dernier est la somme des trois précédents, modulo 10. Déduis le code à quatre chiffres.",
+        "question_en": "Coded report: A=2, B=6. Digit three is (2×A+3×B) modulo 10. The last is the sum of the preceding three modulo 10. Derive the four-digit code.",
+        "hint_fr": "Calcule d’abord le troisième chiffre, puis additionne A, B et ce résultat.",
+        "hint_en": "Work out the third digit first, then add A, B and that result.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 96 — Les sceaux du passé. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6295,6 +6943,21 @@
         "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
         "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
         "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          30,
+          34,
+          40,
+          37
+        ],
+        "question_fr": "Le registre révèle la suite 4, 7, 13, 22, ? Les écarts augmentent toujours de 3. Quelle valeur complète la suite ?",
+        "question_en": "The ledger shows 4, 7, 13, 22, ? Each difference rises by 3. What comes next?",
+        "hint_fr": "Calcule les écarts successifs, puis augmente le dernier de 3.",
+        "hint_en": "Find consecutive differences, then increase the last one by 3.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 97 — Le rendez-vous secret. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6352,6 +7015,15 @@
         "question_en": "Listen to the melody and repeat the notes in the same order.",
         "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
         "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "cipher",
+        "answer": "PREUVE",
+        "question_fr": "Le mot TVIYZI a été chiffré par César (+4). Récupère le mot d’origine et saisis-le.",
+        "question_en": "The word TVIYZI was encoded with Caesar (+4). Recover and enter the original word.",
+        "hint_fr": "Recule chaque lettre de 4 positions dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4 places.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 98 — Le cœur du mécanisme. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6415,6 +7087,22 @@
         "question_en": "The dials follow a rule: first = 9, second = +3, third = +4 (modulo 10).",
         "hint_fr": "Après 9, reviens à 0. Les valeurs sont 9, 2, 6.",
         "hint_en": "Wrap back to zero after 9. The dials are 9, 2, 6."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Une suite de symboles est révélée brièvement. Observe-la puis reproduis les six à huit symboles sans erreur.",
+        "question_en": "A symbol sequence appears briefly. Memorize and replay the six to eight symbols without a mistake.",
+        "hint_fr": "Regroupe les symboles en petits blocs et mémorise leur position.",
+        "hint_en": "Group symbols into small chunks and memorize their order.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 99 — La mémoire des lieux. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
@@ -6504,6 +7192,27 @@
           "90",
           "87"
         ]
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "La conservatrice",
+          "Le gardien",
+          "Le facteur",
+          "L’horloger"
+        ],
+        "options_en": [
+          "The curator",
+          "The guard",
+          "The messenger",
+          "The clockmaker"
+        ],
+        "question_fr": "Enquête : parmi les quatre suspects, l’un possède le badge n°1. Le registre d’accès prouve que le badge n°1 est entré à 23 h. Qui faut-il interroger en priorité ?",
+        "question_en": "Case file: one of the four suspects holds badge #1. The entry log proves badge #1 entered at 11 PM. Who should be questioned first?",
+        "hint_fr": "Associe le numéro de badge au suspect placé au même rang dans la liste.",
+        "hint_en": "Match the badge number to the suspect at the corresponding list position.",
+        "v5_challenge": true
       }
     ],
     "story_fr": "DOSSIER 100 — La dernière énigme. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",

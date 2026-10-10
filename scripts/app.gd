@@ -89,7 +89,9 @@ var music_cycle: Array = []
 var music_recent_track: int = -1
 var main_level_count: int = 100
 var child_level_offset: int = 100
-var child_level_count: int = 10
+var child_level_count: int = 20
+var opening_layer: Control
+var opening_completed: bool = false
 
 
 
@@ -118,6 +120,7 @@ func _ready() -> void:
 	add_child(modal_layer)
 	setup_audio()
 	show_home()
+	show_opening()
 
 func _process(delta: float) -> void:
 	if screen == "game":
@@ -492,6 +495,12 @@ func label(t: String, x: float,y: float,w: float,h: float, sz: int=24, col: Colo
 	node.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	node.clip_text = true
+	# Approximate wrapped line count before rendering; protect narrow iPhone panels.
+	var glyphs_per_line = maxf(7.0, w / maxf(8.0, float(sz) * 0.58 * ui_scale))
+	var estimated_lines = maxf(1.0, ceil(float(t.length()) / glyphs_per_line))
+	if estimated_lines * float(sz) * 1.38 > h and t.length() > 18:
+		var fitting = maxi(14, int(floor(h / (1.4 * estimated_lines))))
+		node.add_theme_font_size_override("font_size",mini(int(round(sz * ui_scale)),fitting))
 	if t.length() > 105 and h <= 110:
 		node.add_theme_font_size_override("font_size", int(round(mini(sz, 18) * ui_scale)))
 	elif t.length() > 75 and h <= 105:
@@ -608,7 +617,7 @@ func show_home() -> void:
 	wipe()
 	backdrop("menu",.37)
 	small_header(loc("AGENT ACTIF","ACTIVE AGENT"))
-	var hero_seal=image("res://assets/ui/seal.png",270,145,180,180, page,.88)
+	var hero_seal=image("res://assets/ui/seal_v5.png",267,141,186,186, page,.88)
 	hero_seal.pivot_offset=hero_seal.size/2
 	if not motion_reduced:
 		var pulse=create_tween().bind_node(hero_seal).set_loops()
@@ -629,16 +638,16 @@ func show_home() -> void:
 		btn(loc("REPRENDRE L'ENQUÊTE  ›","RESUME INVESTIGATION  ›"),71,741,577,64,Callable(self,"resume_session"),true)
 	else:
 		btn(loc("COMMENCER L'ENQUÊTE  ›","START INVESTIGATION  ›"),71,741,577,64,Callable(self,"start_case").bind(next_id),true)
-	btn(loc("◈  MODES DE JEU   ›", "◈  GAME MODES   ›"),157,822,410,63,show_modes,true)
+	btn(loc("◈  MODES DE JEU   ›", "◈  GAME MODES   ›"),125,831,470,65,show_modes,true)
 
-	box(37,892,306,214,Color("#1b303eee"))
-	box(371,892,310,214,Color("#1b303eee"))
-	label(loc("DÉFI DU JOUR","DAILY CASE"),52,904,276,42,24,PAPER,true)
-	label(loc("Enquête bonus", "Bonus investigation"),54,953,274,42,20,QUIET,true)
-	btn(loc("JOUER","PLAY"),62,1021,255,64,show_daily,true)
-	label(loc("VOTRE DOSSIER","YOUR FILE"),387,904,279,42,24,PAPER,true)
-	label(loc("%d / 100 résolus" % solved_count(),"%d / 100 solved" % solved_count()),390,953,275,42,20,QUIET,true)
-	btn(loc("SUCCÈS","ACHIEVEMENTS"),397,1021,260,64,show_achievements,false,page,true)
+	box(37,915,306,191,Color("#1b303eee"))
+	box(371,915,310,191,Color("#1b303eee"))
+	label(loc("DÉFI DU JOUR","DAILY CASE"),52,923,276,42,24,PAPER,true)
+	label(loc("Enquête bonus", "Bonus investigation"),54,964,274,42,20,QUIET,true)
+	btn(loc("JOUER","PLAY"),62,1034,255,57,show_daily,true)
+	label(loc("VOTRE DOSSIER","YOUR FILE"),387,923,279,42,24,PAPER,true)
+	label(loc("%d / 100 résolus" % solved_count(),"%d / 100 solved" % solved_count()),390,964,275,42,20,QUIET,true)
+	btn(loc("SUCCÈS","ACHIEVEMENTS"),397,1034,260,57,show_achievements,false,page,true)
 	navigation("home")
 	fade_in()
 
@@ -968,7 +977,7 @@ func show_modes() -> void:
 		["marathon",loc("MARATHON", "MARATHON"),loc("Enchaîne cinq dossiers", "Solve five cases in a row")],
 		["endless",loc("INFINI", "ENDLESS"),loc("Nouveaux dossiers jusqu'à l'arrêt", "Cases until you stop")],
 		["daily",loc("DÉFI QUOTIDIEN", "DAILY CASE"),loc("Une mission chaque jour", "A fresh challenge every day")],
-		["kids",loc("MODE ENFANT", "JUNIOR DETECTIVE"),loc("10 enquêtes simples, sans pression", "10 gentle cases, no timer")]
+		["kids",loc("MODE ENFANT", "JUNIOR DETECTIVE"),loc("20 enquêtes simples, sans pression", "20 gentle cases, no timer")]
 	]
 	var scroll=ScrollContainer.new()
 	scroll.position=Vector2(30,221)
@@ -1489,9 +1498,11 @@ func show_tutorial_step(index: int) -> void:
 	var titles = titles_en if str(save.get("language","fr")) == "en" else titles_fr
 	var tips = tips_en if str(save.get("language","fr")) == "en" else tips_fr
 	label(titles[index],70,621,581,61,27,theme_color,true,modal_layer)
-	var paragraph = label(tips[index],77,698,568,134,21,PAPER,true,modal_layer)
+	var paragraph = label(tips[index],77,682,568,170,19,PAPER,true,modal_layer)
 	paragraph.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	paragraph.clip_text = true
+	paragraph.clip_text = false
+	paragraph.add_theme_font_size_override("font_size",int(round(19 * ui_scale)))
+	paragraph.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	btn(loc("PASSER", "SKIP"),68,887,218,74,end_tutorial,false,modal_layer,true)
 	var next_action = Callable(self,"show_tutorial_step").bind(index+1) if index < 4 else Callable(self,"end_tutorial")
 	btn(loc("SUIVANT  ›", "NEXT  ›") if index < 4 else loc("C'EST PARTI !", "LET'S GO!"),299,887,347,74,next_action,true,modal_layer,true)
@@ -1893,3 +1904,91 @@ func complete_next_stage() -> void:
 func clear_inventory() -> void:
 	puzzle_state["selected"]=[]
 	render_game()
+
+
+# V5: cinematic opening appears above the ready home UI; there is no fake progress bar.
+# Automatically closes after the short introduction; never interrupts the music.
+func show_opening() -> void:
+	if opening_layer != null and is_instance_valid(opening_layer):
+		return
+	opening_completed = false
+	opening_layer = Control.new()
+	opening_layer.name = "V5CinematicOpening"
+	opening_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	opening_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	add_child(opening_layer)
+	var image_bg = TextureRect.new()
+	image_bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	image_bg.texture = load("res://assets/ui/loading_background.png")
+	image_bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image_bg.stretch_mode = TextureRect.STRETCH_SCALE
+	opening_layer.add_child(image_bg)
+	var emblem = TextureRect.new()
+	emblem.position = Vector2(177,225)
+	emblem.size = Vector2(366,366)
+	emblem.texture = load("res://assets/ui/seal_v5.png")
+	emblem.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	emblem.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	emblem.pivot_offset = emblem.size * 0.5
+	opening_layer.add_child(emblem)
+	var heading = Label.new()
+	heading.text = "MYSTERY ESCAPE'S"
+	heading.position = Vector2(45,622)
+	heading.size = Vector2(630,100)
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	heading.add_theme_color_override("font_color", GOLD_BRIGHT)
+	heading.add_theme_font_size_override("font_size",43)
+	opening_layer.add_child(heading)
+	var sub = Label.new()
+	sub.text = loc("LES ARCHIVES S'OUVRENT...", "THE ARCHIVES ARE OPENING...")
+	sub.position = Vector2(38,746)
+	sub.size = Vector2(644,57)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	sub.add_theme_color_override("font_color", QUIET)
+	sub.add_theme_font_size_override("font_size",21)
+	opening_layer.add_child(sub)
+	var tips_fr = ["Observez les documents : les détails comptent.", "Chaque indice peut cacher une seconde lecture.", "Écoutez les témoins avant de choisir.", "Les indices coûtent des pièces du jeu.", "Vos enquêtes sont sauvegardées automatiquement."]
+	var tips_en = ["Study documents: details matter.", "Every clue can have a second meaning.", "Listen to witnesses before choosing.", "Hints cost in-game coins.", "Your investigations are saved automatically."]
+	var tip = Label.new()
+	var tips = tips_en if str(save.get("language","fr")) == "en" else tips_fr
+	tip.text = tips[randi() % tips.size()]
+	tip.position = Vector2(76,1055)
+	tip.size = Vector2(568,110)
+	tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	tip.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	tip.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	tip.add_theme_font_size_override("font_size",21)
+	tip.add_theme_color_override("font_color",PAPER)
+	opening_layer.add_child(tip)
+	var skip = Button.new()
+	skip.text = loc("PASSER  ›", "SKIP  ›")
+	skip.position = Vector2(262,1175)
+	skip.size = Vector2(196,59)
+	skip.add_theme_font_size_override("font_size",22)
+	skip.pressed.connect(close_opening)
+	opening_layer.add_child(skip)
+	if not motion_reduced:
+		emblem.modulate.a = 0.0
+		emblem.scale = Vector2(.89,.89)
+		var intro = create_tween().set_parallel(true)
+		intro.tween_property(emblem,"modulate:a",1.0,1.0)
+		intro.tween_property(emblem,"scale",Vector2.ONE,1.3).set_trans(Tween.TRANS_SINE)
+	get_tree().create_timer(3.8).timeout.connect(close_opening)
+
+func close_opening() -> void:
+	if opening_completed:
+		return
+	opening_completed = true
+	if opening_layer == null or not is_instance_valid(opening_layer):
+		return
+	var old = opening_layer
+	opening_layer = null
+	if motion_reduced:
+		old.queue_free()
+	else:
+		var t = create_tween()
+		t.tween_property(old,"modulate:a",0.0,.28)
+		t.tween_callback(func():
+			if is_instance_valid(old):
+				old.queue_free()
+		)
