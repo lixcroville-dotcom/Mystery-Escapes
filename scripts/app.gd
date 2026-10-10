@@ -27,6 +27,9 @@ var selected_level = 0
 var stage_index = 0
 var daily_mode = false
 var daily_day = ""
+var daily_schedule: Array = []
+var calendar_last_seen: String = ""
+var calendar_poll_seconds: float = 0.0
 var elapsed = 0.0
 var mistakes = 0
 var hints_used = 0
@@ -89,7 +92,7 @@ var music_cycle: Array = []
 var music_recent_track: int = -1
 var main_level_count: int = 100
 var child_level_offset: int = 100
-var child_level_count: int = 20
+var child_level_count: int = 50
 var opening_layer: Control
 var opening_completed: bool = false
 # V6: drag-scrolling tracks input before child buttons can consume it.
@@ -129,6 +132,12 @@ func _ready() -> void:
 	if typeof(impossible_cases) == TYPE_ARRAY:
 		for challenge in impossible_cases:
 			levels.append(challenge)
+	var schedule_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/daily_schedule.json"))
+	if typeof(schedule_data) == TYPE_ARRAY and schedule_data.size() == 365:
+		daily_schedule = schedule_data
+	else:
+		push_error("Daily schedule missing or invalid")
+	calendar_last_seen = Time.get_date_string_from_system()
 	load_game()
 	content = Control.new()
 	content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -143,6 +152,14 @@ func _ready() -> void:
 	show_opening()
 
 func _process(delta: float) -> void:
+	calendar_poll_seconds += delta
+	if calendar_poll_seconds >= 1.0:
+		calendar_poll_seconds = 0.0
+		var current_date = Time.get_date_string_from_system()
+		if current_date != calendar_last_seen:
+			calendar_last_seen = current_date
+			# A daily run started before midnight keeps its original reward date.
+			# Opening the daily challenge again always uses the new local date.
 	# Flick inertia after releasing a finger (works across iPhone and Android).
 	if kinetic_scroll != null and is_instance_valid(kinetic_scroll) and absf(kinetic_velocity) > 12.0:
 		kinetic_scroll.scroll_vertical += int(round(kinetic_velocity * delta))
@@ -592,7 +609,7 @@ func label(t: String, x: float,y: float,w: float,h: float, sz: int=24, col: Colo
 	var glyphs_per_line = maxf(7.0, w / maxf(8.0, float(sz) * 0.58 * ui_scale))
 	var estimated_lines = maxf(1.0, ceil(float(t.length()) / glyphs_per_line))
 	if estimated_lines * float(sz) * 1.38 > h and t.length() > 18:
-		var fitting = maxi(14, int(floor(h / (1.4 * estimated_lines))))
+		var fitting = maxi(12, int(floor(h / (1.55 * estimated_lines))))
 		node.add_theme_font_size_override("font_size",mini(int(round(sz * ui_scale)),fitting))
 	if t.length() > 105 and h <= 110:
 		node.add_theme_font_size_override("font_size", int(round(mini(sz, 18) * ui_scale)))
@@ -608,6 +625,7 @@ func btn(t: String, x: float,y: float,w: float,h: float, pressed: Callable, prim
 	node.position = Vector2(x,y)
 	node.size = Vector2(w,h)
 	node.focus_mode = Control.FOCUS_NONE
+	node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	node.add_theme_font_size_override("font_size", int(round((19 if small else 23)*ui_scale)))
 	node.add_theme_color_override("font_color",NAVY if primary else PAPER)
 	node.add_theme_color_override("font_hover_color",NAVY if primary else GOLD_BRIGHT)
@@ -801,6 +819,7 @@ func start_case(n: int, is_daily: bool=false) -> void:
 	hints_used=0
 	elapsed=0
 	daily_mode=is_daily
+	daily_day = Time.get_date_string_from_system() if is_daily else ""
 	last_briefing_id=""
 	reset_puzzle()
 	render_game()
@@ -809,7 +828,7 @@ func start_case(n: int, is_daily: bool=false) -> void:
 
 func snapshot_session() -> void:
 	if selected_level>=0 and selected_level<levels.size():
-		save["session"]={"level":selected_level,"stage":stage_index,"elapsed":elapsed,"mistakes":mistakes,"hints":hints_used,"daily":daily_mode,"mode":active_mode,"chain":mode_chain.duplicate(),"chain_pos":mode_chain_pos,"mode_score":mode_total_score,"impossible_time":impossible_seconds_left,"impossible_overtime":impossible_overtime,"state":puzzle_state.duplicate(true),"started":stage_started}
+		save["session"]={"level":selected_level,"stage":stage_index,"elapsed":elapsed,"mistakes":mistakes,"hints":hints_used,"daily":daily_mode,"daily_day":daily_day,"mode":active_mode,"chain":mode_chain.duplicate(),"chain_pos":mode_chain_pos,"mode_score":mode_total_score,"impossible_time":impossible_seconds_left,"impossible_overtime":impossible_overtime,"state":puzzle_state.duplicate(true),"started":stage_started}
 		persist()
 
 func resume_session() -> void:
@@ -830,6 +849,7 @@ func resume_session() -> void:
 	mistakes=int(session.get("mistakes",0))
 	hints_used=int(session.get("hints",0))
 	daily_mode=bool(session.get("daily",false))
+	daily_day=str(session.get("daily_day", Time.get_date_string_from_system() if daily_mode else ""))
 	puzzle_state=session.get("state",{}) as Dictionary
 	stage_started=float(session.get("started",elapsed))
 	seq_reveal_end=0
@@ -872,7 +892,21 @@ func render_game() -> void:
 	portrait_motion.tween_property(portrait,"scale",Vector2(1.05,1.05),.4)
 	portrait_motion.tween_property(portrait,"scale",Vector2.ONE,.4)
 	label(loc("AGENT MORGAN  •  BRIEFING","AGENT MORGAN  •  BRIEFING"),143,247,522,34,19,theme_color)
-	var briefing=label(property_text(current_stage(),"question"),142,283,521,100,22,PAPER)
+	var brief_scroll = ScrollContainer.new()
+	brief_scroll.position = Vector2(142, 281)
+	brief_scroll.size = Vector2(517, 108)
+	brief_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	brief_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	brief_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	page.add_child(brief_scroll)
+	var briefing = Label.new()
+	briefing.text = property_text(current_stage(),"question")
+	briefing.custom_minimum_size.x = 500
+	briefing.add_theme_font_size_override("font_size", 18)
+	briefing.add_theme_color_override("font_color", PAPER)
+	briefing.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	briefing.mouse_filter = Control.MOUSE_FILTER_PASS
+	brief_scroll.add_child(briefing)
 	briefing_label=briefing
 	# Touch the briefing to reveal all text immediately (also works with mouse).
 	briefing.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -921,7 +955,7 @@ func popup(title_text: String, body: String, confirm: Callable=Callable(), actio
 		stamp_anim.tween_property(stamp,"scale",Vector2(1.2,1.2),.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		stamp_anim.tween_property(stamp,"scale",Vector2.ONE,.18)
 	label(title_text,74,501,568,69,32,theme_color,true,modal_layer)
-	label(body,80,582,559,104,22,PAPER,true,modal_layer)
+	label(body,80,573,559,128,19,PAPER,true,modal_layer)
 	btn(action_text if action_text!="" else loc("CONTINUER","CONTINUE"),98,713,525,70,Callable(self,"close_popup").bind(confirm),true,modal_layer)
 	card.pivot_offset=card.size/2
 	card.scale=Vector2(.9,.9)
@@ -976,9 +1010,9 @@ func case_complete() -> void:
 	if score>previous:
 		best[key]=score
 	var earned=100+max(0,int(score/30)) if first else 20
-	if daily_mode and str(save.get("daily_claim",""))!=str(Time.get_date_string_from_system()):
+	if daily_mode and daily_day != "" and str(save.get("daily_claim","")) != daily_day:
 		earned+=180
-		save["daily_claim"]=Time.get_date_string_from_system()
+		save["daily_claim"]=daily_day
 	save["coins"]=int(save.get("coins",0))+earned
 	play_sound("coins")
 	save["xp"]=int(save.get("xp",0))+200
@@ -1042,8 +1076,13 @@ func buy_hint() -> void:
 	hints_used+=1
 	persist()
 	play_sound("paper")
-	var partial = loc("Observe les éléments, vérifie l'ordre et élimine les possibilités impossibles.", "Review the evidence, check the order and eliminate impossible options.")
-	popup(loc("INDICE DÉBLOQUÉ","HINT UNLOCKED"),partial if hint_step == 0 else property_text(current_stage(),"hint"))
+	var stage_data = current_stage()
+	var first_fr = str(stage_data.get("hint1_fr", stage_data.get("hint_fr", "Vérifie les indices du dossier.")))
+	var first_en = str(stage_data.get("hint1_en", stage_data.get("hint_en", "Review the case evidence.")))
+	var second_fr = str(stage_data.get("hint2_fr", stage_data.get("hint_fr", first_fr)))
+	var second_en = str(stage_data.get("hint2_en", stage_data.get("hint_en", first_en)))
+	var result = loc(first_fr, first_en) if hint_step == 0 else loc(second_fr, second_en)
+	popup(loc("INDICE DÉBLOQUÉ","HINT UNLOCKED"),result)
 
 func mode_stage_limit() -> float:
 	if active_mode in ["zen", "kids", "impossible"]:
@@ -1072,7 +1111,7 @@ func show_modes() -> void:
 		["marathon",loc("MARATHON", "MARATHON"),loc("Enchaîne cinq dossiers", "Solve five cases in a row")],
 		["endless",loc("INFINI", "ENDLESS"),loc("Nouveaux dossiers jusqu'à l'arrêt", "Cases until you stop")],
 		["daily",loc("DÉFI QUOTIDIEN", "DAILY CASE"),loc("Une mission chaque jour", "A fresh challenge every day")],
-		["kids",loc("MODE ENFANT", "JUNIOR DETECTIVE"),loc("20 enquêtes simples, sans pression", "20 gentle cases, no timer")]
+		["kids",loc("MODE ENFANT", "JUNIOR DETECTIVE"),loc("50 enquêtes simples, sans pression", "50 gentle cases, no timer")]
 	]
 	var scroll=ScrollContainer.new()
 	scroll.position=Vector2(30,221)
@@ -1114,7 +1153,7 @@ func launch_mode(kind: String) -> void:
 	mode_chain_pos=0
 	match kind:
 		"detective": mode_chain = [0,10,20,30,40]
-		"impossible": mode_chain = [120, 95, 121, 99, 122]
+		"impossible": mode_chain = [child_level_offset + child_level_count, 95, child_level_offset + child_level_count + 1, 99, child_level_offset + child_level_count + 2]
 		"kids": mode_chain = range(child_level_offset, child_level_offset + child_level_count)
 		"marathon": mode_chain = [0,1,2,3,4]
 		"endless": mode_chain = [randi_range(0,main_level_count-1)]
@@ -1175,10 +1214,27 @@ func complete_mode_case(score: int) -> void:
 		btn(loc("TOUS LES MODES", "ALL MODES"),76,1011,570,77,show_modes,false)
 		fade_in()
 
+
+# Use the actual authored calendar rather than a second hardcoded formula.
+# Leap-day years have 366 dates: Feb 29 maps to schedule day 60, while
+# the final day maps to day 365; two dates may share one selection.
+func daily_case_index(date_text: String) -> int:
+	var parts = date_text.split("-")
+	if parts.size() != 3 or daily_schedule.size() != 365:
+		return 0
+	var year = int(parts[0])
+	var date_dict = {"year":year,"month":int(parts[1]),"day":int(parts[2]),"hour":12,"minute":0,"second":0}
+	var start_dict = {"year":year,"month":1,"day":1,"hour":12,"minute":0,"second":0}
+	var index = int((Time.get_unix_time_from_datetime_dict(date_dict) - Time.get_unix_time_from_datetime_dict(start_dict)) / 86400.0)
+	# Preserve a 365-entry calendar even on leap years.
+	index = clampi(index, 0, 364)
+	var case_id = int((daily_schedule[index] as Dictionary).get("case_id", 1))
+	return clampi(case_id - 1, 0, main_level_count - 1)
+
 func show_daily() -> void:
 	play_sound("paper")
 	var today=str(Time.get_date_string_from_system())
-	var n=abs(today.hash())%main_level_count
+	var n=daily_case_index(today)
 	popup(loc("DÉFI QUOTIDIEN","DAILY CHALLENGE"),loc("Une enquête spéciale du jour ! Termine-la pour gagner 180 pièces supplémentaires (une fois par jour).","Today's special case! Solve it for 180 extra coins (once a day)."),func():start_case(n,true),loc("COMMENCER","START"))
 
 # -------------------------------------------------------------
@@ -1418,14 +1474,26 @@ func inspect_evidence(index: int) -> void:
 	popup(loc("EXAMEN DE L'INDICE","EVIDENCE INSPECTION"),str(items[index])+"\n"+loc("Cet objet est-il celui que tu recherches ?","Is this the item you are looking for?"),Callable(self,"choose_option").bind(index),loc("CONFIRMER CET OBJET","SELECT THIS ITEM"))
 
 func draw_time() -> void:
-	box(153,545,414,244,Color("#101a27"),120,theme_color)
-	var h=int(puzzle_state.get("hour",0));var m=int(puzzle_state.get("minute",0))
-	label("%02d:%02d"%[h,m],165,623,390,78,59,theme_color,true)
-	btn("H  ▲",114,810,234,69,func():adjust_clock(true,1))
-	btn("MIN ▲",368,810,234,69,func():adjust_clock(false,1))
-	btn("H  ▼",114,895,234,69,func():adjust_clock(true,-1))
-	btn("MIN ▼",368,895,234,69,func():adjust_clock(false,-1))
-	btn(loc("VÉRIFIER","CHECK"),183,976,354,56,validate_clock,true)
+	# Real, touch-friendly analogue clock. The face draws itself; it is never
+	# obscured by a background illustration or a label clipping rectangle.
+	var h: int = int(puzzle_state.get("hour", 0))
+	var m: int = int(puzzle_state.get("minute", 0))
+	var face = Control.new()
+	face.set_script(preload("res://scripts/clock_face.gd"))
+	face.position = Vector2(255, 515)
+	face.size = Vector2(210, 210)
+	face.set("hour", h)
+	face.set("minute", m)
+	face.mouse_filter = Control.MOUSE_FILTER_STOP
+	page.add_child(face)
+	face.connect("change_clock", func(hours: bool, step: int): adjust_clock(hours, step))
+	label("%02d:%02d" % [12 if h == 0 else h, m], 256, 734, 210, 51, 31, GOLD_BRIGHT, true)
+	label(loc("TOUCHE LES AIGUILLES OU LES BOUTONS", "TOUCH THE HANDS OR BUTTONS"), 85, 793, 550, 32, 16, QUIET, true)
+	btn(loc("HEURE −", "HOUR −"), 65, 845, 282, 61, func():adjust_clock(true,-1), false, page, true)
+	btn(loc("HEURE +", "HOUR +"), 370, 845, 282, 61, func():adjust_clock(true,1), false, page, true)
+	btn(loc("MIN −15", "MIN −15"), 65, 916, 282, 60, func():adjust_clock(false,-1), false, page, true)
+	btn(loc("MIN +15", "MIN +15"), 370, 916, 282, 60, func():adjust_clock(false,1), false, page, true)
+	btn(loc("VALIDER L’HEURE", "CONFIRM TIME"), 190, 987, 342, 46, validate_clock, true, page, true)
 
 func adjust_clock(hour: bool, amount: int) -> void:
 	if hour:puzzle_state["hour"]=(int(puzzle_state["hour"])+amount+12)%12

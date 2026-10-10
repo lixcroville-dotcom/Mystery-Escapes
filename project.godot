@@ -5,7 +5,7 @@ config/name="Mystery Escape's"
 run/main_scene="res://scenes/main_menu.tscn"
 run/max_fps=60
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/description="Mystery Escapes V6: streamlined home, reliable touch scrolling, 100 investigations, junior levels, Impossible Challenge."
+config/description="Mystery Escapes V8 RC: streamlined home, reliable touch scrolling, 100 investigations, junior levels, Impossible Challenge."
 config/icon="res://assets/ui/ios_app_icon.png"
 
 [display]

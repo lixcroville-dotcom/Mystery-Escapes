@@ -1,0 +1,26 @@
+{
+  "enabled": false,
+  "online_leaderboard": {
+    "enabled": false,
+    "endpoint": null,
+    "privacy_consent_required": true
+  },
+  "iap": {
+    "enabled": false,
+    "products": [],
+    "restore_purchases_required": true
+  },
+  "ads": {
+    "enabled": false,
+    "rewarded": false,
+    "interstitial": false
+  },
+  "lives": {
+    "enabled": false,
+    "unlimited_in_test": true
+  },
+  "cosmetics": {
+    "enabled": false
+  },
+  "schema_version": 1
+}

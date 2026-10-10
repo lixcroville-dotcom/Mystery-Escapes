@@ -1,0 +1,10 @@
+Mystery Escape’s — V7 correctifs horloge, lisibilité et difficulté
+
+1) EXTRAIRE le ZIP update directement dans le dossier GitHub qui contient project.godot.
+2) Dans CMD : git add -A && git commit -m "V7 fixes clock readability difficulty" && git push origin main
+3) Dans CMD : gh workflow run ios-ipa.yml --ref main
+4) Après build vert : télécharger IPA dans Artifacts, réinstaller avec Sideloadly sans effacer l’app précédente.
+
+Correction ciblée : scripts/app.gd, scripts/clock_face.gd, data/levels.json, data/impossible_cases.json.
+Niveaux et réponses conservés. Les indices sont toujours payants avec des pièces du jeu.
+Tests statiques terminés ; le fonctionnement sur l’iPhone reste à confirmer.

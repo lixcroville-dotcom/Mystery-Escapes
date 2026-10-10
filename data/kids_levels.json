@@ -17,14 +17,14 @@
       {
         "type": "memory",
         "answer": [
-          0,
+          3,
           1,
-          2
+          3
         ],
-        "question_fr": "Regarde trois symboles puis reproduis la suite.",
-        "question_en": "Watch three symbols, then repeat the sequence.",
-        "hint_fr": "La séquence contient 6 éléments.",
-        "hint_en": "The sequence has 6 symbols."
+        "question_fr": "La salle des cartes — Dans un message sur la vitre, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 101, épreuve 2.)",
+        "question_en": "The map room — A new clue found on a message on the window requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 101, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ],
     "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
@@ -48,10 +48,10 @@
       {
         "type": "hidden",
         "answer": 5,
-        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
-        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
-        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
-        "hint_en": "Find COIN on the evidence board.",
+        "question_fr": "La chambre des miroirs — Dans un télégramme, une nouvelle piste exige ton attention. Parmi les pièces exposées, une seule correspond à la référence « PIÈCE » inscrite au registre. Examine le tableau et retrouve cette pièce. (Pièce 102, épreuve 2.)",
+        "question_en": "The mirror chamber — A new clue found on a telegram requires your attention. Among the exhibits, only one matches the register entry “COIN”. Examine the evidence board and locate it. (File 102, challenge 2.)",
+        "hint_fr": "Cherche l’objet cité dans le registre, puis vérifie son emplacement parmi les pièces.",
+        "hint_en": "Find the object named in the register, then locate it among the exhibits.",
         "objects_fr": [
           "BAGUE",
           "LAMPE",
@@ -104,13 +104,13 @@
         "type": "memory",
         "answer": [
           0,
-          1,
-          2
+          3,
+          1
         ],
-        "question_fr": "Regarde trois symboles puis reproduis la suite.",
-        "question_en": "Watch three symbols, then repeat the sequence.",
-        "hint_fr": "La séquence contient 5 éléments.",
-        "hint_en": "The sequence has 5 symbols."
+        "question_fr": "Le laboratoire désert — Dans une étiquette effacée, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 103, épreuve 2.)",
+        "question_en": "The deserted laboratory — A new clue found on a faded label requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 103, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ],
     "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
@@ -134,10 +134,10 @@
       {
         "type": "hidden",
         "answer": 11,
-        "question_fr": "La pièce à conviction manquante est : PHOTO. Examine les objets puis confirme ton choix.",
-        "question_en": "The missing evidence is: PHOTO. Examine the items before confirming.",
-        "hint_fr": "Recherche PHOTO dans le tableau des pièces à conviction.",
-        "hint_en": "Find PHOTO on the evidence board.",
+        "question_fr": "Le coffre du collectionneur — Dans une lettre scellée, une nouvelle piste exige ton attention. Parmi les pièces exposées, une seule correspond à la référence « PHOTO » inscrite au registre. Examine le tableau et retrouve cette pièce. (Pièce 104, épreuve 2.)",
+        "question_en": "The collector’s vault — A new clue found on a sealed letter requires your attention. Among the exhibits, only one matches the register entry “PHOTO”. Examine the evidence board and locate it. (File 104, challenge 2.)",
+        "hint_fr": "Cherche l’objet cité dans le registre, puis vérifie son emplacement parmi les pièces.",
+        "hint_en": "Find the object named in the register, then locate it among the exhibits.",
         "objects_fr": [
           "BAGUE",
           "LAMPE",
@@ -189,14 +189,14 @@
       {
         "type": "memory",
         "answer": [
-          0,
           1,
-          2
+          0,
+          3
         ],
-        "question_fr": "Regarde trois symboles puis reproduis la suite.",
-        "question_en": "Watch three symbols, then repeat the sequence.",
-        "hint_fr": "La séquence contient 7 éléments.",
-        "hint_en": "The sequence has 7 symbols."
+        "question_fr": "Le poste de garde — Dans un carnet froissé, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 105, épreuve 2.)",
+        "question_en": "The guard post — A new clue found on a crumpled notebook requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 105, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ],
     "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
@@ -220,10 +220,10 @@
       {
         "type": "hidden",
         "answer": 5,
-        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
-        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
-        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
-        "hint_en": "Find COIN on the evidence board.",
+        "question_fr": "Le théâtre silencieux — Dans une bande magnétique, une nouvelle piste exige ton attention. Parmi les pièces exposées, une seule correspond à la référence « PIÈCE » inscrite au registre. Examine le tableau et retrouve cette pièce. (Pièce 106, épreuve 2.)",
+        "question_en": "The silent theatre — A new clue found on a magnetic tape requires your attention. Among the exhibits, only one matches the register entry “COIN”. Examine the evidence board and locate it. (File 106, challenge 2.)",
+        "hint_fr": "Cherche l’objet cité dans le registre, puis vérifie son emplacement parmi les pièces.",
+        "hint_en": "Find the object named in the register, then locate it among the exhibits.",
         "objects_fr": [
           "BAGUE",
           "LAMPE",
@@ -275,14 +275,14 @@
       {
         "type": "memory",
         "answer": [
-          0,
-          1,
+          3,
+          2,
           2
         ],
-        "question_fr": "Regarde trois symboles puis reproduis la suite.",
-        "question_en": "Watch three symbols, then repeat the sequence.",
-        "hint_fr": "La séquence contient 6 éléments.",
-        "hint_en": "The sequence has 6 symbols."
+        "question_fr": "L’observatoire — Dans un registre humide, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 107, épreuve 2.)",
+        "question_en": "The observatory — A new clue found on a damp register requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 107, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ],
     "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
@@ -306,10 +306,10 @@
       {
         "type": "hidden",
         "answer": 11,
-        "question_fr": "La pièce à conviction manquante est : PHOTO. Examine les objets puis confirme ton choix.",
-        "question_en": "The missing evidence is: PHOTO. Examine the items before confirming.",
-        "hint_fr": "Recherche PHOTO dans le tableau des pièces à conviction.",
-        "hint_en": "Find PHOTO on the evidence board.",
+        "question_fr": "Le sous-sol du tribunal — Dans une photo déchirée, une nouvelle piste exige ton attention. Parmi les pièces exposées, une seule correspond à la référence « PHOTO » inscrite au registre. Examine le tableau et retrouve cette pièce. (Pièce 108, épreuve 2.)",
+        "question_en": "The courthouse basement — A new clue found on a torn photograph requires your attention. Among the exhibits, only one matches the register entry “PHOTO”. Examine the evidence board and locate it. (File 108, challenge 2.)",
+        "hint_fr": "Cherche l’objet cité dans le registre, puis vérifie son emplacement parmi les pièces.",
+        "hint_en": "Find the object named in the register, then locate it among the exhibits.",
         "objects_fr": [
           "BAGUE",
           "LAMPE",
@@ -361,14 +361,14 @@
       {
         "type": "memory",
         "answer": [
-          0,
-          1,
+          2,
+          3,
           2
         ],
-        "question_fr": "Regarde trois symboles puis reproduis la suite.",
-        "question_en": "Watch three symbols, then repeat the sequence.",
-        "hint_fr": "La séquence contient 5 éléments.",
-        "hint_en": "The sequence has 5 symbols."
+        "question_fr": "La tour de l’horloger — Dans une plaque de cuivre, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 109, épreuve 2.)",
+        "question_en": "The watchmaker’s tower — A new clue found on a copper plate requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 109, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ],
     "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
@@ -392,10 +392,10 @@
       {
         "type": "hidden",
         "answer": 5,
-        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
-        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
-        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
-        "hint_en": "Find COIN on the evidence board.",
+        "question_fr": "Le musée nocturne — Dans une note au crayon, une nouvelle piste exige ton attention. Parmi les pièces exposées, une seule correspond à la référence « PIÈCE » inscrite au registre. Examine le tableau et retrouve cette pièce. (Pièce 110, épreuve 2.)",
+        "question_en": "The night museum — A new clue found on a pencilled note requires your attention. Among the exhibits, only one matches the register entry “COIN”. Examine the evidence board and locate it. (File 110, challenge 2.)",
+        "hint_fr": "Cherche l’objet cité dans le registre, puis vérifie son emplacement parmi les pièces.",
+        "hint_en": "Find the object named in the register, then locate it among the exhibits.",
         "objects_fr": [
           "BAGUE",
           "LAMPE",
@@ -449,14 +449,14 @@
       {
         "type": "memory",
         "answer": [
+          2,
           0,
-          1,
-          2
+          3
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 3 symboles.",
-        "hint_en": "There are 3 symbols."
+        "question_fr": "La serre abandonnée — Dans un message sur la vitre, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 111, épreuve 2.)",
+        "question_en": "The abandoned greenhouse — A new clue found on a message on the window requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 111, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -480,14 +480,14 @@
       {
         "type": "memory",
         "answer": [
-          1,
-          2,
-          3
+          3,
+          3,
+          2
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 3 symboles.",
-        "hint_en": "There are 3 symbols."
+        "question_fr": "Le manoir des archives — Dans un télégramme, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 112, épreuve 2.)",
+        "question_en": "The archive manor — A new clue found on a telegram requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 112, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -511,14 +511,14 @@
       {
         "type": "memory",
         "answer": [
-          2,
           3,
+          2,
           0
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 3 symboles.",
-        "hint_en": "There are 3 symbols."
+        "question_fr": "Le passage sous la ville — Dans une étiquette effacée, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 113, épreuve 2.)",
+        "question_en": "The passage beneath the city — A new clue found on a faded label requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 113, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -542,14 +542,14 @@
       {
         "type": "memory",
         "answer": [
-          3,
-          0,
+          2,
+          2,
           1
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 3 symboles.",
-        "hint_en": "There are 3 symbols."
+        "question_fr": "Le phare de brume — Dans une lettre scellée, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 114, épreuve 2.)",
+        "question_en": "The fogbound lighthouse — A new clue found on a sealed letter requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 114, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -573,14 +573,14 @@
       {
         "type": "memory",
         "answer": [
+          3,
           0,
-          1,
-          2
+          3
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 3 symboles.",
-        "hint_en": "There are 3 symbols."
+        "question_fr": "Le tunnel interdit — Dans un carnet froissé, une nouvelle piste exige ton attention. Le panneau projette 3 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 115, épreuve 2.)",
+        "question_en": "The forbidden tunnel — A new clue found on a crumpled notebook requires your attention. The panel flashes 3 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 115, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -604,15 +604,15 @@
       {
         "type": "memory",
         "answer": [
-          1,
-          2,
+          0,
           3,
-          0
+          2,
+          1
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 4 symboles.",
-        "hint_en": "There are 4 symbols."
+        "question_fr": "La station abandonnée — Dans une bande magnétique, une nouvelle piste exige ton attention. Le panneau projette 4 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 116, épreuve 2.)",
+        "question_en": "The abandoned station — A new clue found on a magnetic tape requires your attention. The panel flashes 4 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 116, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -636,15 +636,15 @@
       {
         "type": "memory",
         "answer": [
-          2,
           3,
-          0,
-          1
+          3,
+          1,
+          2
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 4 symboles.",
-        "hint_en": "There are 4 symbols."
+        "question_fr": "La galerie fermée — Dans un registre humide, une nouvelle piste exige ton attention. Le panneau projette 4 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 117, épreuve 2.)",
+        "question_en": "The shuttered gallery — A new clue found on a damp register requires your attention. The panel flashes 4 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 117, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -668,15 +668,15 @@
       {
         "type": "memory",
         "answer": [
-          3,
-          0,
-          1,
-          2
+          2,
+          2,
+          2,
+          1
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 4 symboles.",
-        "hint_en": "There are 4 symbols."
+        "question_fr": "La bibliothèque secrète — Dans une photo déchirée, une nouvelle piste exige ton attention. Le panneau projette 4 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 118, épreuve 2.)",
+        "question_en": "The secret library — A new clue found on a torn photograph requires your attention. The panel flashes 4 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 118, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -701,14 +701,14 @@
         "type": "memory",
         "answer": [
           0,
+          3,
           1,
-          2,
-          3
+          0
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 4 symboles.",
-        "hint_en": "There are 4 symbols."
+        "question_fr": "Le jardin d’hiver — Dans une plaque de cuivre, une nouvelle piste exige ton attention. Le panneau projette 4 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 119, épreuve 2.)",
+        "question_en": "The winter garden — A new clue found on a copper plate requires your attention. The panel flashes 4 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 119, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
       }
     ]
   },
@@ -732,15 +732,1125 @@
       {
         "type": "memory",
         "answer": [
+          0,
           1,
-          2,
           3,
-          0
+          1
         ],
-        "question_fr": "Observe les symboles lumineux puis touche-les dans le même ordre.",
-        "question_en": "Watch the glowing symbols, then tap them in the same order.",
-        "hint_fr": "Il y a 4 symboles.",
-        "hint_en": "There are 4 symbols."
+        "question_fr": "Le wagon scellé — Dans une note au crayon, une nouvelle piste exige ton attention. Le panneau projette 4 signaux colorés. Observe leur succession, mémorise les doublons et restitue le motif complet sans inverser deux signaux. (Pièce 120, épreuve 2.)",
+        "question_en": "The sealed railway carriage — A new clue found on a pencilled note requires your attention. The panel flashes 4 coloured signals. Watch their order, remember repeated flashes and reproduce the entire pattern without swapping any two. (File 120, challenge 2.)",
+        "hint_fr": "Découpe mentalement la séquence en groupes de deux ou trois. Utilise REVOIR si nécessaire.",
+        "hint_en": "Remember the sequence in pairs or triples. Use REPLAY if needed."
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "chapter": 0,
+    "title_fr": "Dossier junior 21 — Le carnet 1",
+    "title_en": "Junior Case 21 — Notebook 1",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "3521",
+        "question_fr": "Carnet 1 : A=2, B=1. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 1: A=2, B=1. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le coffre du collectionneur — Dans une lettre scellée, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 124, épreuve 2.)",
+        "question_en": "The collector’s vault — A new clue found on a sealed letter requires your attention. The correct clue is number 1. Choose it to close the case. (File 124, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "chapter": 1,
+    "title_fr": "Dossier junior 22 — Le carnet 2",
+    "title_en": "Junior Case 22 — Notebook 2",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1656",
+        "question_fr": "Carnet 2 : A=5, B=6. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 2: A=5, B=6. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le poste de garde — Dans un carnet froissé, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 125, épreuve 2.)",
+        "question_en": "The guard post — A new clue found on a crumpled notebook requires your attention. The correct clue is number 2. Choose it to close the case. (File 125, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "chapter": 2,
+    "title_fr": "Dossier junior 23 — Le carnet 3",
+    "title_en": "Junior Case 23 — Notebook 3",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1983",
+        "question_fr": "Carnet 3 : A=8, B=3. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 3: A=8, B=3. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le théâtre silencieux — Dans une bande magnétique, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 126, épreuve 2.)",
+        "question_en": "The silent theatre — A new clue found on a magnetic tape requires your attention. The correct clue is number 3. Choose it to close the case. (File 126, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "chapter": 3,
+    "title_fr": "Dossier junior 24 — Le carnet 4",
+    "title_en": "Junior Case 24 — Notebook 4",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "2648",
+        "question_fr": "Carnet 4 : A=4, B=8. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 4: A=4, B=8. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "L’observatoire — Dans un registre humide, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 127, épreuve 2.)",
+        "question_en": "The observatory — A new clue found on a damp register requires your attention. The correct clue is number 1. Choose it to close the case. (File 127, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "chapter": 4,
+    "title_fr": "Dossier junior 25 — Le carnet 5",
+    "title_en": "Junior Case 25 — Notebook 5",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "2975",
+        "question_fr": "Carnet 5 : A=7, B=5. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 5: A=7, B=5. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le sous-sol du tribunal — Dans une photo déchirée, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 128, épreuve 2.)",
+        "question_en": "The courthouse basement — A new clue found on a torn photograph requires your attention. The correct clue is number 2. Choose it to close the case. (File 128, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "chapter": 0,
+    "title_fr": "Dossier junior 26 — Le carnet 6",
+    "title_en": "Junior Case 26 — Notebook 6",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5832",
+        "question_fr": "Carnet 6 : A=3, B=2. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 6: A=3, B=2. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La tour de l’horloger — Dans une plaque de cuivre, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 129, épreuve 2.)",
+        "question_en": "The watchmaker’s tower — A new clue found on a copper plate requires your attention. The correct clue is number 3. Choose it to close the case. (File 129, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "chapter": 1,
+    "title_fr": "Dossier junior 27 — Le carnet 7",
+    "title_en": "Junior Case 27 — Notebook 7",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "3967",
+        "question_fr": "Carnet 7 : A=6, B=7. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 7: A=6, B=7. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le musée nocturne — Dans une note au crayon, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 130, épreuve 2.)",
+        "question_en": "The night museum — A new clue found on a pencilled note requires your attention. The correct clue is number 1. Choose it to close the case. (File 130, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "chapter": 2,
+    "title_fr": "Dossier junior 28 — Le carnet 8",
+    "title_en": "Junior Case 28 — Notebook 8",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "6824",
+        "question_fr": "Carnet 8 : A=2, B=4. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 8: A=2, B=4. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La serre abandonnée — Dans un message sur la vitre, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 131, épreuve 2.)",
+        "question_en": "The abandoned greenhouse — A new clue found on a message on the window requires your attention. The correct clue is number 2. Choose it to close the case. (File 131, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "chapter": 3,
+    "title_fr": "Dossier junior 29 — Le carnet 9",
+    "title_en": "Junior Case 29 — Notebook 9",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "6151",
+        "question_fr": "Carnet 9 : A=5, B=1. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 9: A=5, B=1. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le manoir des archives — Dans un télégramme, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 132, épreuve 2.)",
+        "question_en": "The archive manor — A new clue found on a telegram requires your attention. The correct clue is number 3. Choose it to close the case. (File 132, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "chapter": 4,
+    "title_fr": "Dossier junior 30 — Le carnet 10",
+    "title_en": "Junior Case 30 — Notebook 10",
+    "difficulty": 1,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "4286",
+        "question_fr": "Carnet 10 : A=8, B=6. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 10: A=8, B=6. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le passage sous la ville — Dans une étiquette effacée, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 133, épreuve 2.)",
+        "question_en": "The passage beneath the city — A new clue found on a faded label requires your attention. The correct clue is number 1. Choose it to close the case. (File 133, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "chapter": 0,
+    "title_fr": "Dossier junior 31 — Le carnet 11",
+    "title_en": "Junior Case 31 — Notebook 11",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "7143",
+        "question_fr": "Carnet 11 : A=4, B=3. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 11: A=4, B=3. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le phare de brume — Dans une lettre scellée, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 134, épreuve 2.)",
+        "question_en": "The fogbound lighthouse — A new clue found on a sealed letter requires your attention. The correct clue is number 2. Choose it to close the case. (File 134, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "chapter": 1,
+    "title_fr": "Dossier junior 32 — Le carnet 12",
+    "title_en": "Junior Case 32 — Notebook 12",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5278",
+        "question_fr": "Carnet 12 : A=7, B=8. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 12: A=7, B=8. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le tunnel interdit — Dans un carnet froissé, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 135, épreuve 2.)",
+        "question_en": "The forbidden tunnel — A new clue found on a crumpled notebook requires your attention. The correct clue is number 3. Choose it to close the case. (File 135, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "chapter": 2,
+    "title_fr": "Dossier junior 33 — Le carnet 13",
+    "title_en": "Junior Case 33 — Notebook 13",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "8135",
+        "question_fr": "Carnet 13 : A=3, B=5. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 13: A=3, B=5. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La station abandonnée — Dans une bande magnétique, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 136, épreuve 2.)",
+        "question_en": "The abandoned station — A new clue found on a magnetic tape requires your attention. The correct clue is number 1. Choose it to close the case. (File 136, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "chapter": 3,
+    "title_fr": "Dossier junior 34 — Le carnet 14",
+    "title_en": "Junior Case 34 — Notebook 14",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "8462",
+        "question_fr": "Carnet 14 : A=6, B=2. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 14: A=6, B=2. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La galerie fermée — Dans un registre humide, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 137, épreuve 2.)",
+        "question_en": "The shuttered gallery — A new clue found on a damp register requires your attention. The correct clue is number 2. Choose it to close the case. (File 137, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "chapter": 4,
+    "title_fr": "Dossier junior 35 — Le carnet 15",
+    "title_en": "Junior Case 35 — Notebook 15",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "9127",
+        "question_fr": "Carnet 15 : A=2, B=7. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 15: A=2, B=7. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La bibliothèque secrète — Dans une photo déchirée, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 138, épreuve 2.)",
+        "question_en": "The secret library — A new clue found on a torn photograph requires your attention. The correct clue is number 3. Choose it to close the case. (File 138, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "chapter": 0,
+    "title_fr": "Dossier junior 36 — Le carnet 16",
+    "title_en": "Junior Case 36 — Notebook 16",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "9454",
+        "question_fr": "Carnet 16 : A=5, B=4. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 16: A=5, B=4. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le jardin d’hiver — Dans une plaque de cuivre, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 139, épreuve 2.)",
+        "question_en": "The winter garden — A new clue found on a copper plate requires your attention. The correct clue is number 1. Choose it to close the case. (File 139, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "chapter": 1,
+    "title_fr": "Dossier junior 37 — Le carnet 17",
+    "title_en": "Junior Case 37 — Notebook 17",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "9781",
+        "question_fr": "Carnet 17 : A=8, B=1. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 17: A=8, B=1. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le wagon scellé — Dans une note au crayon, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 140, épreuve 2.)",
+        "question_en": "The sealed railway carriage — A new clue found on a pencilled note requires your attention. The correct clue is number 2. Choose it to close the case. (File 140, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "chapter": 2,
+    "title_fr": "Dossier junior 38 — Le carnet 18",
+    "title_en": "Junior Case 38 — Notebook 18",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "0446",
+        "question_fr": "Carnet 18 : A=4, B=6. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 18: A=4, B=6. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La salle des cartes — Dans un message sur la vitre, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 141, épreuve 2.)",
+        "question_en": "The map room — A new clue found on a message on the window requires your attention. The correct clue is number 3. Choose it to close the case. (File 141, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "chapter": 3,
+    "title_fr": "Dossier junior 39 — Le carnet 19",
+    "title_en": "Junior Case 39 — Notebook 19",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "0773",
+        "question_fr": "Carnet 19 : A=7, B=3. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 19: A=7, B=3. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La chambre des miroirs — Dans un télégramme, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 142, épreuve 2.)",
+        "question_en": "The mirror chamber — A new clue found on a telegram requires your attention. The correct clue is number 1. Choose it to close the case. (File 142, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "chapter": 4,
+    "title_fr": "Dossier junior 40 — Le carnet 20",
+    "title_en": "Junior Case 40 — Notebook 20",
+    "difficulty": 2,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1438",
+        "question_fr": "Carnet 20 : A=3, B=8. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 20: A=3, B=8. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le laboratoire désert — Dans une étiquette effacée, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 143, épreuve 2.)",
+        "question_en": "The deserted laboratory — A new clue found on a faded label requires your attention. The correct clue is number 2. Choose it to close the case. (File 143, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "chapter": 0,
+    "title_fr": "Dossier junior 41 — Le carnet 21",
+    "title_en": "Junior Case 41 — Notebook 21",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1765",
+        "question_fr": "Carnet 21 : A=6, B=5. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 21: A=6, B=5. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le coffre du collectionneur — Dans une lettre scellée, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 144, épreuve 2.)",
+        "question_en": "The collector’s vault — A new clue found on a sealed letter requires your attention. The correct clue is number 3. Choose it to close the case. (File 144, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "chapter": 1,
+    "title_fr": "Dossier junior 42 — Le carnet 22",
+    "title_en": "Junior Case 42 — Notebook 22",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "4622",
+        "question_fr": "Carnet 22 : A=2, B=2. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 22: A=2, B=2. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le poste de garde — Dans un carnet froissé, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 145, épreuve 2.)",
+        "question_en": "The guard post — A new clue found on a crumpled notebook requires your attention. The correct clue is number 1. Choose it to close the case. (File 145, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "chapter": 2,
+    "title_fr": "Dossier junior 43 — Le carnet 23",
+    "title_en": "Junior Case 43 — Notebook 23",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "2757",
+        "question_fr": "Carnet 23 : A=5, B=7. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 23: A=5, B=7. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le théâtre silencieux — Dans une bande magnétique, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 146, épreuve 2.)",
+        "question_en": "The silent theatre — A new clue found on a magnetic tape requires your attention. The correct clue is number 2. Choose it to close the case. (File 146, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "chapter": 3,
+    "title_fr": "Dossier junior 44 — Le carnet 24",
+    "title_en": "Junior Case 44 — Notebook 24",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "2084",
+        "question_fr": "Carnet 24 : A=8, B=4. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 24: A=8, B=4. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "L’observatoire — Dans un registre humide, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 147, épreuve 2.)",
+        "question_en": "The observatory — A new clue found on a damp register requires your attention. The correct clue is number 3. Choose it to close the case. (File 147, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "chapter": 4,
+    "title_fr": "Dossier junior 45 — Le carnet 25",
+    "title_en": "Junior Case 45 — Notebook 25",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5941",
+        "question_fr": "Carnet 25 : A=4, B=1. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 25: A=4, B=1. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le sous-sol du tribunal — Dans une photo déchirée, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 148, épreuve 2.)",
+        "question_en": "The courthouse basement — A new clue found on a torn photograph requires your attention. The correct clue is number 1. Choose it to close the case. (File 148, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "chapter": 0,
+    "title_fr": "Dossier junior 46 — Le carnet 26",
+    "title_en": "Junior Case 46 — Notebook 26",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "3076",
+        "question_fr": "Carnet 26 : A=7, B=6. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 26: A=7, B=6. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La tour de l’horloger — Dans une plaque de cuivre, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 149, épreuve 2.)",
+        "question_en": "The watchmaker’s tower — A new clue found on a copper plate requires your attention. The correct clue is number 2. Choose it to close the case. (File 149, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "chapter": 1,
+    "title_fr": "Dossier junior 47 — Le carnet 27",
+    "title_en": "Junior Case 47 — Notebook 27",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "6933",
+        "question_fr": "Carnet 27 : A=3, B=3. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 27: A=3, B=3. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le musée nocturne — Dans une note au crayon, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 150, épreuve 2.)",
+        "question_en": "The night museum — A new clue found on a pencilled note requires your attention. The correct clue is number 3. Choose it to close the case. (File 150, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "chapter": 2,
+    "title_fr": "Dossier junior 48 — Le carnet 28",
+    "title_en": "Junior Case 48 — Notebook 28",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "4068",
+        "question_fr": "Carnet 28 : A=6, B=8. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 28: A=6, B=8. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "La serre abandonnée — Dans un message sur la vitre, une nouvelle piste exige ton attention. La bonne piste est la numéro 1. Choisis cette piste pour fermer le dossier. (Pièce 151, épreuve 2.)",
+        "question_en": "The abandoned greenhouse — A new clue found on a message on the window requires your attention. The correct clue is number 1. Choose it to close the case. (File 151, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "chapter": 3,
+    "title_fr": "Dossier junior 49 — Le carnet 29",
+    "title_en": "Junior Case 49 — Notebook 29",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "7925",
+        "question_fr": "Carnet 29 : A=2, B=5. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 29: A=2, B=5. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le manoir des archives — Dans un télégramme, une nouvelle piste exige ton attention. La bonne piste est la numéro 2. Choisis cette piste pour fermer le dossier. (Pièce 152, épreuve 2.)",
+        "question_en": "The archive manor — A new clue found on a telegram requires your attention. The correct clue is number 2. Choose it to close the case. (File 152, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "chapter": 4,
+    "title_fr": "Dossier junior 50 — Le carnet 30",
+    "title_en": "Junior Case 50 — Notebook 30",
+    "difficulty": 3,
+    "story_fr": "Un message a été caché dans le carnet. Utilise les opérations dans le bon ordre.",
+    "story_en": "A message is hidden in the notebook. Follow the clues in order.",
+    "stages": [
+      {
+        "type": "code",
+        "answer": "7252",
+        "question_fr": "Carnet 30 : A=5, B=2. Le code est (A+B), (2×A+B), A, B. Garde seulement les unités de chaque résultat.",
+        "question_en": "Notebook 30: A=5, B=2. The code is (A+B), (2×A+B), A, B. Keep only the units digit of each result.",
+        "hint_fr": "Calcule les deux premières valeurs, puis prends leur chiffre des unités.",
+        "hint_en": "Calculate the first two values and keep the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options_fr": [
+          "Indice 1",
+          "Indice 2",
+          "Indice 3"
+        ],
+        "options_en": [
+          "Clue 1",
+          "Clue 2",
+          "Clue 3"
+        ],
+        "question_fr": "Le passage sous la ville — Dans une étiquette effacée, une nouvelle piste exige ton attention. La bonne piste est la numéro 3. Choisis cette piste pour fermer le dossier. (Pièce 153, épreuve 2.)",
+        "question_en": "The passage beneath the city — A new clue found on a faded label requires your attention. The correct clue is number 3. Choose it to close the case. (File 153, challenge 2.)",
+        "hint_fr": "Observe le numéro de la piste indiqué dans la consigne.",
+        "hint_en": "Look for the clue number in the instruction."
       }
     ]
   }

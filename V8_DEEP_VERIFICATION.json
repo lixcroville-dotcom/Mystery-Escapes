@@ -1,0 +1,10 @@
+{
+  "stages_checked": 522,
+  "errors": [],
+  "limitations": [
+    "No Godot runtime in this environment",
+    "No physical iPhone interaction or pixel-overflow test",
+    "Semantic similarity remains possible",
+    "This test checks data invariants and solvability for supported mechanisms, not full human gameplay"
+  ]
+}

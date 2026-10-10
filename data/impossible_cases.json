@@ -16,7 +16,11 @@
         "question_fr": "Le billet « QRUG » utilise César +3. Déchiffre-le et conserve le mot pour la suite.",
         "question_en": "The note QRUG uses Caesar +3. Decode it and remember the word for later.",
         "hint_fr": "Recule de trois lettres : Q devient N, R devient O.",
-        "hint_en": "Shift three letters back: Q becomes N, R becomes O."
+        "hint_en": "Shift three letters back: Q becomes N, R becomes O.",
+        "hint1_fr": "Sépare le message chiffré en lettres. Vérifie le décalage ET l’ordre de lecture.",
+        "hint1_en": "Split the ciphertext into letters. Check both the shift AND reading order.",
+        "hint2_fr": "Recule de trois lettres : Q devient N, R devient O.",
+        "hint2_en": "Shift three letters back: Q becomes N, R becomes O."
       },
       {
         "type": "code",
@@ -24,7 +28,11 @@
         "question_fr": "Pour le mot précédent, prends le chiffre des unités du rang alphabétique de chaque lettre (A=1).",
         "question_en": "For the previous word, enter the units digit of each letter's alphabet position (A=1).",
         "hint_fr": "N=14, O=15, R=18, D=4 : prends seulement les unités.",
-        "hint_en": "N=14, O=15, R=18, D=4: take only the units digits."
+        "hint_en": "N=14, O=15, R=18, D=4: take only the units digits.",
+        "hint1_fr": "Cherche une règle commune à tous les éléments, puis applique-la dans l’ordre indiqué.",
+        "hint1_en": "Find one rule connecting all elements, then follow the stated order.",
+        "hint2_fr": "N=14, O=15, R=18, D=4 : prends seulement les unités.",
+        "hint2_en": "N=14, O=15, R=18, D=4: take only the units digits."
       },
       {
         "type": "logic",
@@ -38,7 +46,11 @@
         "question_fr": "Additionne les quatre rangs alphabétiques du mot du billet. Quelle est la somme ?",
         "question_en": "Add the four alphabet positions of the note's decoded word. What is the sum?",
         "hint_fr": "14 + 15 + 18 + 4.",
-        "hint_en": "14 + 15 + 18 + 4."
+        "hint_en": "14 + 15 + 18 + 4.",
+        "hint1_fr": "Écris l’expression avant de choisir. Respecte la priorité des opérations.",
+        "hint1_en": "Write out the expression first. Respect order of operations.",
+        "hint2_fr": "14 + 15 + 18 + 4.",
+        "hint2_en": "14 + 15 + 18 + 4."
       },
       {
         "type": "deduction",
@@ -58,7 +70,11 @@
         "question_fr": "La notaire dit avoir vu une montre réparée à 20 h ; l'atelier est fermé depuis 18 h. Qui peut vérifier l'alibi ?",
         "question_en": "The notary claims to have seen a repaired watch at 8 PM; the workshop closed at 6 PM. Who can verify the alibi?",
         "hint_fr": "Cherche la personne qui répare les montres, pas celle qui signe le testament.",
-        "hint_en": "Find the person who repairs watches, not the person signing the will."
+        "hint_en": "Find the person who repairs watches, not the person signing the will.",
+        "hint1_fr": "Vérifie quels témoignages sont compatibles avec les heures et les actions observées.",
+        "hint1_en": "Check which statements fit the recorded times and actions.",
+        "hint2_fr": "Cherche la personne qui répare les montres, pas celle qui signe le testament.",
+        "hint2_en": "Find the person who repairs watches, not the person signing the will."
       },
       {
         "type": "lock",
@@ -66,7 +82,11 @@
         "question_fr": "Serrure finale : la SOMME des rangs du mot (deux chiffres), suivie du NOMBRE de lettres distinctes.",
         "question_en": "Final lock: the SUM of the word's letter positions (two digits), then its number of distinct letters.",
         "hint_fr": "La somme vaut 51 ; les quatre lettres sont toutes différentes.",
-        "hint_en": "The sum is 51; all four letters are distinct."
+        "hint_en": "The sum is 51; all four letters are distinct.",
+        "hint1_fr": "La serrure demande un calcul en plusieurs parties : valide séparément chaque chiffre.",
+        "hint1_en": "The lock requires multiple steps: validate each digit separately.",
+        "hint2_fr": "La somme vaut 51 ; les quatre lettres sont toutes différentes.",
+        "hint2_en": "The sum is 51; all four letters are distinct."
       }
     ]
   },
@@ -92,7 +112,11 @@
         "question_fr": "Observe les six impulsions. Tu devras aussi conserver en mémoire les QUATRE premières.",
         "question_en": "Watch six flashes. Also remember the FIRST four for the next mechanism.",
         "hint_fr": "La séquence complète est : RUBIS, AMBRE, VERT, AZUR, RUBIS, VERT.",
-        "hint_en": "The full sequence is RED, AMBER, GREEN, BLUE, RED, GREEN."
+        "hint_en": "The full sequence is RED, AMBER, GREEN, BLUE, RED, GREEN.",
+        "hint1_fr": "Reproduis exactement la longueur de séquence présentée ; le premier symbole compte aussi.",
+        "hint1_en": "Repeat the whole sequence, including the first symbol.",
+        "hint2_fr": "La séquence complète est : RUBIS, AMBRE, VERT, AZUR, RUBIS, VERT.",
+        "hint2_en": "The full sequence is RED, AMBER, GREEN, BLUE, RED, GREEN."
       },
       {
         "type": "wires",
@@ -105,7 +129,11 @@
         "question_fr": "Relie les fils en ordre INVERSE des quatre premières lumières du mécanisme précédent.",
         "question_en": "Connect the wires in REVERSE order of the first four lights from the previous mechanism.",
         "hint_fr": "Inverse 2-0-3-1 pour obtenir 1-3-0-2.",
-        "hint_en": "Reverse 2-0-3-1 to get 1-3-0-2."
+        "hint_en": "Reverse 2-0-3-1 to get 1-3-0-2.",
+        "hint1_fr": "Repars de la séquence précédente ; attention au sens dans lequel il faut la lire.",
+        "hint1_en": "Revisit the previous sequence; pay attention to the required reading direction.",
+        "hint2_fr": "Inverse 2-0-3-1 pour obtenir 1-3-0-2.",
+        "hint2_en": "Reverse 2-0-3-1 to get 1-3-0-2."
       },
       {
         "type": "sliding",
@@ -134,7 +162,11 @@
         "question_fr": "Restaure la mosaïque 1 à 8, case vide en bas à droite. Ne déplace que les cases voisines du vide.",
         "question_en": "Restore the mosaic from 1 to 8, empty space bottom-right. Move only adjacent tiles.",
         "hint_fr": "Résous la ligne supérieure avant de réorganiser les deux dernières.",
-        "hint_en": "Complete the top row before reorganizing the lower two."
+        "hint_en": "Complete the top row before reorganizing the lower two.",
+        "hint1_fr": "Place d’abord les coins, puis termine par la dernière ligne sans casser le haut.",
+        "hint1_en": "Place the corners first; solve the last row without disturbing the top.",
+        "hint2_fr": "Résous la ligne supérieure avant de réorganiser les deux dernières.",
+        "hint2_en": "Complete the top row before reorganizing the lower two."
       },
       {
         "type": "mechanism",
@@ -146,7 +178,11 @@
         "question_fr": "Inscription : OUEST → EST → SUD. Place les cadrans dans cet ordre exact.",
         "question_en": "Inscription: WEST → EAST → SOUTH. Set the dials in that exact order.",
         "hint_fr": "Avec NORD=0 : OUEST=3, EST=1, SUD=2.",
-        "hint_en": "With NORTH=0: WEST=3, EAST=1, SOUTH=2."
+        "hint_en": "With NORTH=0: WEST=3, EAST=1, SOUTH=2.",
+        "hint1_fr": "Traduis chaque direction en quart de tour, en partant du nord.",
+        "hint1_en": "Convert each direction into quarter-turns starting from north.",
+        "hint2_fr": "Avec NORD=0 : OUEST=3, EST=1, SUD=2.",
+        "hint2_en": "With NORTH=0: WEST=3, EAST=1, SOUTH=2."
       },
       {
         "type": "logic",
@@ -160,7 +196,11 @@
         "question_fr": "Combien de lumières étaient répétées dans la séquence de six ? Choisis le NOMBRE de lumières distinctes.",
         "question_en": "How many DISTINCT lights appeared in the six-flash sequence?",
         "hint_fr": "RUBIS, AMBRE, VERT, AZUR : quatre couleurs distinctes.",
-        "hint_en": "RED, AMBER, GREEN, BLUE: four distinct colors."
+        "hint_en": "RED, AMBER, GREEN, BLUE: four distinct colors.",
+        "hint1_fr": "Écris l’expression avant de choisir. Respecte la priorité des opérations.",
+        "hint1_en": "Write out the expression first. Respect order of operations.",
+        "hint2_fr": "RUBIS, AMBRE, VERT, AZUR : quatre couleurs distinctes.",
+        "hint2_en": "RED, AMBER, GREEN, BLUE: four distinct colors."
       }
     ]
   },
@@ -191,7 +231,11 @@
         "question_fr": "La photo de 23 h 40 montre un flash ; seule une personne portait un appareil cette nuit-là. Qui interroger ?",
         "question_en": "The 11:40 PM photo shows a flash; only one person carried a camera that night. Who should you question?",
         "hint_fr": "Une photo avec flash suppose un appareil photo.",
-        "hint_en": "A flash photograph requires a camera."
+        "hint_en": "A flash photograph requires a camera.",
+        "hint1_fr": "Vérifie quels témoignages sont compatibles avec les heures et les actions observées.",
+        "hint1_en": "Check which statements fit the recorded times and actions.",
+        "hint2_fr": "Une photo avec flash suppose un appareil photo.",
+        "hint2_en": "A flash photograph requires a camera."
       },
       {
         "type": "cipher",
@@ -201,7 +245,11 @@
         "question_fr": "Sur l'enveloppe, « XQLWH » a été décalé de trois lettres vers l'avant. Retrouve le mot d'origine.",
         "question_en": "On the envelope, XQLWH was shifted three letters forward. Recover the original word.",
         "hint_fr": "X→U, Q→N, L→I, W→T, H→E.",
-        "hint_en": "X→U, Q→N, L→I, W→T, H→E."
+        "hint_en": "X→U, Q→N, L→I, W→T, H→E.",
+        "hint1_fr": "Sépare le message chiffré en lettres. Vérifie le décalage ET l’ordre de lecture.",
+        "hint1_en": "Split the ciphertext into letters. Check both the shift AND reading order.",
+        "hint2_fr": "X→U, Q→N, L→I, W→T, H→E.",
+        "hint2_en": "X→U, Q→N, L→I, W→T, H→E."
       },
       {
         "type": "code",
@@ -209,7 +257,11 @@
         "question_fr": "Avec le mot déchiffré, prends les unités des rangs alphabétiques des QUATRE premières lettres (A=1).",
         "question_en": "Using the decoded word, take the units digits of the FIRST FOUR alphabet positions (A=1).",
         "hint_fr": "U=21, N=14, I=9, T=20 → unités 1,4,9,0.",
-        "hint_en": "U=21, N=14, I=9, T=20 → units 1,4,9,0."
+        "hint_en": "U=21, N=14, I=9, T=20 → units 1,4,9,0.",
+        "hint1_fr": "Cherche une règle commune à tous les éléments, puis applique-la dans l’ordre indiqué.",
+        "hint1_en": "Find one rule connecting all elements, then follow the stated order.",
+        "hint2_fr": "U=21, N=14, I=9, T=20 → unités 1,4,9,0.",
+        "hint2_en": "U=21, N=14, I=9, T=20 → units 1,4,9,0."
       },
       {
         "type": "memory",
@@ -224,7 +276,11 @@
         "question_fr": "Retire les rideaux : mémorise les six signaux de la chambre du conseil.",
         "question_en": "Draw the curtains: memorize the six signals from the council chamber.",
         "hint_fr": "AMBRE, VERT, RUBIS, AZUR, RUBIS, AMBRE.",
-        "hint_en": "AMBER, GREEN, RED, BLUE, RED, AMBER."
+        "hint_en": "AMBER, GREEN, RED, BLUE, RED, AMBER.",
+        "hint1_fr": "Reproduis exactement la longueur de séquence présentée ; le premier symbole compte aussi.",
+        "hint1_en": "Repeat the whole sequence, including the first symbol.",
+        "hint2_fr": "AMBRE, VERT, RUBIS, AZUR, RUBIS, AMBRE.",
+        "hint2_en": "AMBER, GREEN, RED, BLUE, RED, AMBER."
       },
       {
         "type": "logic",
@@ -238,7 +294,11 @@
         "question_fr": "Combien de couleurs DIFFÉRENTES ont été montrées dans la séquence ?",
         "question_en": "How many DISTINCT colors appeared in the sequence?",
         "hint_fr": "AMBRE, VERT, RUBIS, AZUR : quatre couleurs différentes.",
-        "hint_en": "AMBER, GREEN, RED, BLUE: four distinct colors."
+        "hint_en": "AMBER, GREEN, RED, BLUE: four distinct colors.",
+        "hint1_fr": "Écris l’expression avant de choisir. Respecte la priorité des opérations.",
+        "hint1_en": "Write out the expression first. Respect order of operations.",
+        "hint2_fr": "AMBRE, VERT, RUBIS, AZUR : quatre couleurs différentes.",
+        "hint2_en": "AMBER, GREEN, RED, BLUE: four distinct colors."
       }
     ]
   }

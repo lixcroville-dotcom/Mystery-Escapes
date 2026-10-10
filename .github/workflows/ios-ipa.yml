@@ -1,4 +1,4 @@
-name: Mystery Escapes V6 - IPA iPhone (unsigned)
+name: Mystery Escapes V8 RC - IPA iPhone (unsigned)
 
 on:
   workflow_dispatch:
@@ -43,8 +43,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 tools/verify_v4.py
-          python3 tools/verify_v6.py
+          python3 tools/verify_v8.py
+          python3 tools/verify_v8_deep.py
 
       - name: Telecharger Godot macOS officiel
         shell: bash
@@ -139,7 +139,7 @@ jobs:
       - name: Publier l'IPA telechargeable
         uses: actions/upload-artifact@v4
         with:
-          name: MysteryEscapes-V6-IPA-non-signe
+          name: MysteryEscapes-V8-IPA-non-signe
           path: MysteryEscapes-unsigned.ipa
           if-no-files-found: error
           retention-days: 7

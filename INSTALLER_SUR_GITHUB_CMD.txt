@@ -1,22 +1,33 @@
-MYSTERY ESCAPE'S V4 - MISE A JOUR SUR GITHUB DEPUIS WINDOWS CMD
+MYSTERY ESCAPE'S V8 — REMPLACEMENT COMPLET DU DEPOT GITHUB
 
-1. NE SUPPRIME PAS MYSTERY ESCAPE'S V3 DE TON IPHONE.
-2. Telecharge MysteryEscapes_V4_UPDATE_GITHUB.zip dans Downloads.
-3. Ouvre CMD puis colle :
+Cette archive contient le projet Godot V8 COMPLET. Il ne s'agit pas d'un correctif incrementiel.
+Elle se decompresse directement a la racine du depot (project.godot a la racine).
 
-cd /d "C:\Users\lixxc\Documents\MysteryEscapesGitHub"
-powershell -NoProfile -Command "Expand-Archive -LiteralPath '%USERPROFILE%\Downloads\MysteryEscapes_V4_UPDATE_GITHUB.zip' -DestinationPath '%CD%' -Force"
-dir data\kids_levels.json
-python tools\verify_v4.py
-git status
+ATTENTION : sauvegarde tes changements non publies dans l'ancien depot avant d'utiliser ces commandes.
+
+1. Telecharge MysteryEscapes_V8_COMPLET_REMPLACEMENT_GITHUB.zip dans Telechargements.
+2. Ouvre CMD sous Windows et execute les commandes, une par une :
+
+cd /d "%USERPROFILE%\Documents"
+git clone https://github.com/lixcroville-dotcom/Mystery-Escapes.git MysteryEscapesV8Upload
+cd MysteryEscapesV8Upload
+git switch main
+git rm -r -- .
+powershell -NoProfile -Command "Expand-Archive -LiteralPath (Join-Path $env:USERPROFILE 'Downloads\MysteryEscapes_V8_COMPLET_REMPLACEMENT_GITHUB.zip') -DestinationPath (Get-Location).Path -Force"
+dir project.godot
+dir .github\workflows\ios-ipa.yml
+python tools\verify_v8.py
+python tools\verify_v8_deep.py
 git add -A
-git commit -m "Mystery Escapes V4 Ultimate Evolution"
+git status
+git commit -m "Install complete Mystery Escapes V8"
 git push origin main
-gh workflow run ios-ipa.yml --ref main
 
-4. Ouvre : https://github.com/lixcroville-dotcom/Mystery-Escapes/actions
-5. Attend la fin; si la compilation est verte, ouvre l'execution et telecharge l'artifact MysteryEscapes-V4-IPA-non-signe.
-6. Extrais l'IPA du ZIP; signe/installe avec Sideloadly en gardant le meme compte Apple.
+3. Ouvre : https://github.com/lixcroville-dotcom/Mystery-Escapes/actions
+4. Selectionne le workflow iOS, puis Run workflow sur main.
+5. Telecharge l'artefact IPA apres la compilation, decompresse-le, puis installe avec Sideloadly.
 
-NB : l'etape Python locale est facultative si Python absent (GitHub fait le test).
-NB : build IPA non signe, qui n'est pas encore teste physiquement sur iPhone.
+NOTE : le depot distant est remplace par les fichiers V8 suivis par Git, sans supprimer son historique Git.
+Ce ZIP ne peut pas etre decrit comme zero bug : tests iPhone et ecrans reels non effectues.
+Ne desinstalle pas l'application actuelle si tu souhaites essayer de conserver ses sauvegardes.
+Identifiant iOS prevu : com.lixcroville.mysteryescapes.

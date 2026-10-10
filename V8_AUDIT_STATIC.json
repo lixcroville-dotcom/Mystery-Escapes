@@ -1,0 +1,35 @@
+{
+  "static_checks_passed": true,
+  "errors": [],
+  "cases": {
+    "main": 100,
+    "junior": 50,
+    "impossible": 3
+  },
+  "stage_count": 522,
+  "families": {
+    "code": 87,
+    "lock": 27,
+    "cipher": 38,
+    "hidden": 31,
+    "memory": 52,
+    "logic": 68,
+    "wires": 26,
+    "time": 25,
+    "deduction": 36,
+    "hangman": 24,
+    "mechanism": 25,
+    "maze": 24,
+    "inventory": 25,
+    "sound": 23,
+    "sliding": 11
+  },
+  "exact_duplicate_prompts": {},
+  "limitations": [
+    "Static checks cannot prove every answer is logically correct",
+    "Godot editor/runtime and iPhone touch tests not performed by this script",
+    "365 scheduled daily selections reuse the 100 authored main cases",
+    "Remote leaderboards, IAP and ads are disabled stubs",
+    "Some existing cases may be conceptually repetitive without exact wording"
+  ]
+}
