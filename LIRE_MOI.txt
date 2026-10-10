@@ -1,0 +1,18 @@
+# Correctif iOS : Xcode 26 pour Godot 4.7.2
+
+Le workflow original utilisait `macos-15` avec Xcode 16.4 par defaut (SDK iOS 18.5). Le template iOS Godot 4.7.2 reference `_MTLTensorDomain` (iOS 26). La compilation peut donc echouer lors de l'edition des liens arm64.
+
+Le workflow ci-joint utilise Xcode 26.3 deja installe sur le runner macos-15 et verifie la version du SDK iOS avant la compilation.
+
+## Installation depuis CMD sous Windows
+
+1. Extraire cette archive dans le dossier local du depot MysteryEscapesGitHub (pas sur le bureau), en ecrasant .github/workflows/ios-ipa.yml.
+2. Ouvrir CMD dans le dossier du depot.
+3. Lancer :
+
+   git add .github/workflows/ios-ipa.yml
+   git commit -m "Fix Godot iOS linker with Xcode 26"
+   git push origin main
+   gh workflow run ios-ipa.yml --ref main
+
+La compilation n'a pas pu etre testee ici sur un Mac de GitHub Actions. Si elle echoue, consulter le premier symbole manquant dans les logs.

@@ -1,2 +1,6 @@
+# Godot local cache; never commit generated data
 .godot/
-.godot/
+.import/
+*.tmp
+*.log
+.DS_Store

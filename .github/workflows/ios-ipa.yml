@@ -1,4 +1,4 @@
-name: Mystery Escapes - IPA iPhone (unsigned)
+name: Mystery Escapes V3 - IPA iPhone (unsigned)
 
 on:
   workflow_dispatch:
@@ -70,7 +70,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sips -s format png -z 1024 1024 assets/ui/seal.png --out assets/ui/ios_app_icon.png >/dev/null
+          if [ ! -s assets/ui/ios_app_icon.png ]; then
+            sips -s format png -z 1024 1024 assets/ui/seal.png --out assets/ui/ios_app_icon.png >/dev/null
+          fi
           test -s assets/ui/ios_app_icon.png
 
       - name: Importer le projet Godot
@@ -78,6 +80,17 @@ jobs:
         run: |
           set -euo pipefail
           "$GODOT_BIN" --headless --path . --import
+
+      - name: Smoke test Godot - démarrage du jeu
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$GODOT_BIN" --headless --path . --quit-after 25 > "$RUNNER_TEMP/godot-smoke.log" 2>&1 || { cat "$RUNNER_TEMP/godot-smoke.log"; exit 1; }
+          cat "$RUNNER_TEMP/godot-smoke.log"
+          if grep -E "SCRIPT ERROR|Parse Error|Invalid call" "$RUNNER_TEMP/godot-smoke.log"; then
+            echo "Erreur Godot lors du lancement du menu"
+            exit 1
+          fi
 
       - name: Exporter le projet Xcode iOS
         shell: bash
@@ -119,7 +132,7 @@ jobs:
       - name: Publier l'IPA telechargeable
         uses: actions/upload-artifact@v4
         with:
-          name: MysteryEscapes-IPA-non-signe
+          name: MysteryEscapes-V3-IPA-non-signe
           path: MysteryEscapes-unsigned.ipa
           if-no-files-found: error
           retention-days: 7
