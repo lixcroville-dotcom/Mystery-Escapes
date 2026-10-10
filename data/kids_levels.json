@@ -1,0 +1,432 @@
+[
+  {
+    "id": 101,
+    "chapter": 0,
+    "title_fr": "Le tiroir coloré",
+    "title_en": "The Color Drawer",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "2456",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 2, 4, 5, 6. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 2, 4, 5, 6. Enter them in that order.",
+        "hint_fr": "Lis : 2-4-5-6.",
+        "hint_en": "Read: 2-4-5-6."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "Regarde trois symboles puis reproduis la suite.",
+        "question_en": "Watch three symbols, then repeat the sequence.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 102,
+    "chapter": 0,
+    "title_fr": "Le petit message",
+    "title_en": "The Little Note",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "3567",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 3, 5, 6, 7. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 3, 5, 6, 7. Enter them in that order.",
+        "hint_fr": "Lis : 3-5-6-7.",
+        "hint_en": "Read: 3-5-6-7."
+      },
+      {
+        "type": "hidden",
+        "answer": 5,
+        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
+        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
+        "hint_en": "Find COIN on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 103,
+    "chapter": 1,
+    "title_fr": "La boîte des symboles",
+    "title_en": "The Symbol Box",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "4678",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 4, 6, 7, 8. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 4, 6, 7, 8. Enter them in that order.",
+        "hint_fr": "Lis : 4-6-7-8.",
+        "hint_en": "Read: 4-6-7-8."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "Regarde trois symboles puis reproduis la suite.",
+        "question_en": "Watch three symbols, then repeat the sequence.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 104,
+    "chapter": 1,
+    "title_fr": "Le jardin des couleurs",
+    "title_en": "The Color Garden",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5789",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 5, 7, 8, 9. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 5, 7, 8, 9. Enter them in that order.",
+        "hint_fr": "Lis : 5-7-8-9.",
+        "hint_en": "Read: 5-7-8-9."
+      },
+      {
+        "type": "hidden",
+        "answer": 11,
+        "question_fr": "La pièce à conviction manquante est : PHOTO. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: PHOTO. Examine the items before confirming.",
+        "hint_fr": "Recherche PHOTO dans le tableau des pièces à conviction.",
+        "hint_en": "Find PHOTO on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 105,
+    "chapter": 2,
+    "title_fr": "La clé du placard",
+    "title_en": "The Cupboard Key",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "6890",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 6, 8, 9, 0. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 6, 8, 9, 0. Enter them in that order.",
+        "hint_fr": "Lis : 6-8-9-0.",
+        "hint_en": "Read: 6-8-9-0."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "Regarde trois symboles puis reproduis la suite.",
+        "question_en": "Watch three symbols, then repeat the sequence.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 106,
+    "chapter": 2,
+    "title_fr": "Le dessin caché",
+    "title_en": "The Hidden Drawing",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "7901",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 7, 9, 0, 1. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 7, 9, 0, 1. Enter them in that order.",
+        "hint_fr": "Lis : 7-9-0-1.",
+        "hint_en": "Read: 7-9-0-1."
+      },
+      {
+        "type": "hidden",
+        "answer": 5,
+        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
+        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
+        "hint_en": "Find COIN on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 107,
+    "chapter": 3,
+    "title_fr": "Le secret de la lune",
+    "title_en": "The Moon Secret",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "8012",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 8, 0, 1, 2. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 8, 0, 1, 2. Enter them in that order.",
+        "hint_fr": "Lis : 8-0-1-2.",
+        "hint_en": "Read: 8-0-1-2."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "Regarde trois symboles puis reproduis la suite.",
+        "question_en": "Watch three symbols, then repeat the sequence.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 108,
+    "chapter": 3,
+    "title_fr": "Le mot magique",
+    "title_en": "The Magic Word",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "9123",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 9, 1, 2, 3. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 9, 1, 2, 3. Enter them in that order.",
+        "hint_fr": "Lis : 9-1-2-3.",
+        "hint_en": "Read: 9-1-2-3."
+      },
+      {
+        "type": "hidden",
+        "answer": 11,
+        "question_fr": "La pièce à conviction manquante est : PHOTO. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: PHOTO. Examine the items before confirming.",
+        "hint_fr": "Recherche PHOTO dans le tableau des pièces à conviction.",
+        "hint_en": "Find PHOTO on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 109,
+    "chapter": 4,
+    "title_fr": "Le coffre des étoiles",
+    "title_en": "The Star Chest",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "0234",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 0, 2, 3, 4. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 0, 2, 3, 4. Enter them in that order.",
+        "hint_fr": "Lis : 0-2-3-4.",
+        "hint_en": "Read: 0-2-3-4."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "Regarde trois symboles puis reproduis la suite.",
+        "question_en": "Watch three symbols, then repeat the sequence.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  },
+  {
+    "id": 110,
+    "chapter": 4,
+    "title_fr": "Le dernier indice",
+    "title_en": "The Final Clue",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1345",
+        "question_fr": "Enquête facile : quatre chiffres sont inscrits sur la carte : 1, 3, 4, 5. Entre-les dans cet ordre.",
+        "question_en": "Easy case: the card shows four digits: 1, 3, 4, 5. Enter them in that order.",
+        "hint_fr": "Lis : 1-3-4-5.",
+        "hint_en": "Read: 1-3-4-5."
+      },
+      {
+        "type": "hidden",
+        "answer": 5,
+        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
+        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
+        "hint_en": "Find COIN on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "Une enquête pour jeunes détectives : observe, touche et prends ton temps.",
+    "story_en": "A junior detective case: watch closely, tap and take your time."
+  }
+]

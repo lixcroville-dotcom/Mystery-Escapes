@@ -1,35 +1,22 @@
-MYSTERY ESCAPE'S V3 - MISE A JOUR DU DEPOT GITHUB (WINDOWS CMD)
+MYSTERY ESCAPE'S V4 - MISE A JOUR SUR GITHUB DEPUIS WINDOWS CMD
 
-AVANT TOUT : faites une copie de votre dossier du projet. Ne supprimez pas l'app de l'iPhone.
+1. NE SUPPRIME PAS MYSTERY ESCAPE'S V3 DE TON IPHONE.
+2. Telecharge MysteryEscapes_V4_UPDATE_GITHUB.zip dans Downloads.
+3. Ouvre CMD puis colle :
 
-1) Décompresser ce ZIP dans le dossier de votre dépôt Git :
-   C:\Users\lixxc\Documents\MysteryEscapesGitHub
-   Choisir "Remplacer les fichiers" si demandé. Ne pas extraire dans un sous-dossier supplémentaire.
+cd /d "C:\Users\lixxc\Documents\MysteryEscapesGitHub"
+powershell -NoProfile -Command "Expand-Archive -LiteralPath '%USERPROFILE%\Downloads\MysteryEscapes_V4_UPDATE_GITHUB.zip' -DestinationPath '%CD%' -Force"
+dir data\kids_levels.json
+python tools\verify_v4.py
+git status
+git add -A
+git commit -m "Mystery Escapes V4 Ultimate Evolution"
+git push origin main
+gh workflow run ios-ipa.yml --ref main
 
-2) CMD :
-   cd /d "C:\Users\lixxc\Documents\MysteryEscapesGitHub"
-   dir project.godot
-   git status
-   git add -A
-   git commit -m "Mystery Escapes V3 - musique et modes"
-   git push origin main
+4. Ouvre : https://github.com/lixcroville-dotcom/Mystery-Escapes/actions
+5. Attend la fin; si la compilation est verte, ouvre l'execution et telecharge l'artifact MysteryEscapes-V4-IPA-non-signe.
+6. Extrais l'IPA du ZIP; signe/installe avec Sideloadly en gardant le meme compte Apple.
 
-3) Compiler l'IPA via CMD :
-   gh workflow run ios-ipa.yml --ref main
-   gh run list --workflow ios-ipa.yml --limit 3
-
-4) Aller dans :
-   https://github.com/lixcroville-dotcom/Mystery-Escapes/actions
-   Attendre le rond vert; ouvrir la nouvelle exécution -> Artifacts -> MysteryEscapes-V3-IPA-non-signe.
-   Extraire le ZIP pour obtenir le .ipa. Le signer/installer avec Sideloadly.
-
-5) NE PAS supprimer la version précédente avant d'avoir testé la nouvelle.
-   Le même Bundle ID permet normalement la mise à jour sans perte de données, mais une sauvegarde iPhone est recommandée.
-
-EN CAS D'ERREUR :
-   gh run view --log-failed
-
-SUR IPHONE :
-   - Tester d'abord avec le mode Silence désactivé et le volume physique audible.
-   - Dans le jeu -> Paramètres -> TESTER LA MUSIQUE, puis TESTER UN SON.
-   - Déverrouiller un cadenas, passer entre menu/profil/dossiers, puis tester Détective et Zen.
+NB : l'etape Python locale est facultative si Python absent (GitHub fait le test).
+NB : build IPA non signe, qui n'est pas encore teste physiquement sur iPhone.

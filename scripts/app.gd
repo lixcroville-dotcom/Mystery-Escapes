@@ -11,9 +11,9 @@ const GOLD_BRIGHT = Color("#ffdfa1")
 const QUIET = Color("#adbbc4")
 const GREEN = Color("#69d6b4")
 const RED = Color("#eb8889")
-const CHAPTERS_FR = ["LE MANOIR", "LE LABORATOIRE", "LA PRISON", "LE MUSÉE", "L'HORLOGERIE"]
-const CHAPTERS_EN = ["THE MANOR", "THE LAB", "THE PRISON", "THE MUSEUM", "CLOCKWORK"]
-const BG_NAMES = ["manor", "laboratory", "prison", "museum", "clocktower"]
+const CHAPTERS_FR = ["LE MANOIR", "LE LABORATOIRE", "LA PRISON", "LE MUSÉE", "L'HORLOGERIE", "LE SILENCE", "LA CITÉ DE VERRE", "LES DISPARUS", "LES TÉMOINS", "L'ARCHIVE FINALE"]
+const CHAPTERS_EN = ["THE MANOR", "THE LAB", "THE PRISON", "THE MUSEUM", "CLOCKWORK", "SILENCE", "THE GLASS CITY", "THE MISSING", "THE WITNESSES", "THE FINAL ARCHIVE"]
+const BG_NAMES = ["manor", "laboratory", "prison", "museum", "clocktower", "corridors", "glasscity", "missing", "witnesses", "finalarchive"]
 const SYMBOLS = ["◆", "▲", "●", "✦"]
 const COLORS = ["AMBRE", "AZUR", "RUBIS", "VERT"]
 const COLORS_EN = ["AMBER", "BLUE", "RUBY", "GREEN"]
@@ -84,6 +84,12 @@ var current_music_player: AudioStreamPlayer
 var transitions_enabled: bool = true
 var haptics_enabled: bool = false
 var sound_debug: bool = false
+var settings_scroll: ScrollContainer
+var music_cycle: Array = []
+var music_recent_track: int = -1
+var main_level_count: int = 100
+var child_level_offset: int = 100
+var child_level_count: int = 10
 
 
 
@@ -96,6 +102,11 @@ func _ready() -> void:
 		levels = parsed
 	else:
 		push_error("Cannot read levels.json")
+	# Junior investigations are separate from the 100 main cases and never change old IDs.
+	var juniors = JSON.parse_string(FileAccess.get_file_as_string("res://data/kids_levels.json"))
+	if typeof(juniors) == TYPE_ARRAY:
+		for junior in juniors:
+			levels.append(junior)
 	load_game()
 	content = Control.new()
 	content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -154,16 +165,18 @@ func _process(delta: float) -> void:
 			render_game()
 
 func fresh_save() -> Dictionary:
-	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0}
+	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0, "hints_stock":0}
 
 func load_game() -> void:
 	save = fresh_save()
+	var parsed = null
 	if FileAccess.file_exists(SAVE_PATH):
-		var parsed = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
-		if typeof(parsed) == TYPE_DICTIONARY:
-			for key in save.keys():
-				if parsed.has(key):
-					save[key] = parsed[key]
+		parsed = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
+	if typeof(parsed) != TYPE_DICTIONARY and FileAccess.file_exists(SAVE_PATH + ".bak"):
+		parsed = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH + ".bak"))
+	if typeof(parsed) == TYPE_DICTIONARY:
+		for key in parsed.keys():
+			save[key] = parsed[key]
 	# A previously-installed V2 uses the same save path and iOS bundle ID.
 	# Preserve every record; migrate only the requested default SFX loudness.
 	if not bool(save.get("v3_audio_migrated", false)):
@@ -185,10 +198,24 @@ func load_game() -> void:
 		persist()
 
 func persist() -> void:
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(save, "  "))
-		file.close()
+	var tmp = SAVE_PATH + ".tmp"
+	var file = FileAccess.open(tmp, FileAccess.WRITE)
+	if file == null:
+		push_warning("Save temp file could not be opened")
+		return
+	file.store_string(JSON.stringify(save, "  "))
+	file.flush()
+	file.close()
+	var original = ProjectSettings.globalize_path(SAVE_PATH)
+	var temporary = ProjectSettings.globalize_path(tmp)
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.copy_absolute(original, ProjectSettings.globalize_path(SAVE_PATH + ".bak"))
+	if DirAccess.rename_absolute(temporary, original) != OK:
+		# Some platforms don't replace existing files with rename.
+		if DirAccess.copy_absolute(temporary, original) == OK:
+			DirAccess.remove_absolute(temporary)
+		else:
+			push_warning("Save could not be committed")
 
 func loc(fr: String, en: String) -> String:
 	return en if str(save.get("language", "fr")) == "en" else fr
@@ -237,14 +264,20 @@ func setup_audio() -> void:
 		add_child(player)
 		sfx_pool.append(player)
 	sfx = sfx_pool[0]
-	# Twelve different cues, ~14 minutes total. Track order rotates over time.
+	# Twenty-two original instrumental tracks x 72 seconds = 26m24s.
+	# Home, profile, ranking, shop, level map and settings share this playlist.
 	soundtrack = {
-		"menu": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-		"manor": [0, 3, 6, 9],
-		"laboratory": [1, 4, 7, 10],
-		"prison": [2, 5, 8, 11],
-		"museum": [3, 7, 9, 1],
-		"clocktower": [4, 8, 10, 0]
+		"menu": range(22),
+		"manor": [0, 3, 6, 9, 12, 15, 18, 21],
+		"laboratory": [1, 4, 7, 10, 13, 16, 19],
+		"prison": [2, 5, 8, 11, 14, 17, 20],
+		"museum": [3, 7, 9, 1, 12, 16, 20],
+		"clocktower": [4, 8, 10, 0, 13, 17, 21],
+		"corridors": [12, 0, 15, 3, 18, 6],
+		"glasscity": [13, 1, 16, 4, 19, 7],
+		"missing": [14, 2, 17, 5, 20, 8],
+		"witnesses": [15, 3, 18, 9, 21],
+		"finalarchive": [16, 4, 19, 10, 0, 21]
 	}
 	apply_audio_settings()
 
@@ -294,7 +327,15 @@ func play_next_music(force: bool=false) -> void:
 	var playlist = soundtrack.get(soundtrack_scene, soundtrack["menu"]) as Array
 	if playlist.is_empty():
 		return
-	var index = int(playlist[soundtrack_cursor % playlist.size()])
+	if music_cycle.is_empty():
+		music_cycle = playlist.duplicate()
+		music_cycle.shuffle()
+		if music_cycle.size() > 1 and int(music_cycle[0]) == music_recent_track:
+			var temp = music_cycle[0]
+			music_cycle[0] = music_cycle[1]
+			music_cycle[1] = temp
+	var index = int(music_cycle.pop_front())
+	music_recent_track = index
 	soundtrack_cursor += 1
 	var path = "res://assets/music/v3/track_%02d.ogg" % (index + 1)
 	if not ResourceLoader.exists(path):
@@ -325,11 +366,11 @@ func switch_music(name: String) -> void:
 	if soundtrack_scene == name:
 		return
 	soundtrack_scene = name
-	soundtrack_cursor = (soundtrack_cursor + 1) % 12
+	music_cycle.clear()
 	play_next_music()
 
 func switch_ambience(scene: String) -> void:
-	var scene_sounds = {"menu":"fire", "manor":"rain", "laboratory":"wind", "prison":"clock", "museum":"rain", "clocktower":"clock"}
+	var scene_sounds = {"menu":"fire", "manor":"rain", "laboratory":"wind", "prison":"clock", "museum":"rain", "clocktower":"clock", "corridors":"wind", "glasscity":"rain", "missing":"clock", "witnesses":"rain", "finalarchive":"fire"}
 	var ambience_name = str(scene_sounds.get(scene,"wind"))
 	if ambience_name == active_ambience_name:
 		return
@@ -349,8 +390,13 @@ func switch_ambience(scene: String) -> void:
 func set_audio_scene(scene: String) -> void:
 	if music == null or music_b == null:
 		return
-	switch_music(scene)
-	switch_ambience(scene)
+	# Only starting an actual case changes the soundtrack. A shop/profile/map
+	# navigation must NEVER restart the track nor trigger a crossfade.
+	var target = scene if screen == "game" else "menu"
+	if screen == "result":
+		target = soundtrack_scene if soundtrack_scene != "" else "menu"
+	switch_music(target)
+	switch_ambience(target)
 
 func set_tension(active: bool) -> void:
 	if tension_active == active:
@@ -445,6 +491,11 @@ func label(t: String, x: float,y: float,w: float,h: float, sz: int=24, col: Colo
 	node.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER if centered else HORIZONTAL_ALIGNMENT_LEFT
 	node.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	node.clip_text = true
+	if t.length() > 105 and h <= 110:
+		node.add_theme_font_size_override("font_size", int(round(mini(sz, 18) * ui_scale)))
+	elif t.length() > 75 and h <= 105:
+		node.add_theme_font_size_override("font_size", int(round(mini(sz, 20) * ui_scale)))
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	(parent if parent != null else page).add_child(node)
 	return node
@@ -568,7 +619,7 @@ func show_home() -> void:
 	label(loc("DÉMASQUEZ LA VÉRITÉ","UNCOVER THE TRUTH"),60,426,600,36,21,QUIET,true)
 	btn("⚙",635,135,61,60,show_settings,false,page,true)
 	var ongoing=save.get("session",{}) as Dictionary
-	var next_id = clampi(int(ongoing.get("level",solved_count())),0,49)
+	var next_id = clampi(int(ongoing.get("level",solved_count())),0,99)
 	box(38,492,644,320,Color("#152536ed"),22,Color("#d5ad76cc"))
 	label(loc("VOTRE PROCHAINE ENQUÊTE","YOUR NEXT INVESTIGATION"),62,510,585,45,20,theme_color,true)
 	label("DOSSIER %02d" % (next_id+1),55,561,608,48,33,PAPER,true)
@@ -586,7 +637,7 @@ func show_home() -> void:
 	label(loc("Enquête bonus", "Bonus investigation"),54,953,274,42,20,QUIET,true)
 	btn(loc("JOUER","PLAY"),62,1021,255,64,show_daily,true)
 	label(loc("VOTRE DOSSIER","YOUR FILE"),387,904,279,42,24,PAPER,true)
-	label(loc("%d / 50 résolus" % solved_count(),"%d / 50 solved" % solved_count()),390,953,275,42,20,QUIET,true)
+	label(loc("%d / 100 résolus" % solved_count(),"%d / 100 solved" % solved_count()),390,953,275,42,20,QUIET,true)
 	btn(loc("SUCCÈS","ACHIEVEMENTS"),397,1021,260,64,show_achievements,false,page,true)
 	navigation("home")
 	fade_in()
@@ -595,16 +646,16 @@ func show_levels() -> void:
 	active_mode = "classic"
 	screen="levels"
 	wipe()
-	backdrop(BG_NAMES[chapter_filter],.57)
+	backdrop(BG_NAMES[chapter_filter % BG_NAMES.size()],.57)
 	topbar(loc("DOSSIERS D'ENQUÊTE","INVESTIGATION FILES"),show_home)
-	label(loc("50 ENQUÊTES • 5 CHAPITRES","50 CASES • 5 CHAPTERS"),35,135,650,55,25,PAPER,true)
-	for i in range(5):
-		btn(str(i+1),27+i*138,205,125,66,Callable(self,"set_chapter").bind(i),chapter_filter==i)
-	label(CHAPTERS_EN[chapter_filter] if str(save["language"])=="en" else CHAPTERS_FR[chapter_filter],30,283,655,51,28,theme_color,true)
+	label(loc("100 ENQUÊTES • 10 CHAPITRES","100 CASES • 10 CHAPTERS"),35,135,650,55,25,PAPER,true)
+	for i in range(10):
+		btn(str(i+1),27+(i%5)*138,203+int(i/5)*61,125,53,Callable(self,"set_chapter").bind(i),chapter_filter==i,page,true)
+	label(CHAPTERS_EN[chapter_filter] if str(save["language"])=="en" else CHAPTERS_FR[chapter_filter],30,331,655,51,25,theme_color,true)
 	# ScrollContainer with separately editable card structure created from level data.
 	var scroll=ScrollContainer.new()
-	scroll.position=Vector2(34,347)
-	scroll.size=Vector2(650,793)
+	scroll.position=Vector2(34,400)
+	scroll.size=Vector2(650,738)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	page.add_child(scroll)
 	var list=VBoxContainer.new()
@@ -624,7 +675,7 @@ func show_levels() -> void:
 		label(loc("RECORD : ","BEST : ")+prev+loc(" pts"," pts"),122,70,265,39,19,QUIET,false,holder)
 		if (save.get("solved",[]) as Array).has(i+1):
 			label("✦",355,76,46,41,30,GREEN,true,holder)
-		var b=btn(loc("JOUER","PLAY") if available else loc("FERMÉ","LOCKED"),410,77,188,50,Callable(self,"start_case").bind(i),available,holder,true)
+		var b=btn(loc("OUVRIR","OPEN") if available else loc("FERMÉ","LOCKED"),410,77,188,50,Callable(self,"show_case_preview").bind(i),available,holder,true)
 		if not available:
 			b.disabled=true
 	navigation("levels")
@@ -633,6 +684,11 @@ func show_levels() -> void:
 func set_chapter(index: int) -> void:
 	chapter_filter=index
 	show_levels()
+
+func show_case_preview(n: int) -> void:
+	var c = levels[n] as Dictionary
+	var description = property_text(c, "story") + "\n\n" + loc("Difficulté : ", "Difficulty: ") + str(c.get("difficulty", 1)) + "/10  •  " + str((c["stages"] as Array).size()) + loc(" énigmes", " puzzles")
+	popup(property_text(c,"title"), description, Callable(self,"start_case").bind(n), loc("COMMENCER  ›", "START  ›"))
 
 func start_case(n: int, is_daily: bool=false) -> void:
 	if n<0 or n>=levels.size():
@@ -662,7 +718,7 @@ func resume_session() -> void:
 	if session.is_empty():
 		show_home()
 		return
-	selected_level=clampi(int(session.get("level",0)),0,49)
+	selected_level=clampi(int(session.get("level",0)),0,levels.size()-1)
 	active_mode=str(session.get("mode","classic"))
 	mode_chain=(session.get("chain",[]) as Array).duplicate()
 	mode_chain_pos=int(session.get("chain_pos",0))
@@ -680,7 +736,7 @@ func resume_session() -> void:
 	render_game()
 
 func reset_puzzle() -> void:
-	puzzle_state={"typed":"", "wheels":[], "entered":[], "choice":-1,"maze":[0,0],"guessed":[],"wrong":0,"selected":[],"hour":0,"minute":0,"gears":[0,0,0]}
+	puzzle_state={"typed":"", "wheels":[], "entered":[], "choice":-1,"maze":[0,0],"guessed":[],"wrong":0,"selected":[],"hour":0,"minute":0,"gears":[0,0,0],"hint_count":0}
 	stage_started=elapsed
 	stage_time_limit=mode_stage_limit()
 	seq_reveal_end=0
@@ -695,11 +751,13 @@ func reset_puzzle() -> void:
 			puzzle_state["wheels"].append(0)
 	if kind in ["memory","sound"]:
 		seq_reveal_end=Time.get_ticks_msec()+3700 if kind=="memory" else 0
+	if kind == "sliding":
+		puzzle_state["tiles"] = (stage.get("start",[]) as Array).duplicate()
 
 func render_game() -> void:
 	screen="game"
 	wipe()
-	backdrop(BG_NAMES[int(levels[selected_level]["chapter"])],.66)
+	backdrop(BG_NAMES[int(levels[selected_level]["chapter"]) % BG_NAMES.size()],.66)
 	topbar(loc("ENQUÊTE ","CASE ")+"%02d"%(selected_level+1),show_levels)
 	box(27,135,666,76,Color("#112536ee"))
 	label(loc("ÉTAPE ","STEP ")+str(stage_index+1)+" / "+str((levels[selected_level]["stages"] as Array).size()),47,151,350,43,23,theme_color)
@@ -730,7 +788,8 @@ func render_game() -> void:
 	render_puzzle()
 	snapshot_session()
 	box(27,1053,667,78,Color("#102331e9"))
-	var hint_name=loc("INDICE","HINT")+(" ×"+str(save.get("hints_stock",0)) if int(save.get("hints_stock",0))>0 else " ●90")
+	var hint_cost = 90 if int(puzzle_state.get("hint_count", 0)) == 0 else 150
+	var hint_name=loc("INDICE","HINT")+(" ×"+str(save.get("hints_stock",0)) if int(save.get("hints_stock",0))>0 else " ●"+str(hint_cost))
 	btn(hint_name,39,1064,202,57,show_hint_options,false,page,true)
 	btn(loc("CARNET","NOTES"),258,1064,202,57,show_notepad,false,page,true)
 	btn(loc("PAUSE","PAUSE"),475,1064,202,57,show_pause,false,page,true)
@@ -738,8 +797,8 @@ func render_game() -> void:
 	fade_in()
 
 func type_name(kind: String) -> String:
-	var fr={"code":"CADENAS À CODE", "cipher":"MESSAGE CHIFFRÉ", "memory":"MÉMOIRE VISUELLE", "wires":"CIRCUIT ÉLECTRIQUE", "deduction":"DÉDUCTION", "lock":"SERRURE À MOLETTES", "hidden":"INDICES CACHÉS", "logic":"LOGIQUE", "time":"HORLOGE", "hangman":"LE MOT SECRET", "mechanism":"MÉCANISME", "maze":"LABYRINTHE", "inventory":"INVENTAIRE", "sound":"ÉCHO MUSICAL"}
-	var en={"code":"KEYPAD LOCK", "cipher":"SECRET CIPHER", "memory":"VISUAL MEMORY", "wires":"ELECTRIC CIRCUIT", "deduction":"DEDUCTION", "lock":"COMBINATION DIAL", "hidden":"HIDDEN EVIDENCE", "logic":"LOGIC", "time":"CLOCK", "hangman":"SECRET WORD", "mechanism":"MECHANICAL DIALS", "maze":"MAZE", "inventory":"INVENTORY", "sound":"SOUND PATTERN"}
+	var fr={"code":"CADENAS À CODE", "cipher":"MESSAGE CHIFFRÉ", "memory":"MÉMOIRE VISUELLE", "wires":"CIRCUIT ÉLECTRIQUE", "deduction":"DÉDUCTION", "lock":"SERRURE À MOLETTES", "hidden":"INDICES CACHÉS", "logic":"LOGIQUE", "time":"HORLOGE", "hangman":"LE MOT SECRET", "mechanism":"MÉCANISME", "maze":"LABYRINTHE", "inventory":"INVENTAIRE", "sound":"ÉCHO MUSICAL", "sliding":"TAQUIN COULISSANT"}
+	var en={"code":"KEYPAD LOCK", "cipher":"SECRET CIPHER", "memory":"VISUAL MEMORY", "wires":"ELECTRIC CIRCUIT", "deduction":"DEDUCTION", "lock":"COMBINATION DIAL", "hidden":"HIDDEN EVIDENCE", "logic":"LOGIC", "time":"CLOCK", "hangman":"SECRET WORD", "mechanism":"MECHANICAL DIALS", "maze":"MAZE", "inventory":"INVENTORY", "sound":"SOUND PATTERN", "sliding":"SLIDING PUZZLE"}
 	return (en if str(save["language"])=="en" else fr).get(kind,kind)
 
 func popup(title_text: String, body: String, confirm: Callable=Callable(), action_text: String="") -> void:
@@ -831,7 +890,7 @@ func case_complete() -> void:
 	persist()
 	screen="result"
 	wipe()
-	backdrop(BG_NAMES[int(levels[selected_level]["chapter"])],.62)
+	backdrop(BG_NAMES[int(levels[selected_level]["chapter"]) % BG_NAMES.size()],.62)
 	image("res://assets/ui/seal.png",230,140,260,260,page,.91)
 	label(loc("ENQUÊTE RÉSOLUE","CASE SOLVED"),48,442,624,82,46,theme_color,true)
 	label(property_text(levels[selected_level],"title"),45,533,630,78,29,PAPER,true)
@@ -845,46 +904,53 @@ func case_complete() -> void:
 		anim.tween_property(star,"position:y",star.position.y,2.2+float(particle_i%3)*.2).set_trans(Tween.TRANS_SINE)
 	label(loc("Temps : ","Time: ")+time_display(seconds)+loc("   •   Erreurs : ","   •   Errors: ")+str(mistakes),60,846,601,51,22,PAPER,true)
 	label("+"+str(earned)+loc(" PIÈCES"," COINS")+(loc("  •  NOUVEAU RECORD","  •  NEW RECORD") if score>previous else ""),56,907,606,45,19,GREEN,true)
-	if selected_level < 49:
+	if selected_level < main_level_count-1:
 		btn(loc("DOSSIER SUIVANT  ›","NEXT CASE  ›"),59,1004,606,76,func(): start_case(selected_level+1),false)
 	else:
-		btn(loc("LES 50 DOSSIERS RÉSOLUS !","ALL 50 CASES COMPLETED!"),59,1004,606,76,show_levels,false)
+		btn(loc("LES 100 DOSSIERS RÉSOLUS !","ALL 100 CASES COMPLETED!"),59,1004,606,76,show_levels,false)
 	btn(loc("RETOUR AU MENU","BACK TO HOME"),60,1090,602,74,show_home,true)
 	fade_in()
 
 func add_achievements(seconds: int) -> void:
 	var achievements=save.get("achievements",[]) as Array
 	var count=solved_count()
-	for item in ["FIRST" if count>=1 else "", "TEN" if count>=10 else "", "HALF" if count>=25 else "", "ALL" if count>=50 else "", "FAST" if seconds<50 else "", "PERFECT" if mistakes==0 and hints_used==0 else ""]:
+	for item in ["FIRST" if count>=1 else "", "TEN" if count>=10 else "", "HALF" if count>=25 else "", "ALL" if count>=100 else "", "FAST" if seconds<50 else "", "PERFECT" if mistakes==0 and hints_used==0 else ""]:
 		if item!="" and not achievements.has(item):achievements.append(item)
 
 func show_hint_options() -> void:
 	if active_mode == "expert":
 		popup(loc("MODE EXPERT","EXPERT MODE"),loc("Les indices sont désactivés dans ce défi.","Hints are disabled in this challenge."))
 		return
-	var message=loc("Utilise un indice de ton stock.","Use a hint from your inventory.") if int(save.get("hints_stock",0))>0 else loc("Un indice coûte 90 pièces. Il réduit ton score final.","A hint costs 90 coins and reduces your score.")
+	var cost = 90 if int(puzzle_state.get("hint_count", 0)) == 0 else 150
+	var message=loc("Utilise un indice de ton stock.","Use a hint from your inventory.") if int(save.get("hints_stock",0))>0 else loc("Indice payant : %d pièces. Il réduit le score final." % cost,"Paid hint: %d coins. It reduces your score." % cost)
 	popup(loc("UN INDICE ?","NEED A HINT?"),message,Callable(self,"buy_hint"),loc("OBTENIR L'INDICE","GET HINT"))
 
 func buy_hint() -> void:
 	if int(save.get("hints_stock",0))>0:
 		save["hints_stock"]=int(save["hints_stock"])-1
 	else:
-		if int(save["coins"])<90:
+		var cost = 90 if int(puzzle_state.get("hint_count", 0)) == 0 else 150
+		if int(save["coins"]) < cost:
 			popup(loc("PIÈCES INSUFFISANTES","NOT ENOUGH COINS"),loc("Termine des enquêtes pour gagner des pièces.","Complete cases to earn coins."))
 			return
-		save["coins"]=int(save["coins"])-90
+		save["coins"]=int(save["coins"])-cost
+	var hint_step = int(puzzle_state.get("hint_count", 0))
+	puzzle_state["hint_count"] = hint_step + 1
 	hints_used+=1
 	persist()
 	play_sound("paper")
-	popup(loc("INDICE DÉBLOQUÉ","HINT UNLOCKED"),property_text(current_stage(),"hint"))
+	var partial = loc("Observe les éléments, vérifie l'ordre et élimine les possibilités impossibles.", "Review the evidence, check the order and eliminate impossible options.")
+	popup(loc("INDICE DÉBLOQUÉ","HINT UNLOCKED"),partial if hint_step == 0 else property_text(current_stage(),"hint"))
 
 func mode_stage_limit() -> float:
-	if active_mode == "zen":
+	if active_mode in ["zen", "kids"]:
 		return 0.0
 	if active_mode == "speed":
 		return 75.0
 	if active_mode == "expert":
 		return 105.0
+	if selected_level >= 50 and selected_level < main_level_count and str(current_stage()["type"]) in ["wires", "memory", "sliding", "sound", "maze"]:
+		return 180.0
 	return 95.0 if selected_level >= 20 and str(current_stage()["type"]) in ["wires", "time"] else 0.0
 
 func show_modes() -> void:
@@ -894,14 +960,15 @@ func show_modes() -> void:
 	topbar(loc("MODES DE JEU", "GAME MODES"), show_home)
 	label(loc("UNE NOUVELLE FAÇON D'ENQUÊTER", "A NEW WAY TO INVESTIGATE"),25,134,666,63,24,theme_color,true)
 	var mode_info = [
-		["classic",loc("CLASSIQUE", "CLASSIC"),loc("50 enquêtes progressives", "50 progressive cases")],
+		["classic",loc("CLASSIQUE", "CLASSIC"),loc("100 enquêtes progressives", "100 progressive cases")],
 		["detective",loc("DÉTECTIVE", "DETECTIVE"),loc("5 pièces d'une affaire confidentielle", "5 clues from one classified case")],
 		["speed",loc("CONTRE-LA-MONTRE", "TIME ATTACK"),loc("75 secondes par énigme", "75 seconds per puzzle")],
 		["zen",loc("ZEN", "ZEN"),loc("Aucune limite de temps", "No timer or pressure")],
 		["expert",loc("EXPERT", "EXPERT"),loc("Sans indice, avec chronomètre", "No hints, with countdown")],
 		["marathon",loc("MARATHON", "MARATHON"),loc("Enchaîne cinq dossiers", "Solve five cases in a row")],
 		["endless",loc("INFINI", "ENDLESS"),loc("Nouveaux dossiers jusqu'à l'arrêt", "Cases until you stop")],
-		["daily",loc("DÉFI QUOTIDIEN", "DAILY CASE"),loc("Une mission chaque jour", "A fresh challenge every day")]
+		["daily",loc("DÉFI QUOTIDIEN", "DAILY CASE"),loc("Une mission chaque jour", "A fresh challenge every day")],
+		["kids",loc("MODE ENFANT", "JUNIOR DETECTIVE"),loc("10 enquêtes simples, sans pression", "10 gentle cases, no timer")]
 	]
 	var scroll=ScrollContainer.new()
 	scroll.position=Vector2(30,221)
@@ -938,9 +1005,10 @@ func launch_mode(kind: String) -> void:
 	mode_chain_pos=0
 	match kind:
 		"detective": mode_chain = [0,10,20,30,40]
+		"kids": mode_chain = range(child_level_offset, child_level_offset + child_level_count)
 		"marathon": mode_chain = [0,1,2,3,4]
-		"endless": mode_chain = [randi_range(0,49)]
-		_: mode_chain = [clampi(solved_count(),0,49)]
+		"endless": mode_chain = [randi_range(0,main_level_count-1)]
+		_: mode_chain = [clampi(solved_count(),0,main_level_count-1)]
 	start_case(int(mode_chain[0]))
 	if kind == "detective":
 		popup(loc("AFFAIRE CONFIDENTIELLE", "CLASSIFIED CASE"),loc("Morgan : cinq dossiers sont liés. Observe les indices et découvre le fil rouge.","Morgan: five files are linked. Follow their clues."))
@@ -961,7 +1029,7 @@ func complete_mode_case(score: int) -> void:
 	persist()
 	play_sound("coins")
 	if active_mode == "endless":
-		mode_chain.append(randi_range(0,49))
+		mode_chain.append(randi_range(0,main_level_count-1))
 	if mode_chain_pos+1 < mode_chain.size():
 		mode_chain_pos+=1
 		var target=int(mode_chain[mode_chain_pos])
@@ -981,7 +1049,7 @@ func complete_mode_case(score: int) -> void:
 func show_daily() -> void:
 	play_sound("paper")
 	var today=str(Time.get_date_string_from_system())
-	var n=abs(today.hash())%50
+	var n=abs(today.hash())%main_level_count
 	popup(loc("DÉFI QUOTIDIEN","DAILY CHALLENGE"),loc("Une enquête spéciale du jour ! Termine-la pour gagner 180 pièces supplémentaires (une fois par jour).","Today's special case! Solve it for 180 extra coins (once a day)."),func():start_case(n,true),loc("COMMENCER","START"))
 
 # -------------------------------------------------------------
@@ -1006,10 +1074,39 @@ func render_puzzle() -> void:
 		"maze":draw_maze()
 		"inventory":draw_inventory()
 		"sound":draw_sound()
+		"sliding":draw_sliding()
 		_:label("Puzzle",80,600,560,60,32,PAPER,true)
 
 func puzzle_tip(text_fr: String,text_en: String) -> void:
 	label(loc(text_fr,text_en),75,928,568,69,19,QUIET,true)
+
+func draw_sliding() -> void:
+	var tiles = puzzle_state.get("tiles", [1,2,3,4,5,6,7,8,0]) as Array
+	label(loc("FAIS GLISSER LES TUILES VERS LE VIDE", "SLIDE TILES INTO THE EMPTY SPACE"),66,513,580,51,21,PAPER,true)
+	for i in range(9):
+		var x = 119 + (i%3)*166
+		var y = 574 + int(i/3)*137
+		if int(tiles[i]) == 0:
+			box(x,y,156,124,Color("#0a1926"),12,Color("#4b6474"))
+		else:
+			btn(str(tiles[i]),x,y,156,124,Callable(self,"slide_tile").bind(i),true)
+	label(loc("RECONSTITUE 1-2-3 / 4-5-6 / 7-8-VIDE", "SOLVE 1-2-3 / 4-5-6 / 7-8-EMPTY"),73,991,574,35,19,QUIET,true)
+
+func slide_tile(index: int) -> void:
+	var tiles = puzzle_state.get("tiles",[]) as Array
+	if tiles.size() != 9: return
+	var empty = tiles.find(0)
+	if not (absi(int(index/3) - int(empty/3)) + absi(index%3 - empty%3) == 1):
+		play_sound("wrong_soft")
+		return
+	var n = tiles[index]
+	tiles[index] = 0
+	tiles[empty] = n
+	play_sound("gear")
+	if tiles == (current_stage()["answer"] as Array):
+		stage_complete()
+	else:
+		render_game()
 
 func draw_code() -> void:
 	var typed=str(puzzle_state.get("typed",""))
@@ -1158,12 +1255,14 @@ func draw_choices(as_suspects: bool) -> void:
 		options=stage["options_en"] if str(save["language"])=="en" else stage["options_fr"]
 	else:
 		options=stage["options"]
+	var compact = options.size() > 3
 	for i in range(options.size()):
-		var y=548+i*130
-		box(60,y,600,107,Color("#182d3c"),18,theme_color)
-		label(str(i+1)+".",83,y+24,55,55,32,theme_color,true)
-		btn(str(options[i]),151,y+17,487,73,Callable(self,"choose_option").bind(i),false)
-	puzzle_tip("Une seule réponse est correcte.","Only one answer is correct.")
+		var y = 527 + i*(113 if compact else 130)
+		box(60,y,600,99 if compact else 107,Color("#182d3c"),18,theme_color)
+		label(str(i+1)+".",83,y+22,55,55,30,theme_color,true)
+		btn(str(options[i]),151,y+15,487,68 if compact else 73,Callable(self,"choose_option").bind(i),false)
+	if not compact:
+		puzzle_tip("Une seule réponse est correcte.","Only one answer is correct.")
 
 func choose_option(i: int) -> void:
 	if i==int(current_stage()["answer"]):
@@ -1359,20 +1458,48 @@ func change_avatar(step: int) -> void:
 	show_profile()
 
 func show_tutorial_step(index: int) -> void:
-	var tutorial_fr=[
-		["BIENVENUE, DÉTECTIVE", "Agent Morgan te présente les indices en haut de chaque énigme. Lis-les attentivement."],
-		["INTERAGIS AVEC LES OBJETS", "Touche les cadenas, fais glisser les fils et combine les preuves. Aucun déplacement du personnage n'est nécessaire."],
-		["PROGRESSION SAUVEGARDÉE", "Le carnet et les indices sont accessibles en bas. Tes scores et ta progression sont enregistrés automatiquement."]]
-	var tutorial_en=[
-		["WELCOME, DETECTIVE", "Agent Morgan briefs you at the top of each puzzle. Read each clue carefully."],
-		["INTERACT WITH OBJECTS", "Tap locks, drag wires and combine evidence. No character movement is needed."],
-		["AUTOSAVE ENABLED", "Access your notebook and hints at the bottom. Your scores and progress are saved automatically."]]
-	var data=tutorial_en if str(save.get("language","fr"))=="en" else tutorial_fr
-	var next_action=Callable(self,"show_tutorial_step").bind(index+1) if index < 2 else Callable(self,"end_tutorial")
-	popup(str(data[index][0]),str(data[index][1]),next_action,loc("SUIVANT  ›","NEXT  ›") if index<2 else loc("C'EST PARTI !","LET'S GO!"))
+	var titles_fr = ["BIENVENUE, DÉTECTIVE", "LIRE LES CONSIGNES", "MANIPULER LES OBJETS", "INDICES ET PIÈCES", "VOTRE PROGRESSION"]
+	var titles_en = ["WELCOME, DETECTIVE", "READ THE CLUES", "TOUCH AND DRAG", "HINTS AND COINS", "YOUR PROGRESS"]
+	var tips_fr = [
+		"Chaque dossier cache un mystère. Touchez les éléments, observez les indices et trouvez la solution.",
+		"L'inspecteur Morgan donne la consigne au-dessus du puzzle. Touchez son texte pour l'afficher en entier.",
+		"Touchez les boutons d'un cadenas. Faites glisser les fils ou les objets. Prenez le temps de bien observer.",
+		"Les indices sont payants en pièces : le premier coûte 90 pièces, le suivant 150. Rien n'est acheté avec de l'argent réel.",
+		"Le jeu enregistre automatiquement vos dossiers, records et notes. Vous pouvez rejouer ce tutoriel depuis les paramètres."
+	]
+	var tips_en = [
+		"Each case hides a mystery. Tap objects, study clues and find a solution.",
+		"Inspector Morgan gives instructions above the puzzle. Tap the text to reveal it at once.",
+		"Tap lock buttons. Drag wires or inventory objects. Take time to observe.",
+		"Hints cost in-game coins: the first costs 90, the next costs 150. No real-money purchase is needed.",
+		"The game autosaves cases, records and notes. Replay this tutorial from Settings whenever you wish."
+	]
+	index = clampi(index,0,4)
+	for node in modal_layer.get_children():
+		node.queue_free()
+	var shade = ColorRect.new()
+	shade.color = Color(0.012,0.023,0.034,0.90)
+	shade.size = Vector2(720,1280)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	modal_layer.add_child(shade)
+	box(38,254,644,750,Color("#182c3aeF"),26,theme_color,modal_layer)
+	label("◈  " + loc("GUIDE D'ENQUÊTE", "INVESTIGATION GUIDE") + "  ◈",62,274,599,67,25,theme_color,true,modal_layer)
+	label(str(index+1) + " / 5",270,347,183,40,21,QUIET,true,modal_layer)
+	image("res://assets/ui/agent_morgan.png",262,396,195,225,modal_layer,0.95)
+	var titles = titles_en if str(save.get("language","fr")) == "en" else titles_fr
+	var tips = tips_en if str(save.get("language","fr")) == "en" else tips_fr
+	label(titles[index],70,621,581,61,27,theme_color,true,modal_layer)
+	var paragraph = label(tips[index],77,698,568,134,21,PAPER,true,modal_layer)
+	paragraph.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	paragraph.clip_text = true
+	btn(loc("PASSER", "SKIP"),68,887,218,74,end_tutorial,false,modal_layer,true)
+	var next_action = Callable(self,"show_tutorial_step").bind(index+1) if index < 4 else Callable(self,"end_tutorial")
+	btn(loc("SUIVANT  ›", "NEXT  ›") if index < 4 else loc("C'EST PARTI !", "LET'S GO!"),299,887,347,74,next_action,true,modal_layer,true)
 
 func end_tutorial() -> void:
-	save["tutorial_seen"]=true
+	for node in modal_layer.get_children():
+		node.queue_free()
+	save["tutorial_seen"] = true
 	persist()
 	play_sound("unlock")
 
@@ -1433,7 +1560,7 @@ func show_profile() -> void:
 	txt_name.add_theme_font_size_override("font_size",27)
 	page.add_child(txt_name)
 	btn(loc("ENREGISTRER","SAVE NAME"),207,591,306,55,store_username,true,page,true)
-	var statistics=[loc("NIVEAU JOUEUR","PLAYER LEVEL"),str(user_level()),loc("DOSSIERS RÉSOLUS","CASES SOLVED"),str(solved_count())+" / 50",loc("EXPÉRIENCE","EXPERIENCE"),str(save.get("xp",0))+" XP",loc("RECORD CUMULÉ","TOTAL BEST SCORE"),str(total_score())+" PTS"]
+	var statistics=[loc("NIVEAU JOUEUR","PLAYER LEVEL"),str(user_level()),loc("DOSSIERS RÉSOLUS","CASES SOLVED"),str(solved_count())+" / 100",loc("EXPÉRIENCE","EXPERIENCE"),str(save.get("xp",0))+" XP",loc("RECORD CUMULÉ","TOTAL BEST SCORE"),str(total_score())+" PTS"]
 	for i in range(4):
 		var x=42+(i%2)*331; var y=664+int(i/2)*154
 		box(x,y,306,133,Color("#182b3bec"))
@@ -1465,7 +1592,7 @@ func show_leaderboard() -> void:
 	label(loc("VOS MEILLEURES PERFORMANCES","YOUR BEST PERFORMANCES"),38,142,647,69,28,theme_color,true)
 	box(36,227,648,149,Color("#152c3b"))
 	label(str(total_score()),75,238,565,77,51,theme_color,true)
-	label(loc("POINTS CUMULÉS SUR 50 DOSSIERS","TOTAL BEST SCORE ACROSS 50 CASES"),78,319,556,35,18,QUIET,true)
+	label(loc("POINTS CUMULÉS SUR 100 DOSSIERS","TOTAL BEST SCORE ACROSS 100 CASES"),78,319,556,35,18,QUIET,true)
 	var mode_records=save.get("mode_records",{}) as Dictionary
 	if mode_records.size()>0:
 		var records_text=loc("RECORDS MODES : ","MODE RECORDS: ")
@@ -1554,7 +1681,7 @@ func show_achievements() -> void:
 		["FIRST",loc("PREMIÈRE PISTE","FIRST CLUE"),loc("Terminer 1 enquête","Finish 1 case")],
 		["TEN",loc("ENQUÊTEUR","INVESTIGATOR"),loc("Terminer 10 enquêtes","Finish 10 cases")],
 		["HALF",loc("MAÎTRE DES SECRETS","SECRET MASTER"),loc("Terminer 25 enquêtes","Finish 25 cases")],
-		["ALL",loc("LÉGENDE","LEGEND"),loc("Terminer 50 enquêtes","Finish 50 cases")],
+		["ALL",loc("LÉGENDE","LEGEND"),loc("Terminer 100 enquêtes","Finish 100 cases")],
 		["FAST",loc("ÉCLAIR DE GÉNIE","QUICK THINKER"),loc("Finir un dossier en moins de 50 s","Solve a case in under 50 s")],
 		["PERFECT",loc("SANS FAUTE","FLAWLESS"),loc("Réussir sans erreur ni indice","No mistakes or hints")]]
 	for i in range(data.size()):
@@ -1581,7 +1708,7 @@ func show_journal() -> void:
 	list.custom_minimum_size=Vector2(613,0)
 	list.add_theme_constant_override("separation",14)
 	scroll.add_child(list)
-	for i in range(50):
+	for i in range(main_level_count):
 		var holder=Control.new()
 		holder.custom_minimum_size=Vector2(610,119)
 		list.add_child(holder)
@@ -1625,12 +1752,17 @@ func show_settings() -> void:
 	wipe()
 	backdrop("menu",.65)
 	topbar(loc("PARAMÈTRES","SETTINGS"),show_home)
-	label(loc("SON, IMAGE & ACCESSIBILITÉ","AUDIO, DISPLAY & ACCESSIBILITY"),31,140,656,58,26,theme_color,true)
+	label(loc("GLISSEZ VERS LE HAUT POUR DÉFILER", "SWIPE UP TO SCROLL"),31,140,656,58,23,theme_color,true)
 	var scroller=ScrollContainer.new()
 	scroller.position=Vector2(37,218)
 	scroller.size=Vector2(648,915)
 	scroller.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroller.follow_focus = true
+	scroller.scroll_deadzone = 4
 	page.add_child(scroller)
+	settings_scroll=scroller
+	scroller.get_v_scroll_bar().modulate.a = 0.0
+	scroller.get_v_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var list=VBoxContainer.new()
 	list.custom_minimum_size=Vector2(627,0)
 	list.add_theme_constant_override("separation",15)
@@ -1727,6 +1859,14 @@ func select_visual_theme(which: int) -> void:
 	change_theme(which)
 	persist()
 	show_settings()
+
+func _input(event: InputEvent) -> void:
+	# Native iOS finger-scroll: no need to grab the tiny vertical scrollbar.
+	if screen == "settings" and is_instance_valid(settings_scroll):
+		if event is InputEventScreenDrag and settings_scroll.get_global_rect().has_point(event.position):
+			var bar = settings_scroll.get_v_scroll_bar()
+			var limit = int(maxf(0.0, bar.max_value - bar.page))
+			settings_scroll.scroll_vertical = clampi(settings_scroll.scroll_vertical - int(event.relative.y), 0, limit)
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:

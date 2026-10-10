@@ -1,4 +1,4 @@
-name: Mystery Escapes V3 - IPA iPhone (unsigned)
+name: Mystery Escapes V4 - IPA iPhone (unsigned)
 
 on:
   workflow_dispatch:
@@ -38,6 +38,12 @@ jobs:
           test -f scenes/main_menu.tscn || { echo "scenes/main_menu.tscn absent"; exit 1; }
           test -f assets/ui/seal.png || { echo "assets/ui/seal.png absent"; exit 1; }
           echo "Fichiers essentiels presents."
+
+      - name: Valider les 100 dossiers et ressources V4
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/verify_v4.py
 
       - name: Telecharger Godot macOS officiel
         shell: bash
@@ -87,7 +93,7 @@ jobs:
           set -euo pipefail
           "$GODOT_BIN" --headless --path . --quit-after 25 > "$RUNNER_TEMP/godot-smoke.log" 2>&1 || { cat "$RUNNER_TEMP/godot-smoke.log"; exit 1; }
           cat "$RUNNER_TEMP/godot-smoke.log"
-          if grep -E "SCRIPT ERROR|Parse Error|Invalid call" "$RUNNER_TEMP/godot-smoke.log"; then
+          if grep -Ei "SCRIPT ERROR|Parse Error|Invalid call|ERROR:.*(Cannot|Parse|Failed)" "$RUNNER_TEMP/godot-smoke.log"; then
             echo "Erreur Godot lors du lancement du menu"
             exit 1
           fi
@@ -132,7 +138,7 @@ jobs:
       - name: Publier l'IPA telechargeable
         uses: actions/upload-artifact@v4
         with:
-          name: MysteryEscapes-V3-IPA-non-signe
+          name: MysteryEscapes-V4-IPA-non-signe
           path: MysteryEscapes-unsigned.ipa
           if-no-files-found: error
           retention-days: 7

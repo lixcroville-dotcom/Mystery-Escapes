@@ -2847,5 +2847,3666 @@
     ],
     "story_fr": "Dossier 50 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
     "story_en": "Case 50: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 51,
+    "chapter": 5,
+    "title_fr": "La lettre scellée",
+    "title_en": "The Sealed Letter",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "1215",
+        "question_fr": "Carnet codé : A=1, B=2, C=1. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=1, B=2, C=1. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×1+2+1 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×1+2+1; keep the units digit."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          2,
+          8,
+          4,
+          1,
+          0,
+          3,
+          7,
+          6,
+          5
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "time",
+        "answer": "03:00",
+        "question_fr": "Le registre indique 01:15. La deuxième alarme se déclenche 105 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 01:15. The second alarm sounds 105 minutes later. Set that time.",
+        "hint_fr": "Ajoute 105 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 105 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          3,
+          0
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Lentille puis Aimant.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Lens then Magnet.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 51 — La lettre scellée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 51 — The Sealed Letter. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 52,
+    "chapter": 5,
+    "title_fr": "La table du cartographe",
+    "title_en": "The Cartographer’s Table",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3,
+          3
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 4,
+        "question_fr": "La pièce à conviction manquante est : BOUTON. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: BUTTON. Examine the items before confirming.",
+        "hint_fr": "Recherche BOUTON dans le tableau des pièces à conviction.",
+        "hint_en": "Find BUTTON on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PLAN",
+        "question_fr": "La note « VRGT » suit un César de +6. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “VRGT” was encoded with Caesar +6. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 6 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6.",
+        "encoded": "VRGT",
+        "shift": 6
+      }
+    ],
+    "story_fr": "DOSSIER 52 — La table du cartographe. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 52 — The Cartographer’s Table. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 53,
+    "chapter": 5,
+    "title_fr": "La montre brisée",
+    "title_en": "The Broken Watch",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 2,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : ROUGE 20H30 ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: RED 8:30PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          0,
+          1
+        ],
+        "question_fr": "La première roue pointe OUEST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points WEST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "1877",
+        "question_fr": "Carnet codé : A=1, B=8, C=7. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=1, B=8, C=7. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×1+8+7 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×1+8+7; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 3,4,2,1. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 3,4,2,1. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      }
+    ],
+    "story_fr": "DOSSIER 53 — La montre brisée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 53 — The Broken Watch. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 54,
+    "chapter": 5,
+    "title_fr": "Le tiroir sans clé",
+    "title_en": "The Keyless Drawer",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "ENQUETE",
+        "answer_en": "ENQUETE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par EN.",
+        "hint_en": "The word starts with EN."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 0,
+        "question_fr": "La pièce à conviction manquante est : BAGUE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: RING. Examine the items before confirming.",
+        "hint_fr": "Recherche BAGUE dans le tableau des pièces à conviction.",
+        "hint_en": "Find RING on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 54 — Le tiroir sans clé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 54 — The Keyless Drawer. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 55,
+    "chapter": 5,
+    "title_fr": "Le testament codé",
+    "title_en": "The Coded Will",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Aimant puis Papier.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Magnet then Paper.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "582",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 5, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 5, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 5, 8, 2.",
+        "hint_en": "Wrap back to zero after 9. The dials are 5, 8, 2."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : ROUGE 20H30 ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: RED 8:30PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          0,
+          1
+        ],
+        "question_fr": "La première roue pointe OUEST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points WEST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      }
+    ],
+    "story_fr": "DOSSIER 55 — Le testament codé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 55 — The Coded Will. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 56,
+    "chapter": 5,
+    "title_fr": "Le portrait effacé",
+    "title_en": "The Erased Portrait",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "LION",
+        "question_fr": "La note « SPVU » suit un César de +7. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “SPVU” was encoded with Caesar +7. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 7 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7.",
+        "encoded": "SPVU",
+        "shift": 7
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          2,
+          0,
+          3,
+          1,
+          8,
+          5,
+          7,
+          6,
+          4
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "DOSSIER",
+        "answer_en": "DOSSIER",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par DO.",
+        "hint_en": "The word starts with DO."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      }
+    ],
+    "story_fr": "DOSSIER 56 — Le portrait effacé. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 56 — The Erased Portrait. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 57,
+    "chapter": 5,
+    "title_fr": "Les quatre témoins",
+    "title_en": "The Four Witnesses",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          0,
+          3,
+          2
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 3,4,1,2. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 3,4,1,2. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "08:00",
+        "question_fr": "Le registre indique 06:30. La deuxième alarme se déclenche 90 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 06:30. The second alarm sounds 90 minutes later. Set that time.",
+        "hint_fr": "Ajoute 90 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 90 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Aimant puis Papier.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Magnet then Paper.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "360",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 3, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 3, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 3, 6, 0.",
+        "hint_en": "Wrap back to zero after 9. The dials are 3, 6, 0."
+      }
+    ],
+    "story_fr": "DOSSIER 57 — Les quatre témoins. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 57 — The Four Witnesses. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 58,
+    "chapter": 5,
+    "title_fr": "Le jardin d’hiver",
+    "title_en": "The Winter Garden",
+    "difficulty": 6,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 9,
+        "question_fr": "La pièce à conviction manquante est : MONTRE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: WATCH. Examine the items before confirming.",
+        "hint_fr": "Recherche MONTRE dans le tableau des pièces à conviction.",
+        "hint_en": "Find WATCH on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "NOTE",
+        "question_fr": "La note « RSXI » suit un César de +4. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “RSXI” was encoded with Caesar +4. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 4 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4.",
+        "encoded": "RSXI",
+        "shift": 4
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 2, 5, 12, 27, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 2, 5, 12, 27, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "51",
+          "62",
+          "58",
+          "55"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 58 — Le jardin d’hiver. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 58 — The Winter Garden. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 59,
+    "chapter": 5,
+    "title_fr": "La serrure inversée",
+    "title_en": "The Reversed Lock",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "La première roue pointe NORD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points NORTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "2543",
+        "question_fr": "Carnet codé : A=2, B=5, C=4. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=2, B=5, C=4. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×2+5+4 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×2+5+4; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          1,
+          0,
+          2
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 1,3,4,2. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 1,3,4,2. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "12:30",
+        "question_fr": "Le registre indique 11:30. La deuxième alarme se déclenche 60 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 11:30. The second alarm sounds 60 minutes later. Set that time.",
+        "hint_fr": "Ajoute 60 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 60 minutes, carrying to the next hour when needed."
+      }
+    ],
+    "story_fr": "DOSSIER 59 — La serrure inversée. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 59 — The Reversed Lock. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 60,
+    "chapter": 5,
+    "title_fr": "Le pacte secret",
+    "title_en": "The Secret Pact",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 5,
+        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
+        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
+        "hint_en": "Find COIN on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 60 — Le pacte secret. Un message laissé dans les couloirs mène à un suspect inattendu. Confronte l’heure des faits aux indices.",
+    "story_en": "CASE 60 — The Secret Pact. A corridor message points toward an unexpected suspect. Compare the timeline with the clues."
+  },
+  {
+    "id": 61,
+    "chapter": 6,
+    "title_fr": "Le protocole bleu",
+    "title_en": "The Blue Protocol",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "259",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 2, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 2, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 2, 5, 9.",
+        "hint_en": "Wrap back to zero after 9. The dials are 2, 5, 9."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          5,
+          4,
+          1,
+          8,
+          0,
+          2,
+          7,
+          6,
+          3
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "La première roue pointe NORD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points NORTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "2431",
+        "question_fr": "Carnet codé : A=2, B=4, C=3. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=2, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×2+4+3 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×2+4+3; keep the units digit."
+      }
+    ],
+    "story_fr": "DOSSIER 61 — Le protocole bleu. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 61 — The Blue Protocol. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 62,
+    "chapter": 6,
+    "title_fr": "La chambre des ondes",
+    "title_en": "The Wave Chamber",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 3, 7, 16, 35, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 3, 7, 16, 35, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "67",
+          "78",
+          "74",
+          "71"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "CADENAS",
+        "answer_en": "CADENAS",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par CA.",
+        "hint_en": "The word starts with CA."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      }
+    ],
+    "story_fr": "DOSSIER 62 — La chambre des ondes. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 62 — The Wave Chamber. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 63,
+    "chapter": 6,
+    "title_fr": "La note clandestine",
+    "title_en": "The Hidden Note",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "01:00",
+        "question_fr": "Le registre indique 11:45. La deuxième alarme se déclenche 75 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 11:45. The second alarm sounds 75 minutes later. Set that time.",
+        "hint_fr": "Ajoute 75 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 75 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          1,
+          2
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Papier puis Clé.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Paper then Key.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "037",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 0, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 0, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 0, 3, 7.",
+        "hint_en": "Wrap back to zero after 9. The dials are 0, 3, 7."
+      },
+      {
+        "type": "deduction",
+        "answer": 3,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : VERT 20H ; LA TECHNICIENNE : ROUGE 20H30. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: GREEN 8PM; THE TECHNICIAN: RED 8:30PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 63 — La note clandestine. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 63 — The Hidden Note. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 64,
+    "chapter": 6,
+    "title_fr": "Le badge disparu",
+    "title_en": "The Missing Badge",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "PLAN",
+        "question_fr": "La note « RNCP » suit un César de +2. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “RNCP” was encoded with Caesar +2. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 2 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 2.",
+        "encoded": "RNCP",
+        "shift": 2
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 2, 5, 12, 27, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 2, 5, 12, 27, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "51",
+          "62",
+          "58",
+          "55"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "PASSAGE",
+        "answer_en": "PASSAGE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par PA.",
+        "hint_en": "The word starts with PA."
+      }
+    ],
+    "story_fr": "DOSSIER 64 — Le badge disparu. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 64 — The Missing Badge. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 65,
+    "chapter": 6,
+    "title_fr": "La console oubliée",
+    "title_en": "The Forgotten Console",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "3219",
+        "question_fr": "Carnet codé : A=3, B=2, C=1. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=3, B=2, C=1. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×3+2+1 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×3+2+1; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 4,3,1,2. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 4,3,1,2. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "05:30",
+        "question_fr": "Le registre indique 04:45. La deuxième alarme se déclenche 45 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 04:45. The second alarm sounds 45 minutes later. Set that time.",
+        "hint_fr": "Ajoute 45 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 45 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          1,
+          2
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Papier puis Clé.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Paper then Key.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 65 — La console oubliée. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 65 — The Forgotten Console. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 66,
+    "chapter": 6,
+    "title_fr": "Le carnet du veilleur",
+    "title_en": "The Watchman’s Journal",
+    "difficulty": 7,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          1,
+          0,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          2
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "ROSE",
+        "question_fr": "La note « XUYK » suit un César de +6. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “XUYK” was encoded with Caesar +6. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 6 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6.",
+        "encoded": "XUYK",
+        "shift": 6
+      }
+    ],
+    "story_fr": "DOSSIER 66 — Le carnet du veilleur. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 66 — The Watchman’s Journal. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 67,
+    "chapter": 6,
+    "title_fr": "Le couloir magnétique",
+    "title_en": "The Magnetic Hall",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 0,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : ROUGE 20H30 ; L’ARCHIVISTE : BLEU 19H ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: RED 8:30PM; THE ARCHIVIST: BLUE 7PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "La première roue pointe EST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "3871",
+        "question_fr": "Carnet codé : A=3, B=8, C=7. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=3, B=8, C=7. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×3+8+7 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×3+8+7; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          0,
+          3,
+          2
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 3,4,1,2. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 3,4,1,2. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      }
+    ],
+    "story_fr": "DOSSIER 67 — Le couloir magnétique. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 67 — The Magnetic Hall. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 68,
+    "chapter": 6,
+    "title_fr": "L’ordinateur silencieux",
+    "title_en": "The Silent Computer",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "DOSSIER",
+        "answer_en": "DOSSIER",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par DO.",
+        "hint_en": "The word starts with DO."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1,
+          1
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 6,
+        "question_fr": "La pièce à conviction manquante est : LIVRE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: BOOK. Examine the items before confirming.",
+        "hint_fr": "Recherche LIVRE dans le tableau des pièces à conviction.",
+        "hint_en": "Find BOOK on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 68 — L’ordinateur silencieux. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 68 — The Silent Computer. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 69,
+    "chapter": 6,
+    "title_fr": "Le coffre d’ozone",
+    "title_en": "The Ozone Vault",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Clé puis Lentille.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Key then Lens.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "704",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 7, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 7, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 7, 0, 4.",
+        "hint_en": "Wrap back to zero after 9. The dials are 7, 0, 4."
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : ROUGE 20H30 ; L’ARCHIVISTE : BLEU 19H ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: RED 8:30PM; THE ARCHIVIST: BLUE 7PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "La première roue pointe EST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      }
+    ],
+    "story_fr": "DOSSIER 69 — Le coffre d’ozone. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 69 — The Ozone Vault. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 70,
+    "chapter": 6,
+    "title_fr": "La preuve photographique",
+    "title_en": "The Photographic Evidence",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "NOTE",
+        "question_fr": "La note « UVAL » suit un César de +7. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “UVAL” was encoded with Caesar +7. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 7 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7.",
+        "encoded": "UVAL",
+        "shift": 7
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 2, 5, 12, 27, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 2, 5, 12, 27, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "51",
+          "62",
+          "58",
+          "55"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "MYSTERE",
+        "answer_en": "MYSTERE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par MY.",
+        "hint_en": "The word starts with MY."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      }
+    ],
+    "story_fr": "DOSSIER 70 — La preuve photographique. Sous les vitrines de verre, une fausse preuve a été placée. Recoupe les observations avant de conclure.",
+    "story_en": "CASE 70 — The Photographic Evidence. False evidence has been planted beneath the glass cases. Cross-check every observation."
+  },
+  {
+    "id": 71,
+    "chapter": 7,
+    "title_fr": "La valise 17",
+    "title_en": "Suitcase 17",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          1,
+          3,
+          0
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 2,3,1,4. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 2,3,1,4. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          5,
+          1,
+          0,
+          4,
+          3,
+          2,
+          8,
+          7,
+          6
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Clé puis Lentille.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Key then Lens.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "582",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 5, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 5, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 5, 8, 2.",
+        "hint_en": "Wrap back to zero after 9. The dials are 5, 8, 2."
+      }
+    ],
+    "story_fr": "DOSSIER 71 — La valise 17. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 71 — Suitcase 17. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 72,
+    "chapter": 7,
+    "title_fr": "Le dernier passage",
+    "title_en": "The Last Passage",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 3,
+        "question_fr": "La pièce à conviction manquante est : CARTE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: MAP. Examine the items before confirming.",
+        "hint_fr": "Recherche CARTE dans le tableau des pièces à conviction.",
+        "hint_en": "Find MAP on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "RUSE",
+        "question_fr": "La note « VYWI » suit un César de +4. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “VYWI” was encoded with Caesar +4. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 4 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4.",
+        "encoded": "VYWI",
+        "shift": 4
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 6, 13, 28, 59, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 6, 13, 28, 59, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "115",
+          "126",
+          "122",
+          "119"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 72 — Le dernier passage. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 72 — The Last Passage. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 73,
+    "chapter": 7,
+    "title_fr": "Le masque anonyme",
+    "title_en": "The Anonymous Mask",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          2,
+          3,
+          0
+        ],
+        "question_fr": "La première roue pointe SUD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points SOUTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "4547",
+        "question_fr": "Carnet codé : A=4, B=5, C=4. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=4, B=5, C=4. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×4+5+4 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×4+5+4; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          3,
+          0,
+          1
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 2,1,4,3. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 2,1,4,3. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "02:00",
+        "question_fr": "Le registre indique 12:30. La deuxième alarme se déclenche 90 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 12:30. The second alarm sounds 90 minutes later. Set that time.",
+        "hint_fr": "Ajoute 90 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 90 minutes, carrying to the next hour when needed."
+      }
+    ],
+    "story_fr": "DOSSIER 73 — Le masque anonyme. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 73 — The Anonymous Mask. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 74,
+    "chapter": 7,
+    "title_fr": "L’alphabet miroir",
+    "title_en": "The Mirrored Alphabet",
+    "difficulty": 8,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 11,
+        "question_fr": "La pièce à conviction manquante est : PHOTO. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: PHOTO. Examine the items before confirming.",
+        "hint_fr": "Recherche PHOTO dans le tableau des pièces à conviction.",
+        "hint_en": "Find PHOTO on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 74 — L’alphabet miroir. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 74 — The Mirrored Alphabet. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 75,
+    "chapter": 7,
+    "title_fr": "La caisse scellée",
+    "title_en": "The Sealed Crate",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "471",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 4, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 4, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 4, 7, 1.",
+        "hint_en": "Wrap back to zero after 9. The dials are 4, 7, 1."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 20H30 ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 8:30PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          2,
+          3,
+          0
+        ],
+        "question_fr": "La première roue pointe SUD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points SOUTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "4435",
+        "question_fr": "Carnet codé : A=4, B=4, C=3. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=4, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×4+4+3 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×4+4+3; keep the units digit."
+      }
+    ],
+    "story_fr": "DOSSIER 75 — La caisse scellée. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 75 — The Sealed Crate. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 76,
+    "chapter": 7,
+    "title_fr": "Le reflet de minuit",
+    "title_en": "The Midnight Reflection",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 2, 5, 12, 27, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 2, 5, 12, 27, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "51",
+          "62",
+          "58",
+          "55"
+        ]
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          4,
+          1,
+          6,
+          3,
+          5,
+          2,
+          7,
+          0,
+          8
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          2,
+          0,
+          0,
+          2,
+          2
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      }
+    ],
+    "story_fr": "DOSSIER 76 — Le reflet de minuit. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 76 — The Midnight Reflection. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 77,
+    "chapter": 7,
+    "title_fr": "Le mécanisme du port",
+    "title_en": "The Harbor Mechanism",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "03:30",
+        "question_fr": "Le registre indique 01:45. La deuxième alarme se déclenche 105 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 01:45. The second alarm sounds 105 minutes later. Set that time.",
+        "hint_fr": "Ajoute 105 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 105 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          3,
+          0
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Lentille puis Aimant.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Lens then Magnet.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "259",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 2, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 2, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 2, 5, 9.",
+        "hint_en": "Wrap back to zero after 9. The dials are 2, 5, 9."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 20H30 ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 8:30PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 77 — Le mécanisme du port. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 77 — The Harbor Mechanism. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 78,
+    "chapter": 7,
+    "title_fr": "La fausse identité",
+    "title_en": "The False Identity",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "ROSE",
+        "question_fr": "La note « TQUG » suit un César de +2. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “TQUG” was encoded with Caesar +2. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 2 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 2.",
+        "encoded": "TQUG",
+        "shift": 2
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 6, 13, 28, 59, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 6, 13, 28, 59, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "115",
+          "126",
+          "122",
+          "119"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "ARCHIVE",
+        "answer_en": "ARCHIVE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par AR.",
+        "hint_en": "The word starts with AR."
+      }
+    ],
+    "story_fr": "DOSSIER 78 — La fausse identité. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 78 — The False Identity. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 79,
+    "chapter": 7,
+    "title_fr": "Le manuscrit chiffré",
+    "title_en": "The Ciphered Manuscript",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5213",
+        "question_fr": "Carnet codé : A=5, B=2, C=1. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=5, B=2, C=1. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×5+2+1 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×5+2+1; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 4,2,1,3. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 4,2,1,3. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "07:00",
+        "question_fr": "Le registre indique 05:45. La deuxième alarme se déclenche 75 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 05:45. The second alarm sounds 75 minutes later. Set that time.",
+        "hint_fr": "Ajoute 75 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 75 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          3,
+          0
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Lentille puis Aimant.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Lens then Magnet.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 79 — Le manuscrit chiffré. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 79 — The Ciphered Manuscript. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 80,
+    "chapter": 7,
+    "title_fr": "L’ultime transmission",
+    "title_en": "The Final Transmission",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 4,
+        "question_fr": "La pièce à conviction manquante est : BOUTON. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: BUTTON. Examine the items before confirming.",
+        "hint_fr": "Recherche BOUTON dans le tableau des pièces à conviction.",
+        "hint_en": "Find BUTTON on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "LUNE",
+        "question_fr": "La note « RATK » suit un César de +6. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “RATK” was encoded with Caesar +6. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 6 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6.",
+        "encoded": "RATK",
+        "shift": 6
+      }
+    ],
+    "story_fr": "DOSSIER 80 — L’ultime transmission. Un registre des disparitions contient une série de codes. Écarte les fausses pistes avec méthode.",
+    "story_en": "CASE 80 — The Final Transmission. A missing-persons ledger holds a chain of codes. Eliminate false leads carefully."
+  },
+  {
+    "id": 81,
+    "chapter": 8,
+    "title_fr": "Une ombre au théâtre",
+    "title_en": "A Shadow at the Theater",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 2,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : ROUGE 20H30 ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: RED 8:30PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          7,
+          4,
+          0,
+          8,
+          2,
+          1,
+          6,
+          5,
+          3
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "code",
+        "answer": "5875",
+        "question_fr": "Carnet codé : A=5, B=8, C=7. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=5, B=8, C=7. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×5+8+7 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×5+8+7; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          1,
+          3,
+          0
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 2,3,1,4. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 2,3,1,4. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      }
+    ],
+    "story_fr": "DOSSIER 81 — Une ombre au théâtre. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 81 — A Shadow at the Theater. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 82,
+    "chapter": 8,
+    "title_fr": "Le registre des billets",
+    "title_en": "The Ticket Register",
+    "difficulty": 9,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "MYSTERE",
+        "answer_en": "MYSTERE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par MY.",
+        "hint_en": "The word starts with MY."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 0,
+        "question_fr": "La pièce à conviction manquante est : BAGUE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: RING. Examine the items before confirming.",
+        "hint_fr": "Recherche BAGUE dans le tableau des pièces à conviction.",
+        "hint_en": "Find RING on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 82 — Le registre des billets. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 82 — The Ticket Register. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 83,
+    "chapter": 8,
+    "title_fr": "Le rideau rouge",
+    "title_en": "The Red Curtain",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Aimant puis Papier.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Magnet then Paper.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "926",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 9, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 9, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 9, 2, 6.",
+        "hint_en": "Wrap back to zero after 9. The dials are 9, 2, 6."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : ROUGE 20H30 ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: RED 8:30PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          0,
+          1
+        ],
+        "question_fr": "La première roue pointe OUEST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points WEST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      }
+    ],
+    "story_fr": "DOSSIER 83 — Le rideau rouge. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 83 — The Red Curtain. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 84,
+    "chapter": 8,
+    "title_fr": "Le cadran fendu",
+    "title_en": "The Cracked Dial",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "RUSE",
+        "question_fr": "La note « YBZL » suit un César de +7. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “YBZL” was encoded with Caesar +7. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 7 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7.",
+        "encoded": "YBZL",
+        "shift": 7
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 6, 13, 28, 59, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 6, 13, 28, 59, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "115",
+          "126",
+          "122",
+          "119"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "SECRETS",
+        "answer_en": "SECRETS",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par SE.",
+        "hint_en": "The word starts with SE."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          2,
+          0,
+          0
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      }
+    ],
+    "story_fr": "DOSSIER 84 — Le cadran fendu. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 84 — The Cracked Dial. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 85,
+    "chapter": 8,
+    "title_fr": "Les empreintes croisées",
+    "title_en": "The Crossed Fingerprints",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          1,
+          3,
+          0
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 2,3,1,4. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 2,3,1,4. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "12:00",
+        "question_fr": "Le registre indique 11:00. La deuxième alarme se déclenche 60 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 11:00. The second alarm sounds 60 minutes later. Set that time.",
+        "hint_fr": "Ajoute 60 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 60 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Aimant puis Papier.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Magnet then Paper.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "704",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 7, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 7, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 7, 0, 4.",
+        "hint_en": "Wrap back to zero after 9. The dials are 7, 0, 4."
+      }
+    ],
+    "story_fr": "DOSSIER 85 — Les empreintes croisées. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 85 — The Crossed Fingerprints. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 86,
+    "chapter": 8,
+    "title_fr": "La chambre sans fenêtre",
+    "title_en": "The Windowless Room",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 9,
+        "question_fr": "La pièce à conviction manquante est : MONTRE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: WATCH. Examine the items before confirming.",
+        "hint_fr": "Recherche MONTRE dans le tableau des pièces à conviction.",
+        "hint_en": "Find WATCH on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          1,
+          7,
+          3,
+          4,
+          5,
+          2,
+          6,
+          0,
+          8
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "cipher",
+        "answer": "PORT",
+        "question_fr": "La note « TSVX » suit un César de +4. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “TSVX” was encoded with Caesar +4. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 4 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4.",
+        "encoded": "TSVX",
+        "shift": 4
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 5, 11, 24, 51, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 5, 11, 24, 51, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "99",
+          "110",
+          "106",
+          "103"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 86 — La chambre sans fenêtre. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 86 — The Windowless Room. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 87,
+    "chapter": 8,
+    "title_fr": "Le numéro de quai",
+    "title_en": "The Platform Number",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "La première roue pointe NORD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points NORTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "6541",
+        "question_fr": "Carnet codé : A=6, B=5, C=4. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=6, B=5, C=4. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×6+5+4 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×6+5+4; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 1,2,4,3. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 1,2,4,3. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "04:30",
+        "question_fr": "Le registre indique 02:30. La deuxième alarme se déclenche 120 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 02:30. The second alarm sounds 120 minutes later. Set that time.",
+        "hint_fr": "Ajoute 120 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 120 minutes, carrying to the next hour when needed."
+      }
+    ],
+    "story_fr": "DOSSIER 87 — Le numéro de quai. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 87 — The Platform Number. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 88,
+    "chapter": 8,
+    "title_fr": "Le témoin des horloges",
+    "title_en": "The Clockmaker’s Witness",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 5,
+        "question_fr": "La pièce à conviction manquante est : PIÈCE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: COIN. Examine the items before confirming.",
+        "hint_fr": "Recherche PIÈCE dans le tableau des pièces à conviction.",
+        "hint_en": "Find COIN on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 88 — Le témoin des horloges. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 88 — The Clockmaker’s Witness. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 89,
+    "chapter": 8,
+    "title_fr": "La trace effacée",
+    "title_en": "The Erased Trace",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "693",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 6, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 6, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 6, 9, 3.",
+        "hint_en": "Wrap back to zero after 9. The dials are 6, 9, 3."
+      },
+      {
+        "type": "deduction",
+        "answer": 3,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : VERT 20H ; LA TECHNICIENNE : ROUGE 20H30. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: GREEN 8PM; THE TECHNICIAN: RED 8:30PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "question_fr": "La première roue pointe NORD. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points NORTH. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "6439",
+        "question_fr": "Carnet codé : A=6, B=4, C=3. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=6, B=4, C=3. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×6+4+3 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×6+4+3; keep the units digit."
+      }
+    ],
+    "story_fr": "DOSSIER 89 — La trace effacée. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 89 — The Erased Trace. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 90,
+    "chapter": 8,
+    "title_fr": "Le dossier inachevé",
+    "title_en": "The Unfinished Case",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 6, 13, 28, 59, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 6, 13, 28, 59, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "115",
+          "126",
+          "122",
+          "119"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "ARCHIVE",
+        "answer_en": "ARCHIVE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par AR.",
+        "hint_en": "The word starts with AR."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          0,
+          2,
+          2,
+          0
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 5 éléments.",
+        "hint_en": "The sequence has 5 symbols."
+      }
+    ],
+    "story_fr": "DOSSIER 90 — Le dossier inachevé. Les témoignages divergent. Reconstitue les mouvements des suspects et les preuves.",
+    "story_en": "CASE 90 — The Unfinished Case. Witnesses disagree. Reconstruct the suspects’ movements and the evidence."
+  },
+  {
+    "id": 91,
+    "chapter": 9,
+    "title_fr": "L’accord du conservateur",
+    "title_en": "The Curator’s Agreement",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "05:00",
+        "question_fr": "Le registre indique 04:15. La deuxième alarme se déclenche 45 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 04:15. The second alarm sounds 45 minutes later. Set that time.",
+        "hint_fr": "Ajoute 45 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 45 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          3,
+          6,
+          4,
+          2,
+          8,
+          5,
+          0,
+          7,
+          1
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "lock",
+        "answer": "471",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 4, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 4, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 4, 7, 1.",
+        "hint_en": "Wrap back to zero after 9. The dials are 4, 7, 1."
+      },
+      {
+        "type": "deduction",
+        "answer": 3,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : BLEU 19H ; L’ARCHIVISTE : ROUGE 22H ; LE VISITEUR : VERT 20H ; LA TECHNICIENNE : ROUGE 20H30. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: BLUE 7PM; THE ARCHIVIST: RED 10PM; THE VISITOR: GREEN 8PM; THE TECHNICIAN: RED 8:30PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 91 — L’accord du conservateur. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 91 — The Curator’s Agreement. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 92,
+    "chapter": 9,
+    "title_fr": "La boîte à musique",
+    "title_en": "The Music Box",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "LUNE",
+        "question_fr": "La note « NWPG » suit un César de +2. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “NWPG” was encoded with Caesar +2. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 2 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 2.",
+        "encoded": "NWPG",
+        "shift": 2
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 5, 11, 24, 51, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 5, 11, 24, 51, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "99",
+          "110",
+          "106",
+          "103"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "INDICE",
+        "answer_en": "INDICE",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 6 lettres.",
+        "question_en": "An inscription was erased. Find this 6-letter word.",
+        "hint_fr": "Le mot commence par IN.",
+        "hint_en": "The word starts with IN."
+      }
+    ],
+    "story_fr": "DOSSIER 92 — La boîte à musique. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 92 — The Music Box. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 93,
+    "chapter": 9,
+    "title_fr": "La route des symboles",
+    "title_en": "The Symbol Road",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "7217",
+        "question_fr": "Carnet codé : A=7, B=2, C=1. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=7, B=2, C=1. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×7+2+1 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×7+2+1; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 4,1,2,3. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 4,1,2,3. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "09:30",
+        "question_fr": "Le registre indique 07:45. La deuxième alarme se déclenche 105 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 07:45. The second alarm sounds 105 minutes later. Set that time.",
+        "hint_fr": "Ajoute 105 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 105 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          1,
+          2
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Papier puis Clé.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Paper then Key.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 93 — La route des symboles. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 93 — The Symbol Road. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 94,
+    "chapter": 9,
+    "title_fr": "Le labyrinthe des archives",
+    "title_en": "The Archive Maze",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1,
+          1
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 6 éléments.",
+        "hint_en": "The sequence has 6 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 10,
+        "question_fr": "La pièce à conviction manquante est : BOUGIE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: CANDLE. Examine the items before confirming.",
+        "hint_fr": "Recherche BOUGIE dans le tableau des pièces à conviction.",
+        "hint_en": "Find CANDLE on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "VENT",
+        "question_fr": "La note « BKTZ » suit un César de +6. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “BKTZ” was encoded with Caesar +6. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 6 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 6.",
+        "encoded": "BKTZ",
+        "shift": 6
+      }
+    ],
+    "story_fr": "DOSSIER 94 — Le labyrinthe des archives. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 94 — The Archive Maze. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 95,
+    "chapter": 9,
+    "title_fr": "La troisième signature",
+    "title_en": "The Third Signature",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 0,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : ROUGE 20H30 ; L’ARCHIVISTE : BLEU 19H ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: RED 8:30PM; THE ARCHIVIST: BLUE 7PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "La première roue pointe EST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      },
+      {
+        "type": "code",
+        "answer": "7879",
+        "question_fr": "Carnet codé : A=7, B=8, C=7. Le dernier chiffre est (2×A+B+C) modulo 10. Compose A-B-C-D.",
+        "question_en": "Cipher notebook: A=7, B=8, C=7. Final digit is (2×A+B+C) modulo 10. Enter A-B-C-D.",
+        "hint_fr": "Calcule D : 2×7+8+7 puis garde le chiffre des unités.",
+        "hint_en": "Calculate D: 2×7+8+7; keep the units digit."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 4,2,1,3. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 4,2,1,3. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      }
+    ],
+    "story_fr": "DOSSIER 95 — La troisième signature. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 95 — The Third Signature. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 96,
+    "chapter": 9,
+    "title_fr": "Les sceaux du passé",
+    "title_en": "The Seals of the Past",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "SECRETS",
+        "answer_en": "SECRETS",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par SE.",
+        "hint_en": "The word starts with SE."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          5,
+          2,
+          4,
+          1,
+          7,
+          8,
+          6,
+          0,
+          3
+        ],
+        "question_fr": "Replace les huit carreaux numérotés dans l’ordre 1 à 8. La case vide doit finir en bas à droite.",
+        "question_en": "Slide the eight numbered tiles into order from 1 to 8. The empty space must finish at bottom right.",
+        "hint_fr": "Déplace seulement une case voisine du vide. Commence par la première ligne.",
+        "hint_en": "Only slide a tile adjacent to the empty cell. Solve the top row first."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "question_fr": "Retiens les symboles dans leur ordre exact. Observe la suite puis répète-la sans erreur.",
+        "question_en": "Memorize the symbols in their exact order. Watch the sequence, then repeat it.",
+        "hint_fr": "La séquence contient 7 éléments.",
+        "hint_en": "The sequence has 7 symbols."
+      },
+      {
+        "type": "hidden",
+        "answer": 6,
+        "question_fr": "La pièce à conviction manquante est : LIVRE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: BOOK. Examine the items before confirming.",
+        "hint_fr": "Recherche LIVRE dans le tableau des pièces à conviction.",
+        "hint_en": "Find BOOK on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 96 — Les sceaux du passé. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 96 — The Seals of the Past. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 97,
+    "chapter": 9,
+    "title_fr": "Le rendez-vous secret",
+    "title_en": "The Secret Rendezvous",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Clé puis Lentille.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Key then Lens.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "148",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 1, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 1, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 1, 4, 8.",
+        "hint_en": "Wrap back to zero after 9. The dials are 1, 4, 8."
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "question_fr": "La vidéosurveillance cible un badge ROUGE entre 20h et 21h. LE GARDIEN : ROUGE 20H30 ; L’ARCHIVISTE : BLEU 19H ; LE VISITEUR : ROUGE 22H ; LA TECHNICIENNE : VERT 20H. Qui est suspect ?",
+        "question_en": "CCTV shows a RED badge between 8 and 9PM. THE GUARD: RED 8:30PM; THE ARCHIVIST: BLUE 7PM; THE VISITOR: RED 10PM; THE TECHNICIAN: GREEN 8PM. Who is the suspect?",
+        "hint_fr": "Croise la couleur rouge avec la plage horaire 20h–21h.",
+        "hint_en": "Match the red badge with the 8–9PM time window.",
+        "options_fr": [
+          "LE GARDIEN",
+          "L’ARCHIVISTE",
+          "LE VISITEUR",
+          "LA TECHNICIENNE"
+        ],
+        "options_en": [
+          "THE GUARD",
+          "THE ARCHIVIST",
+          "THE VISITOR",
+          "THE TECHNICIAN"
+        ]
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "La première roue pointe EST. La 2e est à 90° à droite, la 3e à 180° de la première. Oriente les trois engrenages.",
+        "question_en": "The first wheel points EAST. The second is 90° clockwise, and the third 180° from the first. Turn the gears.",
+        "hint_fr": "Sens horaire : NORD → EST → SUD → OUEST.",
+        "hint_en": "Clockwise directions: NORTH → EAST → SOUTH → WEST."
+      }
+    ],
+    "story_fr": "DOSSIER 97 — Le rendez-vous secret. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 97 — The Secret Rendezvous. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 98,
+    "chapter": 9,
+    "title_fr": "Le cœur du mécanisme",
+    "title_en": "The Heart of the Mechanism",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "PORT",
+        "question_fr": "La note « WVYA » suit un César de +7. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “WVYA” was encoded with Caesar +7. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 7 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 7.",
+        "encoded": "WVYA",
+        "shift": 7
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 5, 11, 24, 51, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 5, 11, 24, 51, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "99",
+          "110",
+          "106",
+          "103"
+        ]
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "PORTAIL",
+        "answer_en": "PORTAIL",
+        "question_fr": "Une inscription a été effacée. Retrouve ce mot de 7 lettres.",
+        "question_en": "An inscription was erased. Find this 7-letter word.",
+        "hint_fr": "Le mot commence par PO.",
+        "hint_en": "The word starts with PO."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "question_fr": "Écoute la séquence musicale puis reproduis les notes à l’identique.",
+        "question_en": "Listen to the melody and repeat the notes in the same order.",
+        "hint_fr": "Réécoute le motif et sépare-le en deux groupes.",
+        "hint_en": "Listen again, and divide the motif into two groups."
+      }
+    ],
+    "story_fr": "DOSSIER 98 — Le cœur du mécanisme. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 98 — The Heart of the Mechanism. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 99,
+    "chapter": 9,
+    "title_fr": "La mémoire des lieux",
+    "title_en": "The Memory of Places",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "question_fr": "Le plan de câblage utilise les compléments à 5 : 1,2,3,4. Retrouve les numéros des quatre fils dans le bon ordre.",
+        "question_en": "The wiring diagram uses complements to 5: 1,2,3,4. Decode the four wire numbers in order.",
+        "hint_fr": "Pour chaque chiffre du plan, calcule 5 moins ce chiffre.",
+        "hint_en": "For each printed digit, subtract it from 5."
+      },
+      {
+        "type": "time",
+        "answer": "02:30",
+        "question_fr": "Le registre indique 01:00. La deuxième alarme se déclenche 90 minutes après. Quelle heure afficher ?",
+        "question_en": "The register shows 01:00. The second alarm sounds 90 minutes later. Set that time.",
+        "hint_fr": "Ajoute 90 minutes, sans oublier le passage à l’heure suivante.",
+        "hint_en": "Add 90 minutes, carrying to the next hour when needed."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "question_fr": "Combine deux outils pour révéler l’indice. La fiche d’inventaire indique : Clé puis Lentille.",
+        "question_en": "Combine two tools to reveal the clue. The inventory sheet says: Key then Lens.",
+        "hint_fr": "Respecte l’ordre indiqué sur la fiche.",
+        "hint_en": "Use the exact order given.",
+        "items_fr": [
+          "Aimant",
+          "Papier",
+          "Clé",
+          "Lentille"
+        ],
+        "items_en": [
+          "Magnet",
+          "Paper",
+          "Key",
+          "Lens"
+        ]
+      },
+      {
+        "type": "lock",
+        "answer": "926",
+        "question_fr": "Les trois cadrans suivent la règle : 1er = 9, 2e = +3, 3e = +4 (modulo 10).",
+        "question_en": "The dials follow a rule: first = 9, second = +3, third = +4 (modulo 10).",
+        "hint_fr": "Après 9, reviens à 0. Les valeurs sont 9, 2, 6.",
+        "hint_en": "Wrap back to zero after 9. The dials are 9, 2, 6."
+      }
+    ],
+    "story_fr": "DOSSIER 99 — La mémoire des lieux. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 99 — The Memory of Places. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
+  },
+  {
+    "id": 100,
+    "chapter": 9,
+    "title_fr": "La dernière énigme",
+    "title_en": "The Last Enigma",
+    "difficulty": 10,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 3,
+        "question_fr": "La pièce à conviction manquante est : CARTE. Examine les objets puis confirme ton choix.",
+        "question_en": "The missing evidence is: MAP. Examine the items before confirming.",
+        "hint_fr": "Recherche CARTE dans le tableau des pièces à conviction.",
+        "hint_en": "Find MAP on the evidence board.",
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ]
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "question_fr": "Traverse le labyrinthe depuis le cercle jusqu’à l’étoile en évitant les murs.",
+        "question_en": "Navigate from the dot to the star without crossing walls.",
+        "hint_fr": "Longe la bordure du haut, puis celle de droite.",
+        "hint_en": "Follow the upper border, then the right one.",
+        "walls": [
+          "00000",
+          "01010",
+          "00010",
+          "01110",
+          "00000"
+        ]
+      },
+      {
+        "type": "cipher",
+        "answer": "CLEF",
+        "question_fr": "La note « GPIJ » suit un César de +4. Retrouve le mot avant chiffrement.",
+        "question_en": "The note “GPIJ” was encoded with Caesar +4. Recover the original word.",
+        "hint_fr": "Recule chaque lettre de 4 rangs dans l’alphabet.",
+        "hint_en": "Shift each letter backward by 4.",
+        "encoded": "GPIJ",
+        "shift": 4
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "question_fr": "Trouve la prochaine valeur : 4, 9, 20, 43, ? Une règle différente agit à chaque étape.",
+        "question_en": "Find the next value: 4, 9, 20, 43, ? A changing rule is applied at each step.",
+        "hint_fr": "Double le terme, puis ajoute 1, puis 2, puis 3, puis 4.",
+        "hint_en": "Double each term, then add 1, then 2, then 3, then 4.",
+        "options": [
+          "83",
+          "94",
+          "90",
+          "87"
+        ]
+      }
+    ],
+    "story_fr": "DOSSIER 100 — La dernière énigme. Le dernier archiviste a laissé un mécanisme à plusieurs étapes. Chaque erreur rapproche du secret.",
+    "story_en": "CASE 100 — The Last Enigma. The last archivist left a multi-step mechanism. Every detail brings you closer to the secret."
   }
 ]

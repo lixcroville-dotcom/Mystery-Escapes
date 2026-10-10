@@ -5,7 +5,7 @@ config/name="Mystery Escape's"
 run/main_scene="res://scenes/main_menu.tscn"
 run/max_fps=60
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/description="A cinematic offline escape-puzzle detective game with 50 cases."
+config/description="A cinematic offline escape-puzzle detective game with 100 main cases and a junior detective mode."
 config/icon="res://assets/ui/seal.png"
 
 [display]
