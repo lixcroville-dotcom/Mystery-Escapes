@@ -1,0 +1,114 @@
+name: Mystery Escapes - IPA iPhone (unsigned)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      GODOT_VERSION: "4.7.2"
+      GODOT_FLAVOR: "stable"
+      IOS_APP_NAME: "MysteryEscapes"
+    steps:
+      - name: Recuperer le projet
+        uses: actions/checkout@v4
+
+      - name: Verifier les fichiers du projet
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f project.godot || { echo "project.godot absent a la racine du depot"; exit 1; }
+          test -f export_presets.cfg || { echo "export_presets.cfg absent"; exit 1; }
+          test -f scenes/main_menu.tscn || { echo "scenes/main_menu.tscn absent"; exit 1; }
+          test -f assets/ui/seal.png || { echo "assets/ui/seal.png absent"; exit 1; }
+          echo "Fichiers essentiels presents."
+
+      - name: Telecharger Godot macOS officiel
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${GODOT_VERSION}-${GODOT_FLAVOR}"
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/godot.zip" \
+            "https://github.com/godotengine/godot-builds/releases/download/${VERSION}/Godot_v${VERSION}_macos.universal.zip"
+          mkdir -p "$RUNNER_TEMP/godot"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          test -f "$RUNNER_TEMP/godot/Godot.app/Contents/MacOS/Godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot.app/Contents/MacOS/Godot"
+          echo "GODOT_BIN=$RUNNER_TEMP/godot/Godot.app/Contents/MacOS/Godot" >> "$GITHUB_ENV"
+
+      - name: Installer les templates d'export iOS officiels
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${GODOT_VERSION}-${GODOT_FLAVOR}"
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/templates.tpz" \
+            "https://github.com/godotengine/godot-builds/releases/download/${VERSION}/Godot_v${VERSION}_export_templates.tpz"
+          mkdir -p "$RUNNER_TEMP/templates_unpacked"
+          unzip -q "$RUNNER_TEMP/templates.tpz" 'templates/ios.zip' -d "$RUNNER_TEMP/templates_unpacked"
+          TEMPLATE_DIR="$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.${GODOT_FLAVOR}"
+          mkdir -p "$TEMPLATE_DIR"
+          cp "$RUNNER_TEMP/templates_unpacked/templates/ios.zip" "$TEMPLATE_DIR/ios.zip"
+          test -s "$TEMPLATE_DIR/ios.zip"
+
+      - name: Creer l'icone iPhone
+        shell: bash
+        run: |
+          set -euo pipefail
+          sips -s format png -z 1024 1024 assets/ui/seal.png --out assets/ui/ios_app_icon.png >/dev/null
+          test -s assets/ui/ios_app_icon.png
+
+      - name: Importer le projet Godot
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$GODOT_BIN" --headless --path . --import
+
+      - name: Exporter le projet Xcode iOS
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/mystery_ios"
+          mkdir -p "$OUT"
+          "$GODOT_BIN" --headless --path . --export-release "iOS" "$OUT/${IOS_APP_NAME}.xcodeproj"
+          test -d "$OUT/${IOS_APP_NAME}.xcodeproj" || { echo "Export Xcode manquant"; exit 1; }
+          xcodebuild -list -project "$OUT/${IOS_APP_NAME}.xcodeproj"
+
+      - name: Compiler sans signature Apple
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/mystery_ios"
+          xcodebuild archive \
+            -project "$OUT/${IOS_APP_NAME}.xcodeproj" \
+            -scheme "$IOS_APP_NAME" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$OUT/${IOS_APP_NAME}.xcarchive" \
+            CODE_SIGN_STYLE=Manual CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY='' PROVISIONING_PROFILE_SPECIFIER=''
+
+      - name: Creer le fichier IPA non signe
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/mystery_ios"
+          APP_PATH="$(find "$OUT/${IOS_APP_NAME}.xcarchive/Products/Applications" -maxdepth 1 -type d -name '*.app' -print -quit)"
+          test -n "$APP_PATH" || { echo "Application .app manquante apres compilation"; exit 1; }
+          mkdir -p "$OUT/package/Payload"
+          cp -R "$APP_PATH" "$OUT/package/Payload/"
+          (cd "$OUT/package" && zip -qr "$GITHUB_WORKSPACE/MysteryEscapes-unsigned.ipa" Payload)
+          unzip -t "$GITHUB_WORKSPACE/MysteryEscapes-unsigned.ipa" | tail -1
+
+      - name: Publier l'IPA telechargeable
+        uses: actions/upload-artifact@v4
+        with:
+          name: MysteryEscapes-IPA-non-signe
+          path: MysteryEscapes-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 7
