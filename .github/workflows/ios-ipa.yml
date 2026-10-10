@@ -14,7 +14,18 @@ jobs:
       GODOT_VERSION: "4.7.2"
       GODOT_FLAVOR: "stable"
       IOS_APP_NAME: "MysteryEscapes"
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
     steps:
+      - name: Verifier Xcode 26 et SDK iOS
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d "$DEVELOPER_DIR" || { echo "Xcode 26.3 introuvable sur le runner"; exit 1; }
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          SDK_MAJOR="$(xcrun --sdk iphoneos --show-sdk-version | cut -d. -f1)"
+          test "$SDK_MAJOR" -ge 26 || { echo "SDK iOS 26 ou plus recent requis par Godot 4.7.2"; exit 1; }
+
       - name: Recuperer le projet
         uses: actions/checkout@v4
 
