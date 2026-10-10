@@ -1,0 +1,14 @@
+MYSTERY ESCAPE'S — INSTALLATION WINDOWS
+
+1) Clic droit sur MysteryEscapesUltimate.zip -> Extraire tout...
+2) Extraire dans un NOUVEAU dossier.
+3) Vérifier que le dossier contient directement project.godot, scenes, scripts, assets et data.
+4) Ouvrir GODOT 4.7 -> IMPORTER -> choisir project.godot (PAS le ZIP).
+5) Cliquer sur Importer et éditer, puis sur F5 pour lancer le menu du jeu.
+6) Si la scène n'apparaît pas, ouvrez scenes/main_menu.tscn puis F6 (scène actuelle) ou F5.
+
+Ce projet est en 2D PORTRAIT. Les 50 niveaux sont accessibles par les cinq onglets de chapitre, les niveaux se débloquent progressivement.
+
+Le classement est LOCAL, les publicités et achats externes sont des espaces prévus mais non connectés.
+
+IMPORTANT : Contrôles de fichiers et de données effectués, mais Godot n'a pas pu être exécuté ici. Si le moteur affiche une erreur, envoyez une capture de la première erreur du Débogueur.

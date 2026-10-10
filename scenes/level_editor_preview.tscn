@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/backgrounds/manor.png" id="1"]
+
+[node name="LevelEditorPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RoomArtwork" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Briefing" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 166.0
+offset_right = 680.0
+offset_bottom = 300.0
+text = "AGENT MORGAN — BRIEFING\nLes enquêtes sont générées depuis data/levels.json"
+
+[node name="PuzzleArea" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 425.0
+offset_right = 692.0
+offset_bottom = 1055.0
+
+[node name="PuzzleInstructions" type="Label" parent="PuzzleArea"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 594.0
+offset_bottom = 140.0
+text = "APERÇU DE LA ZONE D'ÉNIGME\nDonnées et contrôles construits par scripts/app.gd"
+horizontal_alignment = 1

@@ -1,0 +1,2851 @@
+[
+  {
+    "id": 1,
+    "chapter": 0,
+    "title_fr": "Le bureau verrouillé",
+    "title_en": "The Locked Office",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "4622",
+        "question_fr": "Le carnet donne : quatre, six, deux, deux.",
+        "question_en": "The notebook reads: four, six, two, two.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "381",
+        "question_fr": "La serrure comporte trois molettes gravées : 3 · 8 · 1.",
+        "question_en": "Three digits are engraved beside the tumblers: 3 · 8 · 1.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      }
+    ],
+    "story_fr": "Dossier 01 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 01: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 2,
+    "chapter": 0,
+    "title_fr": "Le message disparu",
+    "title_en": "The Missing Message",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "NORD",
+        "encoded": "PQTF",
+        "shift": 2,
+        "question_fr": "Ce message a été décalé de 2 lettres : PQTF. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 2 letters: PQTF. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 2 places.",
+        "hint_en": "Move each letter backward by 2 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 7,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : LUNETTES.",
+        "question_en": "Find the following object among the evidence: GLASSES.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      }
+    ],
+    "story_fr": "Dossier 02 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 02: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 3,
+    "chapter": 0,
+    "title_fr": "Le collectionneur",
+    "title_en": "The Collector",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          1,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          "22",
+          "20",
+          "18",
+          "24"
+        ],
+        "question_fr": "Le registre donne 17 + 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 17 + 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      }
+    ],
+    "story_fr": "Dossier 03 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 03: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 4,
+    "chapter": 0,
+    "title_fr": "Les fils rouges",
+    "title_en": "The Red Wires",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          3,
+          2
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : AZUR → ÉMERAUDE → RUBIS.",
+        "question_en": "Connect the wires in this order: AZURE → EMERALD → RUBY.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "11:45",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 11h45. Règle-la.",
+        "question_en": "The clock stopped at 11:45. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      }
+    ],
+    "story_fr": "Dossier 04 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 04: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 5,
+    "chapter": 0,
+    "title_fr": "Le dernier témoignage",
+    "title_en": "The Final Witness",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Une lampe de poche est retrouvée. Seul le gardien en possédait une. Qui faut-il interroger ?",
+        "question_en": "A flashlight was found. Only the guard carried one. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "ROSE",
+        "answer_en": "ROSE",
+        "question_fr": "Mot secret de 4 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 4 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : RO…",
+        "hint_en": "Secret word begins: RO…"
+      }
+    ],
+    "story_fr": "Dossier 05 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 05: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 6,
+    "chapter": 0,
+    "title_fr": "La bibliothèque muette",
+    "title_en": "The Silent Library",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "922",
+        "question_fr": "La serrure comporte trois molettes gravées : 9 · 2 · 2.",
+        "question_en": "Three digits are engraved beside the tumblers: 9 · 2 · 2.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, SUD, OUEST.",
+        "question_en": "Turn the three dials toward: EAST, SOUTH, WEST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      }
+    ],
+    "story_fr": "Dossier 06 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 06: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 7,
+    "chapter": 0,
+    "title_fr": "Le portrait oublié",
+    "title_en": "The Forgotten Portrait",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 2,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : CLÉ.",
+        "question_en": "Find the following object among the evidence: KEY.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      }
+    ],
+    "story_fr": "Dossier 07 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 07: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 8,
+    "chapter": 0,
+    "title_fr": "La clé du grenier",
+    "title_en": "The Attic Key",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          "9",
+          "13",
+          "11",
+          "15"
+        ],
+        "question_fr": "Le registre donne 14 − 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 14 − 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Clé puis Papier.",
+        "question_en": "Prepare the objects in this order: Key then Note.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      }
+    ],
+    "story_fr": "Dossier 08 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 08: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 9,
+    "chapter": 0,
+    "title_fr": "L’horloge de minuit",
+    "title_en": "The Midnight Clock",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "11:45",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 11h45. Règle-la.",
+        "question_en": "The clock stopped at 11:45. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          3,
+          1,
+          0
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "L’écriture du faux billet correspond au registre tenu par l’archiviste. Qui faut-il interroger ?",
+        "question_en": "The forged note matches the handwriting of the archivist. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      }
+    ],
+    "story_fr": "Dossier 09 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 09: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 10,
+    "chapter": 0,
+    "title_fr": "La chambre 13",
+    "title_en": "Room Thirteen",
+    "difficulty": 1,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "PHARE",
+        "answer_en": "LIGHT",
+        "question_fr": "Mot secret de 5 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : PH…",
+        "hint_en": "Secret word begins: LI…"
+      },
+      {
+        "type": "code",
+        "answer": "6174",
+        "question_fr": "Le carnet donne : six, un, sept, quatre.",
+        "question_en": "The notebook reads: six, one, seven, four.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "992",
+        "question_fr": "La serrure comporte trois molettes gravées : 9 · 9 · 2.",
+        "question_en": "Three digits are engraved beside the tumblers: 9 · 9 · 2.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      }
+    ],
+    "story_fr": "Dossier 10 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 10: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 11,
+    "chapter": 1,
+    "title_fr": "La formule perdue",
+    "title_en": "The Lost Formula",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          2,
+          3,
+          3
+        ],
+        "question_fr": "Oriente les trois cadrans vers : SUD, OUEST, OUEST.",
+        "question_en": "Turn the three dials toward: SOUTH, WEST, WEST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "CLEF",
+        "encoded": "ENGH",
+        "shift": 2,
+        "question_fr": "Ce message a été décalé de 2 lettres : ENGH. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 2 letters: ENGH. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 2 places.",
+        "hint_en": "Move each letter backward by 2 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 0,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : BAGUE.",
+        "question_en": "Find the following object among the evidence: RING.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      }
+    ],
+    "story_fr": "Dossier 11 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 11: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 12,
+    "chapter": 1,
+    "title_fr": "Les fioles suspectes",
+    "title_en": "The Suspect Vials",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          0,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          "8",
+          "12",
+          "6",
+          "10"
+        ],
+        "question_fr": "Le registre donne 12 − 4 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 12 − 4 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      }
+    ],
+    "story_fr": "Dossier 12 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 12: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 13,
+    "chapter": 1,
+    "title_fr": "Le protocole A7",
+    "title_en": "Protocol A7",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Clé puis Papier.",
+        "question_en": "Prepare the objects in this order: Key then Note.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          0,
+          1
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : ÉMERAUDE → AMBRE → AZUR.",
+        "question_en": "Connect the wires in this order: EMERALD → AMBER → AZURE.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "11:00",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 11h00. Règle-la.",
+        "question_en": "The clock stopped at 11:00. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      }
+    ],
+    "story_fr": "Dossier 13 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 13: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 14,
+    "chapter": 1,
+    "title_fr": "La chambre froide",
+    "title_en": "The Cold Room",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          2,
+          3,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Le badge utilisé n’appartient à aucun employé. Le visiteur avait emprunté ce badge. Qui faut-il interroger ?",
+        "question_en": "The badge was not an employee badge. The visitor had borrowed it. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "NORD",
+        "answer_en": "NORTH",
+        "question_fr": "Mot secret de 4 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : NO…",
+        "hint_en": "Secret word begins: NO…"
+      }
+    ],
+    "story_fr": "Dossier 14 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 14: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 15,
+    "chapter": 1,
+    "title_fr": "Le terminal scellé",
+    "title_en": "The Sealed Terminal",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "6379",
+        "question_fr": "Le carnet donne : six, trois, sept, neuf.",
+        "question_en": "The notebook reads: six, three, seven, nine.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "062",
+        "question_fr": "La serrure comporte trois molettes gravées : 0 · 6 · 2.",
+        "question_en": "Three digits are engraved beside the tumblers: 0 · 6 · 2.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          2,
+          2,
+          3
+        ],
+        "question_fr": "Oriente les trois cadrans vers : SUD, SUD, OUEST.",
+        "question_en": "Turn the three dials toward: SOUTH, SOUTH, WEST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      }
+    ],
+    "story_fr": "Dossier 15 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 15: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 16,
+    "chapter": 1,
+    "title_fr": "Le générateur",
+    "title_en": "The Generator",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "ORBE",
+        "encoded": "PSCF",
+        "shift": 1,
+        "question_fr": "Ce message a été décalé de 1 lettres : PSCF. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 1 letters: PSCF. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 1 places.",
+        "hint_en": "Move each letter backward by 1 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 11,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : PHOTO.",
+        "question_en": "Find the following object among the evidence: PHOTO.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      }
+    ],
+    "story_fr": "Dossier 16 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 16: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 17,
+    "chapter": 1,
+    "title_fr": "Le carnet du chercheur",
+    "title_en": "The Scientist’s Notebook",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          3,
+          3,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          "29",
+          "27",
+          "33",
+          "31"
+        ],
+        "question_fr": "Le registre donne 19 + 10 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 19 + 10 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      }
+    ],
+    "story_fr": "Dossier 17 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 17: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 18,
+    "chapter": 1,
+    "title_fr": "Le signal fantôme",
+    "title_en": "The Phantom Signal",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : AMBRE → RUBIS → ÉMERAUDE.",
+        "question_en": "Connect the wires in this order: AMBER → RUBY → EMERALD.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "09:00",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 09h00. Règle-la.",
+        "question_en": "The clock stopped at 09:00. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          0,
+          1,
+          0
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 18 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 18: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 19,
+    "chapter": 1,
+    "title_fr": "La salle d’observation",
+    "title_en": "The Observation Room",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Une lampe de poche est retrouvée. Seul le gardien en possédait une. Qui faut-il interroger ?",
+        "question_en": "A flashlight was found. Only the guard carried one. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "VAULT",
+        "answer_en": "VAULT",
+        "question_fr": "Mot secret de 5 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : VA…",
+        "hint_en": "Secret word begins: VA…"
+      },
+      {
+        "type": "code",
+        "answer": "9531",
+        "question_fr": "Le carnet donne : neuf, cinq, trois, un.",
+        "question_en": "The notebook reads: nine, five, three, one.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      }
+    ],
+    "story_fr": "Dossier 19 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 19: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 20,
+    "chapter": 1,
+    "title_fr": "Le dossier Zéro",
+    "title_en": "Case Zero",
+    "difficulty": 2,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "013",
+        "question_fr": "La serrure comporte trois molettes gravées : 0 · 1 · 3.",
+        "question_en": "Three digits are engraved beside the tumblers: 0 · 1 · 3.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          3
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, SUD, OUEST.",
+        "question_en": "Turn the three dials toward: EAST, SOUTH, WEST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "CODE",
+        "encoded": "EQFG",
+        "shift": 2,
+        "question_fr": "Ce message a été décalé de 2 lettres : EQFG. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 2 letters: EQFG. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 2 places.",
+        "hint_en": "Move each letter backward by 2 places."
+      }
+    ],
+    "story_fr": "Dossier 20 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 20: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 21,
+    "chapter": 2,
+    "title_fr": "La cellule 09",
+    "title_en": "Cell Nine",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 11,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : PHOTO.",
+        "question_en": "Find the following object among the evidence: PHOTO.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 21 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 21: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 22,
+    "chapter": 2,
+    "title_fr": "Le gardien silencieux",
+    "title_en": "The Silent Guard",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          "12",
+          "8",
+          "10",
+          "14"
+        ],
+        "question_fr": "Le registre donne 20 − 10 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 20 − 10 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          3,
+          0,
+          1
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : RUBIS → ÉMERAUDE → AMBRE → AZUR.",
+        "question_en": "Connect the wires in this order: RUBY → EMERALD → AMBER → AZURE.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      }
+    ],
+    "story_fr": "Dossier 22 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 22: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 23,
+    "chapter": 2,
+    "title_fr": "La lettre sous la pierre",
+    "title_en": "The Letter Under Stone",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "01:00",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 01h00. Règle-la.",
+        "question_en": "The clock stopped at 01:00. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Une lampe de poche est retrouvée. Seul le gardien en possédait une. Qui faut-il interroger ?",
+        "question_en": "A flashlight was found. Only the guard carried one. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      }
+    ],
+    "story_fr": "Dossier 23 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 23: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 24,
+    "chapter": 2,
+    "title_fr": "L’évasion impossible",
+    "title_en": "The Impossible Escape",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "NOTE",
+        "answer_en": "NOTE",
+        "question_fr": "Mot secret de 4 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 4 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : NO…",
+        "hint_en": "Secret word begins: NO…"
+      },
+      {
+        "type": "code",
+        "answer": "4678",
+        "question_fr": "Le carnet donne : quatre, six, sept, huit.",
+        "question_en": "The notebook reads: four, six, seven, eight.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "277",
+        "question_fr": "La serrure comporte trois molettes gravées : 2 · 7 · 7.",
+        "question_en": "Three digits are engraved beside the tumblers: 2 · 7 · 7.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      }
+    ],
+    "story_fr": "Dossier 24 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 24: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 25,
+    "chapter": 2,
+    "title_fr": "Le couloir interdit",
+    "title_en": "The Forbidden Corridor",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          3,
+          3
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, OUEST, OUEST.",
+        "question_en": "Turn the three dials toward: EAST, WEST, WEST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "GARE",
+        "encoded": "HBSF",
+        "shift": 1,
+        "question_fr": "Ce message a été décalé de 1 lettres : HBSF. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 1 letters: HBSF. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 1 places.",
+        "hint_en": "Move each letter backward by 1 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 0,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : BAGUE.",
+        "question_en": "Find the following object among the evidence: RING.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      }
+    ],
+    "story_fr": "Dossier 25 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 25: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 26,
+    "chapter": 2,
+    "title_fr": "L’atelier des serrures",
+    "title_en": "The Locksmith’s Workshop",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          1,
+          0,
+          0,
+          3
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          "20",
+          "24",
+          "22",
+          "18"
+        ],
+        "question_fr": "Le registre donne 23 − 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 23 − 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      }
+    ],
+    "story_fr": "Dossier 26 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 26: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 27,
+    "chapter": 2,
+    "title_fr": "Les pas dans le noir",
+    "title_en": "Footsteps in the Dark",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : AMBRE → RUBIS → AZUR → ÉMERAUDE.",
+        "question_en": "Connect the wires in this order: AMBER → RUBY → AZURE → EMERALD.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "04:45",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 04h45. Règle-la.",
+        "question_en": "The clock stopped at 04:45. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      }
+    ],
+    "story_fr": "Dossier 27 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 27: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 28,
+    "chapter": 2,
+    "title_fr": "Le plan de fuite",
+    "title_en": "The Escape Plan",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          0,
+          3,
+          3,
+          0
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Le badge utilisé n’appartient à aucun employé. Le visiteur avait emprunté ce badge. Qui faut-il interroger ?",
+        "question_en": "The badge was not an employee badge. The visitor had borrowed it. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "PHARE",
+        "answer_en": "LIGHT",
+        "question_fr": "Mot secret de 5 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : PH…",
+        "hint_en": "Secret word begins: LI…"
+      }
+    ],
+    "story_fr": "Dossier 28 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 28: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 29,
+    "chapter": 2,
+    "title_fr": "Le coffre du directeur",
+    "title_en": "The Warden’s Safe",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5487",
+        "question_fr": "Le carnet donne : cinq, quatre, huit, sept.",
+        "question_en": "The notebook reads: five, four, eight, seven.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "580",
+        "question_fr": "La serrure comporte trois molettes gravées : 5 · 8 · 0.",
+        "question_en": "Three digits are engraved beside the tumblers: 5 · 8 · 0.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          1,
+          1
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, EST, EST.",
+        "question_en": "Turn the three dials toward: EAST, EAST, EAST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      }
+    ],
+    "story_fr": "Dossier 29 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 29: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 30,
+    "chapter": 2,
+    "title_fr": "La dernière cellule",
+    "title_en": "The Last Cell",
+    "difficulty": 3,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "CLEF",
+        "encoded": "HQJK",
+        "shift": 5,
+        "question_fr": "Ce message a été décalé de 5 lettres : HQJK. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 5 letters: HQJK. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 5 places.",
+        "hint_en": "Move each letter backward by 5 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 9,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : MONTRE.",
+        "question_en": "Find the following object among the evidence: WATCH.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      }
+    ],
+    "story_fr": "Dossier 30 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 30: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 31,
+    "chapter": 3,
+    "title_fr": "La galerie interdite",
+    "title_en": "The Forbidden Gallery",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          1,
+          1,
+          3,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          "22",
+          "28",
+          "26",
+          "24"
+        ],
+        "question_fr": "Le registre donne 21 + 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 21 + 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Clé puis Papier.",
+        "question_en": "Prepare the objects in this order: Key then Note.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      }
+    ],
+    "story_fr": "Dossier 31 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 31: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 32,
+    "chapter": 3,
+    "title_fr": "Le masque doré",
+    "title_en": "The Golden Mask",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          0,
+          1,
+          3
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : RUBIS → AMBRE → AZUR → ÉMERAUDE.",
+        "question_en": "Connect the wires in this order: RUBY → AMBER → AZURE → EMERALD.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "04:30",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 04h30. Règle-la.",
+        "question_en": "The clock stopped at 04:30. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          0,
+          2,
+          2,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 32 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 32: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 33,
+    "chapter": 3,
+    "title_fr": "La statue déplacée",
+    "title_en": "The Moved Statue",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 0,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Une lampe de poche est retrouvée. Seul le gardien en possédait une. Qui faut-il interroger ?",
+        "question_en": "A flashlight was found. Only the guard carried one. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "PORT",
+        "answer_en": "DOOR",
+        "question_fr": "Mot secret de 4 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 4 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : PO…",
+        "hint_en": "Secret word begins: DO…"
+      },
+      {
+        "type": "code",
+        "answer": "4973",
+        "question_fr": "Le carnet donne : quatre, neuf, sept, trois.",
+        "question_en": "The notebook reads: four, nine, seven, three.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      }
+    ],
+    "story_fr": "Dossier 33 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 33: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 34,
+    "chapter": 3,
+    "title_fr": "Le tableau codé",
+    "title_en": "The Coded Painting",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "572",
+        "question_fr": "La serrure comporte trois molettes gravées : 5 · 7 · 2.",
+        "question_en": "Three digits are engraved beside the tumblers: 5 · 7 · 2.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          0,
+          0
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, NORD, NORD.",
+        "question_en": "Turn the three dials toward: EAST, NORTH, NORTH.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "NOTE",
+        "encoded": "OPUF",
+        "shift": 1,
+        "question_fr": "Ce message a été décalé de 1 lettres : OPUF. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 1 letters: OPUF. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 1 places.",
+        "hint_en": "Move each letter backward by 1 places."
+      }
+    ],
+    "story_fr": "Dossier 34 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 34: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 35,
+    "chapter": 3,
+    "title_fr": "L’artefact perdu",
+    "title_en": "The Lost Artifact",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 11,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : PHOTO.",
+        "question_en": "Find the following object among the evidence: PHOTO.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          2,
+          2,
+          1,
+          3
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 35 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 35: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 36,
+    "chapter": 3,
+    "title_fr": "Le secret du conservateur",
+    "title_en": "The Curator’s Secret",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          "18",
+          "16",
+          "22",
+          "20"
+        ],
+        "question_fr": "Le registre donne 21 − 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 21 − 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Clé puis Papier.",
+        "question_en": "Prepare the objects in this order: Key then Note.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          1,
+          2,
+          0
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : ÉMERAUDE → AZUR → RUBIS → AMBRE.",
+        "question_en": "Connect the wires in this order: EMERALD → AZURE → RUBY → AMBER.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "07:15",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 07h15. Règle-la.",
+        "question_en": "The clock stopped at 07:15. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      }
+    ],
+    "story_fr": "Dossier 36 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 36: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 37,
+    "chapter": 3,
+    "title_fr": "L’aile fermée",
+    "title_en": "The Closed Wing",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "time",
+        "answer": "07:00",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 07h00. Règle-la.",
+        "question_en": "The clock stopped at 07:00. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          1,
+          3,
+          1,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "L’écriture du faux billet correspond au registre tenu par l’archiviste. Qui faut-il interroger ?",
+        "question_en": "The forged note matches the handwriting of the archivist. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "VAULT",
+        "answer_en": "VAULT",
+        "question_fr": "Mot secret de 5 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : VA…",
+        "hint_en": "Secret word begins: VA…"
+      }
+    ],
+    "story_fr": "Dossier 37 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 37: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 38,
+    "chapter": 3,
+    "title_fr": "Le vol de minuit",
+    "title_en": "The Midnight Theft",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "hangman",
+        "answer_fr": "AMBRE",
+        "answer_en": "AMBER",
+        "question_fr": "Mot secret de 5 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 5 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : AM…",
+        "hint_en": "Secret word begins: AM…"
+      },
+      {
+        "type": "code",
+        "answer": "3971",
+        "question_fr": "Le carnet donne : trois, neuf, sept, un.",
+        "question_en": "The notebook reads: three, nine, seven, one.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "741",
+        "question_fr": "La serrure comporte trois molettes gravées : 7 · 4 · 1.",
+        "question_en": "Three digits are engraved beside the tumblers: 7 · 4 · 1.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          3,
+          1
+        ],
+        "question_fr": "Oriente les trois cadrans vers : OUEST, OUEST, EST.",
+        "question_en": "Turn the three dials toward: WEST, WEST, EAST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      }
+    ],
+    "story_fr": "Dossier 38 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 38: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 39,
+    "chapter": 3,
+    "title_fr": "La salle des miroirs",
+    "title_en": "The Hall of Mirrors",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "mechanism",
+        "answer": [
+          2,
+          2,
+          2
+        ],
+        "question_fr": "Oriente les trois cadrans vers : SUD, SUD, SUD.",
+        "question_en": "Turn the three dials toward: SOUTH, SOUTH, SOUTH.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "CODE",
+        "encoded": "HTIJ",
+        "shift": 5,
+        "question_fr": "Ce message a été décalé de 5 lettres : HTIJ. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 5 letters: HTIJ. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 5 places.",
+        "hint_en": "Move each letter backward by 5 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 10,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : BOUGIE.",
+        "question_en": "Find the following object among the evidence: CANDLE.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      }
+    ],
+    "story_fr": "Dossier 39 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 39: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 40,
+    "chapter": 3,
+    "title_fr": "La pièce maîtresse",
+    "title_en": "The Masterpiece",
+    "difficulty": 4,
+    "stages": [
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          0,
+          3,
+          1,
+          0,
+          3
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          "7",
+          "13",
+          "11",
+          "9"
+        ],
+        "question_fr": "Le registre donne 12 − 3 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 12 − 3 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      }
+    ],
+    "story_fr": "Dossier 40 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 40: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 41,
+    "chapter": 4,
+    "title_fr": "Le premier engrenage",
+    "title_en": "The First Gear",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "inventory",
+        "answer": [
+          0,
+          1
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Clé puis Papier.",
+        "question_en": "Prepare the objects in this order: Key then Note.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : AZUR → AMBRE → RUBIS → ÉMERAUDE.",
+        "question_en": "Connect the wires in this order: AZURE → AMBER → RUBY → EMERALD.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "01:45",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 01h45. Règle-la.",
+        "question_en": "The clock stopped at 01:45. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 41 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 41: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 42,
+    "chapter": 4,
+    "title_fr": "Les aiguilles brisées",
+    "title_en": "The Broken Hands",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "sound",
+        "answer": [
+          0,
+          2,
+          3,
+          0,
+          3,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Le badge utilisé n’appartient à aucun employé. Le visiteur avait emprunté ce badge. Qui faut-il interroger ?",
+        "question_en": "The badge was not an employee badge. The visitor had borrowed it. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "NOTE",
+        "answer_en": "NOTE",
+        "question_fr": "Mot secret de 4 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 4 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : NO…",
+        "hint_en": "Secret word begins: NO…"
+      },
+      {
+        "type": "code",
+        "answer": "4882",
+        "question_fr": "Le carnet donne : quatre, huit, huit, deux.",
+        "question_en": "The notebook reads: four, eight, eight, two.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      }
+    ],
+    "story_fr": "Dossier 42 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 42: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 43,
+    "chapter": 4,
+    "title_fr": "L’énigme du pendule",
+    "title_en": "The Pendulum Riddle",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "code",
+        "answer": "5863",
+        "question_fr": "Le carnet donne : cinq, huit, six, trois.",
+        "question_en": "The notebook reads: five, eight, six, three.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "290",
+        "question_fr": "La serrure comporte trois molettes gravées : 2 · 9 · 0.",
+        "question_en": "Three digits are engraved beside the tumblers: 2 · 9 · 0.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          1,
+          2,
+          0
+        ],
+        "question_fr": "Oriente les trois cadrans vers : EST, SUD, NORD.",
+        "question_en": "Turn the three dials toward: EAST, SOUTH, NORTH.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "LUNE",
+        "encoded": "MVOF",
+        "shift": 1,
+        "question_fr": "Ce message a été décalé de 1 lettres : MVOF. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 1 letters: MVOF. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 1 places.",
+        "hint_en": "Move each letter backward by 1 places."
+      }
+    ],
+    "story_fr": "Dossier 43 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 43: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 44,
+    "chapter": 4,
+    "title_fr": "La machine des songes",
+    "title_en": "The Dream Machine",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "GARE",
+        "encoded": "KEVI",
+        "shift": 4,
+        "question_fr": "Ce message a été décalé de 4 lettres : KEVI. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 4 letters: KEVI. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 4 places.",
+        "hint_en": "Move each letter backward by 4 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 11,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : PHOTO.",
+        "question_en": "Find the following object among the evidence: PHOTO.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          3,
+          0,
+          1,
+          1,
+          2,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      }
+    ],
+    "story_fr": "Dossier 44 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 44: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 45,
+    "chapter": 4,
+    "title_fr": "Les douze symboles",
+    "title_en": "The Twelve Symbols",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          3,
+          0,
+          3,
+          0,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          "21",
+          "17",
+          "19",
+          "15"
+        ],
+        "question_fr": "Le registre donne 8 + 9 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 8 + 9 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : ÉMERAUDE → RUBIS → AMBRE → AZUR.",
+        "question_en": "Connect the wires in this order: EMERALD → RUBY → AMBER → AZURE.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      }
+    ],
+    "story_fr": "Dossier 45 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 45: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 46,
+    "chapter": 4,
+    "title_fr": "L’écho mécanique",
+    "title_en": "Mechanical Echo",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "wires",
+        "answer": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : RUBIS → AMBRE → ÉMERAUDE → AZUR.",
+        "question_en": "Connect the wires in this order: RUBY → AMBER → EMERALD → AZURE.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "12:45",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 12h45. Règle-la.",
+        "question_en": "The clock stopped at 12:45. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      },
+      {
+        "type": "sound",
+        "answer": [
+          2,
+          0,
+          2,
+          2,
+          1,
+          2
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "Le badge utilisé n’appartient à aucun employé. Le visiteur avait emprunté ce badge. Qui faut-il interroger ?",
+        "question_en": "The badge was not an employee badge. The visitor had borrowed it. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      }
+    ],
+    "story_fr": "Dossier 46 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 46: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 47,
+    "chapter": 4,
+    "title_fr": "Le journal du temps",
+    "title_en": "The Time Journal",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "Le gardien",
+          "L’archiviste",
+          "Le visiteur"
+        ],
+        "options_en": [
+          "The guard",
+          "The archivist",
+          "The visitor"
+        ],
+        "question_fr": "L’écriture du faux billet correspond au registre tenu par l’archiviste. Qui faut-il interroger ?",
+        "question_en": "The forged note matches the handwriting of the archivist. Who should you question?",
+        "hint_fr": "Un indice désigne une seule personne.",
+        "hint_en": "The evidence points to a single person."
+      },
+      {
+        "type": "hangman",
+        "answer_fr": "SECRET",
+        "answer_en": "SECRET",
+        "question_fr": "Mot secret de 6 lettres. Chaque lettre dévoile le dossier.",
+        "question_en": "Secret word of 6 letters. Guess it to open the file.",
+        "hint_fr": "Mot à découvrir : SE…",
+        "hint_en": "Secret word begins: SE…"
+      },
+      {
+        "type": "code",
+        "answer": "1545",
+        "question_fr": "Le carnet donne : un, cinq, quatre, cinq.",
+        "question_en": "The notebook reads: one, five, four, five.",
+        "hint_fr": "Transforme chaque nombre écrit en chiffre.",
+        "hint_en": "Convert each written number to a digit."
+      },
+      {
+        "type": "lock",
+        "answer": "335",
+        "question_fr": "La serrure comporte trois molettes gravées : 3 · 3 · 5.",
+        "question_en": "Three digits are engraved beside the tumblers: 3 · 3 · 5.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      }
+    ],
+    "story_fr": "Dossier 47 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 47: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 48,
+    "chapter": 4,
+    "title_fr": "La roue oubliée",
+    "title_en": "The Forgotten Wheel",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "lock",
+        "answer": "246",
+        "question_fr": "La serrure comporte trois molettes gravées : 2 · 4 · 6.",
+        "question_en": "Three digits are engraved beside the tumblers: 2 · 4 · 6.",
+        "hint_fr": "Aligne les trois chiffres sur les molettes.",
+        "hint_en": "Align the three digits on the tumblers."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          0,
+          1
+        ],
+        "question_fr": "Oriente les trois cadrans vers : OUEST, NORD, EST.",
+        "question_en": "Turn the three dials toward: WEST, NORTH, EAST.",
+        "hint_fr": "L’ordre est toujours de gauche à droite.",
+        "hint_en": "Follow the order from left to right."
+      },
+      {
+        "type": "cipher",
+        "answer": "ROSE",
+        "encoded": "WTXJ",
+        "shift": 5,
+        "question_fr": "Ce message a été décalé de 5 lettres : WTXJ. Retrouve le mot original.",
+        "question_en": "This note was shifted forward by 5 letters: WTXJ. Find the original word.",
+        "hint_fr": "Recule chaque lettre de 5 places.",
+        "hint_en": "Move each letter backward by 5 places."
+      },
+      {
+        "type": "hidden",
+        "answer": 3,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : CARTE.",
+        "question_en": "Find the following object among the evidence: MAP.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      }
+    ],
+    "story_fr": "Dossier 48 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 48: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 49,
+    "chapter": 4,
+    "title_fr": "Le gardien des heures",
+    "title_en": "The Keeper of Hours",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "hidden",
+        "answer": 7,
+        "objects_fr": [
+          "BAGUE",
+          "LAMPE",
+          "CLÉ",
+          "CARTE",
+          "BOUTON",
+          "PIÈCE",
+          "LIVRE",
+          "LUNETTES",
+          "PLUME",
+          "MONTRE",
+          "BOUGIE",
+          "PHOTO"
+        ],
+        "objects_en": [
+          "RING",
+          "LAMP",
+          "KEY",
+          "MAP",
+          "BUTTON",
+          "COIN",
+          "BOOK",
+          "GLASSES",
+          "FEATHER",
+          "WATCH",
+          "CANDLE",
+          "PHOTO"
+        ],
+        "question_fr": "Retrouve cet objet parmi les pièces à conviction : LUNETTES.",
+        "question_en": "Find the following object among the evidence: GLASSES.",
+        "hint_fr": "Observe les étiquettes de chaque objet.",
+        "hint_en": "Read the label on each object."
+      },
+      {
+        "type": "maze",
+        "answer": [
+          4,
+          4
+        ],
+        "walls": [
+          "00011",
+          "11010",
+          "00010",
+          "01110",
+          "00000"
+        ],
+        "question_fr": "Guidez le point lumineux du coin supérieur gauche jusqu’à la sortie en bas à droite.",
+        "question_en": "Guide the glowing dot from the upper-left corner to the exit at the lower-right.",
+        "hint_fr": "Descends au centre, puis suis le bord inférieur.",
+        "hint_en": "Travel down through the middle, then across the bottom edge."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          3,
+          3,
+          0,
+          3,
+          1
+        ],
+        "question_fr": "Observe, mémorise et reproduis la séquence.",
+        "question_en": "Watch, remember and repeat the sequence.",
+        "hint_fr": "La séquence recommence avec le bouton REVOIR.",
+        "hint_en": "Use REPLAY to watch the sequence again."
+      },
+      {
+        "type": "logic",
+        "answer": 0,
+        "options": [
+          "24",
+          "22",
+          "26",
+          "28"
+        ],
+        "question_fr": "Le registre donne 18 + 6 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 18 + 6 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      }
+    ],
+    "story_fr": "Dossier 49 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 49: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  },
+  {
+    "id": 50,
+    "chapter": 4,
+    "title_fr": "Le dernier secret",
+    "title_en": "The Final Secret",
+    "difficulty": 5,
+    "stages": [
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          "6",
+          "4",
+          "0",
+          "2"
+        ],
+        "question_fr": "Le registre donne 9 − 7 = ? Choisis le bon nombre.",
+        "question_en": "The register shows 9 − 7 = ? Pick the correct number.",
+        "hint_fr": "Calcule avant de choisir.",
+        "hint_en": "Calculate before selecting."
+      },
+      {
+        "type": "inventory",
+        "answer": [
+          2,
+          3
+        ],
+        "items_fr": [
+          "Clé",
+          "Papier",
+          "Aimant",
+          "Lentille"
+        ],
+        "items_en": [
+          "Key",
+          "Note",
+          "Magnet",
+          "Lens"
+        ],
+        "question_fr": "Prépare les objets dans cet ordre : Aimant puis Lentille.",
+        "question_en": "Prepare the objects in this order: Magnet then Lens.",
+        "hint_fr": "Sélectionne les objets en suivant la note.",
+        "hint_en": "Select the objects in the order shown."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "question_fr": "Connecte les fils dans cet ordre : ÉMERAUDE → RUBIS → AZUR → AMBRE.",
+        "question_en": "Connect the wires in this order: EMERALD → RUBY → AZURE → AMBER.",
+        "hint_fr": "Suis les couleurs indiquées de gauche à droite.",
+        "hint_en": "Follow the colors from left to right."
+      },
+      {
+        "type": "time",
+        "answer": "03:15",
+        "question_fr": "L’horloge de l’enquête s’est arrêtée à 03h15. Règle-la.",
+        "question_en": "The clock stopped at 03:15. Set it correctly.",
+        "hint_fr": "Règle les heures puis les minutes.",
+        "hint_en": "Adjust the hours and then the minutes."
+      }
+    ],
+    "story_fr": "Dossier 50 : une nouvelle piste attend votre analyse. Écoutez le témoin, observez les indices et résolvez les mécanismes.",
+    "story_en": "Case 50: a new lead awaits your analysis. Listen to the witness, examine the evidence and solve the mechanisms."
+  }
+]
