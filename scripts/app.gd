@@ -92,6 +92,21 @@ var child_level_offset: int = 100
 var child_level_count: int = 20
 var opening_layer: Control
 var opening_completed: bool = false
+# V6: drag-scrolling tracks input before child buttons can consume it.
+var touch_scrolls: Array = []
+var dragged_scroll: ScrollContainer
+var scroll_drag_total: float = 0.0
+var scroll_last_velocity: float = 0.0
+var kinetic_scroll: ScrollContainer
+var kinetic_velocity: float = 0.0
+var scroll_block_click_until: int = 0
+var touch_event_ms: int = -10000
+var scroll_using_touch: bool = false
+# V6: a global 15-minute Impossible Challenge, with overtime penalty.
+var impossible_seconds_left: float = 900.0
+var impossible_overtime: bool = false
+var impossible_save_checkpoint: int = -1
+
 
 
 
@@ -109,6 +124,11 @@ func _ready() -> void:
 	if typeof(juniors) == TYPE_ARRAY:
 		for junior in juniors:
 			levels.append(junior)
+	# Three authored final challenges, beyond the IDs of all saved cases.
+	var impossible_cases = JSON.parse_string(FileAccess.get_file_as_string("res://data/impossible_cases.json"))
+	if typeof(impossible_cases) == TYPE_ARRAY:
+		for challenge in impossible_cases:
+			levels.append(challenge)
 	load_game()
 	content = Control.new()
 	content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -123,8 +143,25 @@ func _ready() -> void:
 	show_opening()
 
 func _process(delta: float) -> void:
+	# Flick inertia after releasing a finger (works across iPhone and Android).
+	if kinetic_scroll != null and is_instance_valid(kinetic_scroll) and absf(kinetic_velocity) > 12.0:
+		kinetic_scroll.scroll_vertical += int(round(kinetic_velocity * delta))
+		kinetic_velocity *= pow(0.035, delta)
+	else:
+		kinetic_scroll = null
+		kinetic_velocity = 0.0
 	if screen == "game":
 		elapsed += delta
+		if active_mode == "impossible" and (modal_layer == null or modal_layer.get_child_count() == 0):
+			impossible_seconds_left -= delta
+			if impossible_seconds_left <= 0.0 and not impossible_overtime:
+				impossible_overtime = true
+				play_sound("alarm")
+				popup(loc("TEMPS ÉCOULÉ", "TIME EXPIRED"), loc("Tu peux continuer, mais ton score sera réduit de 45 %.", "You may continue, but your score will be reduced by 45 %."))
+			var checkpoint = int(elapsed / 15.0)
+			if checkpoint != impossible_save_checkpoint:
+				impossible_save_checkpoint = checkpoint
+				snapshot_session()
 		if briefing_label != null and is_instance_valid(briefing_label):
 			var remain = briefing_label.get_total_character_count() - briefing_label.visible_characters
 			if briefing_label.visible_characters >= 0 and remain > 0:
@@ -138,7 +175,17 @@ func _process(delta: float) -> void:
 				if inspector_portrait != null and is_instance_valid(inspector_portrait):
 					inspector_portrait.rotation = 0.0
 		if timer_text != null and is_instance_valid(timer_text):
-			if stage_time_limit > 0.0:
+			if active_mode == "impossible":
+				var left = maxi(0, ceili(impossible_seconds_left))
+				timer_text.text = time_display(left) if not impossible_overtime else loc("HORS DÉLAI", "OVERTIME")
+				timer_text.add_theme_color_override("font_color", RED if left <= 90 else GOLD_BRIGHT)
+				set_tension(left <= 90)
+				if not motion_reduced and left <= 30:
+					timer_text.pivot_offset = timer_text.size / 2.0
+					timer_text.scale = Vector2.ONE * (1.0 + 0.045 * (1.0 + sin(elapsed * 7.0)))
+				else:
+					timer_text.scale = Vector2.ONE
+			elif stage_time_limit > 0.0:
 				var seconds_left = maxi(0, ceili(stage_time_limit - (elapsed - stage_started)))
 				timer_text.text = "⏳ " + time_display(seconds_left)
 				if seconds_left <= 22:
@@ -168,7 +215,7 @@ func _process(delta: float) -> void:
 			render_game()
 
 func fresh_save() -> Dictionary:
-	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0, "hints_stock":0}
+	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0, "hints_stock":0, "impossible_clears":0, "impossible_tutorial_seen":false}
 
 func load_game() -> void:
 	save = fresh_save()
@@ -448,6 +495,10 @@ func current_stage() -> Dictionary:
 	return levels[selected_level]["stages"][stage_index]
 
 func wipe() -> void:
+	touch_scrolls.clear()
+	dragged_scroll = null
+	kinetic_scroll = null
+	kinetic_velocity = 0.0
 	# Keep the old frame until it is replaced synchronously in this call.
 	# page renders opaque background before next frame is presented.
 	for child in content.get_children():
@@ -465,6 +516,48 @@ func wipe() -> void:
 	inspector_portrait = null
 	set_tension(false)
 	seq_reveal_end = 0 if screen != "game" else seq_reveal_end
+
+func configure_touch_scroll(scroll: ScrollContainer) -> void:
+	# Never require dragging the tiny right-hand scrollbar.
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	scroll.scroll_deadzone = 100000  # Gestures are handled centrally below.
+	scroll.get_v_scroll_bar().modulate.a = 0.0
+	scroll.get_v_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
+	touch_scrolls.append(scroll)
+
+func begin_scroll_gesture(pos: Vector2) -> void:
+	if modal_layer != null and modal_layer.get_child_count() > 0:
+		return
+	dragged_scroll = null
+	scroll_drag_total = 0.0
+	scroll_last_velocity = 0.0
+	kinetic_scroll = null
+	kinetic_velocity = 0.0
+	for i in range(touch_scrolls.size() - 1, -1, -1):
+		var scroller = touch_scrolls[i] as ScrollContainer
+		if is_instance_valid(scroller) and scroller.is_visible_in_tree() and scroller.get_global_rect().has_point(pos):
+			dragged_scroll = scroller
+			break
+
+func move_scroll_gesture(dy: float) -> void:
+	if dragged_scroll == null or not is_instance_valid(dragged_scroll):
+		return
+	scroll_drag_total += absf(dy)
+	if scroll_drag_total <= 9.0:
+		return
+	# Scrolling must win over a button click after a gesture.
+	scroll_block_click_until = Time.get_ticks_msec() + 320
+	dragged_scroll.scroll_vertical -= int(round(dy))
+	scroll_last_velocity = -dy * 60.0
+
+func finish_scroll_gesture() -> void:
+	if dragged_scroll != null and is_instance_valid(dragged_scroll) and scroll_drag_total > 9.0:
+		scroll_block_click_until = Time.get_ticks_msec() + 320
+		kinetic_scroll = dragged_scroll
+		kinetic_velocity = clampf(scroll_last_velocity, -1800.0, 1800.0)
+	dragged_scroll = null
+	scroll_drag_total = 0.0
 
 func box(x: float, y: float, w: float, h: float, bg: Color = PANEL, radius: int = 20, edge: Color = Color("#a9845488"), parent: Control = null) -> Panel:
 	var node = Panel.new()
@@ -545,6 +638,8 @@ func btn(t: String, x: float,y: float,w: float,h: float, pressed: Callable, prim
 			create_tween().bind_node(node).tween_property(node,"scale",Vector2.ONE,.10)
 	)
 	node.pressed.connect(func():
+		if Time.get_ticks_msec() < scroll_block_click_until:
+			return
 		play_sound("click")
 		pressed.call()
 	)
@@ -592,11 +687,13 @@ func fade_in() -> void:
 
 func small_header(subtitle: String="") -> void:
 	box(15,17,690,102,Color("#0c1a27f5"),18,Color("#b28c5b88"))
-	label("◈",30,35,58,61,40,theme_color,true)
-	label(str(save.get("name","Détective")),85,28,280,41,25,PAPER)
-	label(loc("NIVEAU ","LEVEL ")+str(user_level())+"  •  "+subtitle,86,70,330,30,16,QUIET)
-	label("◈ "+str(save.get("gems",0)),445,37,111,55,22,theme_color,true)
-	label("● "+str(save.get("coins",0)),559,37,125,55,22,theme_color,true)
+	image("res://assets/ui/icons/profile_badge.png",31,39,47,47)
+	label(str(save.get("name","Détective")),85,28,333,41,25,PAPER)
+	label(loc("NIVEAU ","LEVEL ")+str(user_level())+"  •  "+subtitle,86,70,344,30,16,QUIET)
+	image("res://assets/ui/icons/gem_v6.png",455,47,43,43)
+	label(str(save.get("gems",0)),499,39,66,55,22,Color("#8de6ff"),true)
+	image("res://assets/ui/icons/coin_v6.png",569,47,43,43)
+	label(str(save.get("coins",0)),613,39,76,55,22,GOLD_BRIGHT,true)
 
 func topbar(title_text: String, back: Callable) -> void:
 	box(15,18,690,100,Color("#101e2cf5"))
@@ -613,41 +710,33 @@ func navigation(active: String) -> void:
 
 func show_home() -> void:
 	active_mode = "classic"
-	screen="home"
+	screen = "home"
 	wipe()
-	backdrop("menu",.37)
-	small_header(loc("AGENT ACTIF","ACTIVE AGENT"))
-	var hero_seal=image("res://assets/ui/seal_v5.png",267,141,186,186, page,.88)
-	hero_seal.pivot_offset=hero_seal.size/2
-	if not motion_reduced:
-		var pulse=create_tween().bind_node(hero_seal).set_loops()
-		pulse.tween_property(hero_seal,"scale",Vector2(1.045,1.045),1.75).set_trans(Tween.TRANS_SINE)
-		pulse.tween_property(hero_seal,"scale",Vector2.ONE,1.75).set_trans(Tween.TRANS_SINE)
-	label("MYSTERY",60,291,600,78,62,PAPER,true)
-	label("ESCAPE'S",60,360,600,70,59,theme_color,true)
-	label(loc("DÉMASQUEZ LA VÉRITÉ","UNCOVER THE TRUTH"),60,426,600,36,21,QUIET,true)
-	btn("⚙",635,135,61,60,show_settings,false,page,true)
-	var ongoing=save.get("session",{}) as Dictionary
-	var next_id = clampi(int(ongoing.get("level",solved_count())),0,99)
-	box(38,492,644,320,Color("#152536ed"),22,Color("#d5ad76cc"))
-	label(loc("VOTRE PROCHAINE ENQUÊTE","YOUR NEXT INVESTIGATION"),62,510,585,45,20,theme_color,true)
-	label("DOSSIER %02d" % (next_id+1),55,561,608,48,33,PAPER,true)
-	label(property_text(levels[next_id],"title"),60,622,596,68,29,PAPER,true)
-	label(loc("RECORD : ","BEST : ")+str((save.get("best",{}) as Dictionary).get(str(next_id+1),0))+" PTS",80,687,560,40,20,QUIET,true)
+	backdrop("menu", .40)  # Preserve the V5 detective desk background.
+	small_header(loc("AGENT ACTIF", "ACTIVE AGENT"))
+	label("MYSTERY ESCAPE'S",50,160,607,70,43,GOLD_BRIGHT,true)
+	label(loc("BUREAU D'ENQUÊTES", "DETECTIVE BUREAU"),75,224,567,43,20,QUIET,true)
+	# A real gear PNG, instead of a square emoji missing from some iOS fonts.
+	btn("",635,143,64,67,show_settings,false,page,true)
+	image("res://assets/ui/icons/settings_gear_v6.png",647,155,40,40)
+	var ongoing = save.get("session",{}) as Dictionary
+	var next_id = clampi(int(ongoing.get("level",solved_count())),0,main_level_count-1)
+	box(34,324,651,391,Color("#102331f2"),24,Color("#d7ac70cc"))
+	label(loc("JOUER LE DOSSIER", "PLAY CASE"),60,352,602,52,29,GOLD_BRIGHT,true)
+	label("N° %02d" % (next_id+1),70,414,575,53,34,PAPER,true)
+	label(property_text(levels[next_id],"title"),60,480,600,93,29,PAPER,true)
+	label(loc("RECORD : ","BEST: ")+str((save.get("best",{}) as Dictionary).get(str(next_id+1),0))+" PTS",81,576,560,37,19,QUIET,true)
 	if not ongoing.is_empty():
-		btn(loc("REPRENDRE L'ENQUÊTE  ›","RESUME INVESTIGATION  ›"),71,741,577,64,Callable(self,"resume_session"),true)
+		btn(loc("REPRENDRE  ›", "RESUME  ›"),85,631,550,68,resume_session,true)
 	else:
-		btn(loc("COMMENCER L'ENQUÊTE  ›","START INVESTIGATION  ›"),71,741,577,64,Callable(self,"start_case").bind(next_id),true)
-	btn(loc("◈  MODES DE JEU   ›", "◈  GAME MODES   ›"),125,831,470,65,show_modes,true)
-
-	box(37,915,306,191,Color("#1b303eee"))
-	box(371,915,310,191,Color("#1b303eee"))
-	label(loc("DÉFI DU JOUR","DAILY CASE"),52,923,276,42,24,PAPER,true)
-	label(loc("Enquête bonus", "Bonus investigation"),54,964,274,42,20,QUIET,true)
-	btn(loc("JOUER","PLAY"),62,1034,255,57,show_daily,true)
-	label(loc("VOTRE DOSSIER","YOUR FILE"),387,923,279,42,24,PAPER,true)
-	label(loc("%d / 100 résolus" % solved_count(),"%d / 100 solved" % solved_count()),390,964,275,42,20,QUIET,true)
-	btn(loc("SUCCÈS","ACHIEVEMENTS"),397,1034,260,57,show_achievements,false,page,true)
+		btn(loc("JOUER MAINTENANT  ›", "PLAY NOW  ›"),85,631,550,68,Callable(self,"start_case").bind(next_id),true)
+	# Two clear destinations; achievements remain in the Profile tab.
+	box(35,744,651,152,Color("#183140ee"),19,Color("#d0a878a9"))
+	label(loc("MODES DE JEU", "GAME MODES"),70,754,577,55,27,PAPER,true)
+	btn(loc("CHOISIR UN MODE  ›", "CHOOSE A MODE  ›"),88,818,540,65,show_modes,true)
+	box(35,925,651,169,Color("#183140ee"),19,Color("#d0a878a9"))
+	label(loc("DÉFI DU JOUR", "DAILY CHALLENGE"),70,937,577,54,27,PAPER,true)
+	btn(loc("LANCER LE DÉFI  ›", "PLAY DAILY CASE  ›"),88,1004,540,66,show_daily,false)
 	navigation("home")
 	fade_in()
 
@@ -657,7 +746,7 @@ func show_levels() -> void:
 	wipe()
 	backdrop(BG_NAMES[chapter_filter % BG_NAMES.size()],.57)
 	topbar(loc("DOSSIERS D'ENQUÊTE","INVESTIGATION FILES"),show_home)
-	label(loc("100 ENQUÊTES • 10 CHAPITRES","100 CASES • 10 CHAPTERS"),35,135,650,55,25,PAPER,true)
+	label(loc("100 ENQUÊTES • FAIS GLISSER LA LISTE", "100 CASES • SWIPE THE LIST"),35,135,650,55,22,PAPER,true)
 	for i in range(10):
 		btn(str(i+1),27+(i%5)*138,203+int(i/5)*61,125,53,Callable(self,"set_chapter").bind(i),chapter_filter==i,page,true)
 	label(CHAPTERS_EN[chapter_filter] if str(save["language"])=="en" else CHAPTERS_FR[chapter_filter],30,331,655,51,25,theme_color,true)
@@ -667,6 +756,7 @@ func show_levels() -> void:
 	scroll.size=Vector2(650,738)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	page.add_child(scroll)
+	configure_touch_scroll(scroll)
 	var list=VBoxContainer.new()
 	list.add_theme_constant_override("separation",16)
 	list.custom_minimum_size=Vector2(624,0)
@@ -719,7 +809,7 @@ func start_case(n: int, is_daily: bool=false) -> void:
 
 func snapshot_session() -> void:
 	if selected_level>=0 and selected_level<levels.size():
-		save["session"]={"level":selected_level,"stage":stage_index,"elapsed":elapsed,"mistakes":mistakes,"hints":hints_used,"daily":daily_mode,"mode":active_mode,"chain":mode_chain.duplicate(),"chain_pos":mode_chain_pos,"mode_score":mode_total_score,"state":puzzle_state.duplicate(true),"started":stage_started}
+		save["session"]={"level":selected_level,"stage":stage_index,"elapsed":elapsed,"mistakes":mistakes,"hints":hints_used,"daily":daily_mode,"mode":active_mode,"chain":mode_chain.duplicate(),"chain_pos":mode_chain_pos,"mode_score":mode_total_score,"impossible_time":impossible_seconds_left,"impossible_overtime":impossible_overtime,"state":puzzle_state.duplicate(true),"started":stage_started}
 		persist()
 
 func resume_session() -> void:
@@ -732,6 +822,9 @@ func resume_session() -> void:
 	mode_chain=(session.get("chain",[]) as Array).duplicate()
 	mode_chain_pos=int(session.get("chain_pos",0))
 	mode_total_score=int(session.get("mode_score",0))
+	impossible_seconds_left=float(session.get("impossible_time",900.0))
+	impossible_overtime=bool(session.get("impossible_overtime",false))
+	impossible_save_checkpoint=-1
 	stage_index=clampi(int(session.get("stage",0)),0,(levels[selected_level]["stages"] as Array).size()-1)
 	elapsed=float(session.get("elapsed",0))
 	mistakes=int(session.get("mistakes",0))
@@ -770,7 +863,7 @@ func render_game() -> void:
 	topbar(loc("ENQUÊTE ","CASE ")+"%02d"%(selected_level+1),show_levels)
 	box(27,135,666,76,Color("#112536ee"))
 	label(loc("ÉTAPE ","STEP ")+str(stage_index+1)+" / "+str((levels[selected_level]["stages"] as Array).size()),47,151,350,43,23,theme_color)
-	timer_text=label(time_display(int(elapsed)),492,151,179,43,26,PAPER,true)
+	timer_text=label(time_display(int(elapsed)),452,151,222,43,23,PAPER,true)
 	box(28,228,664,174,Color("#13212def"))
 	var portrait=image("res://assets/ui/agent_morgan.png",42,249,91,108,page,.95)
 	inspector_portrait=portrait
@@ -802,7 +895,8 @@ func render_game() -> void:
 	btn(hint_name,39,1064,202,57,show_hint_options,false,page,true)
 	btn(loc("CARNET","NOTES"),258,1064,202,57,show_notepad,false,page,true)
 	btn(loc("PAUSE","PAUSE"),475,1064,202,57,show_pause,false,page,true)
-	label(loc("MODE : ","MODE: ")+active_mode.to_upper()+loc("  •  Sauvegarde auto","  •  Autosave"),31,1132,659,28,17,QUIET,true)
+	var footer = loc("DÉFI IMPOSSIBLE • 15 MIN • ", "IMPOSSIBLE • 15 MIN • ") if active_mode == "impossible" else loc("MODE : ", "MODE: ") + active_mode.to_upper() + " • "
+	label(footer + loc("Sauvegarde auto", "Autosave"),31,1132,659,28,17,QUIET,true)
 	fade_in()
 
 func type_name(kind: String) -> String:
@@ -952,7 +1046,7 @@ func buy_hint() -> void:
 	popup(loc("INDICE DÉBLOQUÉ","HINT UNLOCKED"),partial if hint_step == 0 else property_text(current_stage(),"hint"))
 
 func mode_stage_limit() -> float:
-	if active_mode in ["zen", "kids"]:
+	if active_mode in ["zen", "kids", "impossible"]:
 		return 0.0
 	if active_mode == "speed":
 		return 75.0
@@ -967,13 +1061,14 @@ func show_modes() -> void:
 	wipe()
 	backdrop("menu", 0.59)
 	topbar(loc("MODES DE JEU", "GAME MODES"), show_home)
-	label(loc("UNE NOUVELLE FAÇON D'ENQUÊTER", "A NEW WAY TO INVESTIGATE"),25,134,666,63,24,theme_color,true)
+	label(loc("GLISSE TON DOIGT POUR EXPLORER", "SWIPE TO EXPLORE"),25,134,666,63,24,theme_color,true)
 	var mode_info = [
 		["classic",loc("CLASSIQUE", "CLASSIC"),loc("100 enquêtes progressives", "100 progressive cases")],
 		["detective",loc("DÉTECTIVE", "DETECTIVE"),loc("5 pièces d'une affaire confidentielle", "5 clues from one classified case")],
 		["speed",loc("CONTRE-LA-MONTRE", "TIME ATTACK"),loc("75 secondes par énigme", "75 seconds per puzzle")],
 		["zen",loc("ZEN", "ZEN"),loc("Aucune limite de temps", "No timer or pressure")],
 		["expert",loc("EXPERT", "EXPERT"),loc("Sans indice, avec chronomètre", "No hints, with countdown")],
+		["impossible",loc("DÉFI IMPOSSIBLE", "IMPOSSIBLE CHALLENGE"),loc("15 minutes globales • 5 dossiers extrêmes", "15 minutes total • 5 extreme cases")],
 		["marathon",loc("MARATHON", "MARATHON"),loc("Enchaîne cinq dossiers", "Solve five cases in a row")],
 		["endless",loc("INFINI", "ENDLESS"),loc("Nouveaux dossiers jusqu'à l'arrêt", "Cases until you stop")],
 		["daily",loc("DÉFI QUOTIDIEN", "DAILY CASE"),loc("Une mission chaque jour", "A fresh challenge every day")],
@@ -984,6 +1079,7 @@ func show_modes() -> void:
 	scroll.size=Vector2(661,909)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	page.add_child(scroll)
+	configure_touch_scroll(scroll)
 	var list=VBoxContainer.new()
 	list.add_theme_constant_override("separation",13)
 	list.custom_minimum_size=Vector2(626,0)
@@ -1010,20 +1106,39 @@ func launch_mode(kind: String) -> void:
 		show_daily()
 		return
 	active_mode = kind
+	if kind == "impossible":
+		impossible_seconds_left = 900.0
+		impossible_overtime = false
+		impossible_save_checkpoint = -1
 	mode_total_score=0
 	mode_chain_pos=0
 	match kind:
 		"detective": mode_chain = [0,10,20,30,40]
+		"impossible": mode_chain = [120, 95, 121, 99, 122]
 		"kids": mode_chain = range(child_level_offset, child_level_offset + child_level_count)
 		"marathon": mode_chain = [0,1,2,3,4]
 		"endless": mode_chain = [randi_range(0,main_level_count-1)]
 		_: mode_chain = [clampi(solved_count(),0,main_level_count-1)]
 	start_case(int(mode_chain[0]))
+	if kind == "impossible" and bool(save.get("tutorial_seen",false)) and not bool(save.get("impossible_tutorial_seen",false)):
+		show_impossible_tutorial(0)
 	if kind == "detective":
 		popup(loc("AFFAIRE CONFIDENTIELLE", "CLASSIFIED CASE"),loc("Morgan : cinq dossiers sont liés. Observe les indices et découvre le fil rouge.","Morgan: five files are linked. Follow their clues."))
 
+func show_impossible_tutorial(step: int) -> void:
+	if step == 0:
+		popup(loc("01 • CINQ DOSSIERS", "01 • FIVE CASES"),loc("Trois enquêtes inédites et deux dossiers avancés. Les réponses des étapes précédentes pourront servir ensuite.","Three new cases and two advanced files. Earlier answers may help later."),func():show_impossible_tutorial(1),loc("SUIVANT", "NEXT"))
+	elif step == 1:
+		popup(loc("02 • 15 MINUTES", "02 • 15 MINUTES"),loc("Le chronomètre est global et se met en pause pendant les explications. La musique accélère à la fin.","One shared timer. It pauses during instructions. Music intensifies near the end."),func():show_impossible_tutorial(2),loc("SUIVANT", "NEXT"))	
+	else:
+		save["impossible_tutorial_seen"] = true
+		persist()
+		popup(loc("03 • APRÈS LE TEMPS", "03 • AFTER TIME"),loc("Tu peux continuer, mais les points sont réduits de 45 %. Les indices coûtent toujours des pièces.","Keep playing after the timer, with 45 % fewer points. Hints still cost coins."))
+
 func complete_mode_case(score: int) -> void:
-	mode_total_score+=score
+	if active_mode == "impossible" and impossible_overtime:
+		score = maxi(100, int(round(float(score) * 0.55)))
+	mode_total_score += score
 	var record_key=active_mode
 	var records=save.get("mode_records",{}) as Dictionary
 	records[record_key]=maxi(int(records.get(record_key,0)),mode_total_score)
@@ -1044,6 +1159,11 @@ func complete_mode_case(score: int) -> void:
 		var target=int(mode_chain[mode_chain_pos])
 		popup(loc("PISTE SUIVANTE", "NEXT CLUE"),loc("Score cumulé : ","Total score: ")+str(mode_total_score)+loc(" points. Poursuis l'enquête !", " points. Keep going!"),func(): start_case(target),loc("CONTINUER  ›", "CONTINUE  ›"))
 	else:
+		if active_mode == "impossible":
+			save["impossible_clears"] = int(save.get("impossible_clears",0)) + 1
+			save["coins"] = int(save.get("coins",0)) + (350 if not impossible_overtime else 120)
+			save["gems"] = int(save.get("gems",0)) + (5 if not impossible_overtime else 1)
+			persist()
 		screen="mode_result"
 		wipe()
 		backdrop("museum",.57)
@@ -1295,8 +1415,7 @@ func inspect_evidence(index: int) -> void:
 	var stage=current_stage()
 	var items: Array=stage["objects_en"] if str(save["language"])=="en" else stage["objects_fr"]
 	play_sound("paper")
-	popup(loc("EXAMEN DE L'INDICE","EVIDENCE INSPECTION"),str(items[index])+"
-"+loc("Cet objet est-il celui que tu recherches ?","Is this the item you are looking for?"),Callable(self,"choose_option").bind(index),loc("CONFIRMER CET OBJET","SELECT THIS ITEM"))
+	popup(loc("EXAMEN DE L'INDICE","EVIDENCE INSPECTION"),str(items[index])+"\n"+loc("Cet objet est-il celui que tu recherches ?","Is this the item you are looking for?"),Callable(self,"choose_option").bind(index),loc("CONFIRMER CET OBJET","SELECT THIS ITEM"))
 
 func draw_time() -> void:
 	box(153,545,414,244,Color("#101a27"),120,theme_color)
@@ -1617,6 +1736,7 @@ func show_leaderboard() -> void:
 	scroll.position=Vector2(40,430)
 	scroll.size=Vector2(640,684)
 	page.add_child(scroll)
+	configure_touch_scroll(scroll)
 	var list=VBoxContainer.new()
 	list.custom_minimum_size=Vector2(612,0)
 	list.add_theme_constant_override("separation",12)
@@ -1715,6 +1835,7 @@ func show_journal() -> void:
 	scroll.position=Vector2(38,218)
 	scroll.size=Vector2(646,914)
 	page.add_child(scroll)
+	configure_touch_scroll(scroll)
 	var list=VBoxContainer.new()
 	list.custom_minimum_size=Vector2(613,0)
 	list.add_theme_constant_override("separation",14)
@@ -1771,6 +1892,7 @@ func show_settings() -> void:
 	scroller.follow_focus = true
 	scroller.scroll_deadzone = 4
 	page.add_child(scroller)
+	configure_touch_scroll(scroller)
 	settings_scroll=scroller
 	scroller.get_v_scroll_bar().modulate.a = 0.0
 	scroller.get_v_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1809,11 +1931,21 @@ func show_settings() -> void:
 	btn(loc("ANIMATIONS RÉDUITES : ","REDUCED MOTION: ")+("ON" if motion_reduced else "OFF"),27,23,560,65,toggle_reduced_motion,motion_reduced,h,true)
 	h=settings_row(list,118)
 	btn(loc("REVOIR LE TUTORIEL","REPLAY THE TUTORIAL"),25,22,563,66,replay_tutorial,false,h,true)
+	h=settings_row(list,108)
+	btn(loc("SIGNALER UN PROBLÈME", "REPORT AN ISSUE"),27,21,560,63,show_bug_report,false,h,true)
 	h=settings_row(list,132)
 	label(loc("SAUVEGARDE AUTOMATIQUE  •  HORS LIGNE","AUTOSAVE  •  OFFLINE"),22,15,570,47,22,theme_color,true,h)
 	label(loc("Tes records, carnets et progrès restent sur cet appareil.","Your records, notes and progress stay on this device."),27,61,563,58,19,QUIET,true,h)
 	btn(loc("RETOUR AU MENU","BACK TO HOME"),93,1150,534,72,show_home,true)
 	fade_in()
+
+func show_bug_report() -> void:
+	popup(loc("RAPPORT DE TEST", "TEST REPORT"),loc("Copier le résumé technique et le coller dans le chat avec une capture. Aucune donnée n'est envoyée automatiquement.","Copy the technical summary and paste it with a screenshot. No data is sent automatically."),copy_bug_report,loc("COPIER LE RAPPORT", "COPY REPORT"))
+
+func copy_bug_report() -> void:
+	var details = "Mystery Escapes V6 | Platform: " + OS.get_name() + " | Mode: " + active_mode + " | Screen: " + screen + " | Case: " + str(selected_level + 1) + " | Step: " + str(stage_index + 1) + " | Locale: " + str(save.get("language","fr"))
+	DisplayServer.clipboard_set(details)
+	popup(loc("RAPPORT COPIÉ", "REPORT COPIED"),loc("Colle-le dans ton message et décris le problème rencontré.","Paste it into your message and describe the issue."))
 
 func set_text_scale(percent: int) -> void:
 	save["text_scale"]=percent
@@ -1872,12 +2004,27 @@ func select_visual_theme(which: int) -> void:
 	show_settings()
 
 func _input(event: InputEvent) -> void:
-	# Native iOS finger-scroll: no need to grab the tiny vertical scrollbar.
-	if screen == "settings" and is_instance_valid(settings_scroll):
-		if event is InputEventScreenDrag and settings_scroll.get_global_rect().has_point(event.position):
-			var bar = settings_scroll.get_v_scroll_bar()
-			var limit = int(maxf(0.0, bar.max_value - bar.page))
-			settings_scroll.scroll_vertical = clampi(settings_scroll.scroll_vertical - int(event.relative.y), 0, limit)
+	# Direct touch events are reliable even when the ScrollContainer contains buttons.
+	if event is InputEventScreenTouch:
+		touch_event_ms = Time.get_ticks_msec()
+		if event.pressed:
+			begin_scroll_gesture(event.position)
+		else:
+			finish_scroll_gesture()
+	elif event is InputEventScreenDrag:
+		touch_event_ms = Time.get_ticks_msec()
+		move_scroll_gesture(event.relative.y)
+	# Windows mouse drag also simulates a finger; ignore synthetic mouse after touch.
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if Time.get_ticks_msec() - touch_event_ms < 400:
+			return
+		if event.pressed:
+			begin_scroll_gesture(event.position)
+		else:
+			finish_scroll_gesture()
+	elif event is InputEventMouseMotion:
+		if Time.get_ticks_msec() - touch_event_ms >= 400 and (event.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+			move_scroll_gesture(event.relative.y)
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:

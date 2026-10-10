@@ -1,4 +1,4 @@
-name: Mystery Escapes V5 - IPA iPhone (unsigned)
+name: Mystery Escapes V6 - IPA iPhone (unsigned)
 
 on:
   workflow_dispatch:
@@ -39,11 +39,12 @@ jobs:
           test -f assets/ui/seal.png || { echo "assets/ui/seal.png absent"; exit 1; }
           echo "Fichiers essentiels presents."
 
-      - name: Valider les 100 dossiers et ressources V5
+      - name: Valider 100 dossiers, juniors, defi impossible et ressources V6
         shell: bash
         run: |
           set -euo pipefail
           python3 tools/verify_v4.py
+          python3 tools/verify_v6.py
 
       - name: Telecharger Godot macOS officiel
         shell: bash
@@ -138,7 +139,7 @@ jobs:
       - name: Publier l'IPA telechargeable
         uses: actions/upload-artifact@v4
         with:
-          name: MysteryEscapes-V5-IPA-non-signe
+          name: MysteryEscapes-V6-IPA-non-signe
           path: MysteryEscapes-unsigned.ipa
           if-no-files-found: error
           retention-days: 7

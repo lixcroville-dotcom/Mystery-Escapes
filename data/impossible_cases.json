@@ -1,0 +1,245 @@
+[
+  {
+    "id": 121,
+    "chapter": 9,
+    "difficulty": 10,
+    "title_fr": "Le testament à double fond",
+    "title_en": "The Double-Bottom Will",
+    "story_fr": "Le testament d'un collectionneur utilise plusieurs couches de chiffrement. Chaque réponse peut aider à résoudre la suivante.",
+    "story_en": "A collector's will hides several layers of cipher. Each answer may help solve the next step.",
+    "stages": [
+      {
+        "type": "cipher",
+        "answer": "NORD",
+        "encoded": "QRUG",
+        "shift": 3,
+        "question_fr": "Le billet « QRUG » utilise César +3. Déchiffre-le et conserve le mot pour la suite.",
+        "question_en": "The note QRUG uses Caesar +3. Decode it and remember the word for later.",
+        "hint_fr": "Recule de trois lettres : Q devient N, R devient O.",
+        "hint_en": "Shift three letters back: Q becomes N, R becomes O."
+      },
+      {
+        "type": "code",
+        "answer": "4584",
+        "question_fr": "Pour le mot précédent, prends le chiffre des unités du rang alphabétique de chaque lettre (A=1).",
+        "question_en": "For the previous word, enter the units digit of each letter's alphabet position (A=1).",
+        "hint_fr": "N=14, O=15, R=18, D=4 : prends seulement les unités.",
+        "hint_en": "N=14, O=15, R=18, D=4: take only the units digits."
+      },
+      {
+        "type": "logic",
+        "answer": 1,
+        "options": [
+          "47",
+          "51",
+          "54",
+          "58"
+        ],
+        "question_fr": "Additionne les quatre rangs alphabétiques du mot du billet. Quelle est la somme ?",
+        "question_en": "Add the four alphabet positions of the note's decoded word. What is the sum?",
+        "hint_fr": "14 + 15 + 18 + 4.",
+        "hint_en": "14 + 15 + 18 + 4."
+      },
+      {
+        "type": "deduction",
+        "answer": 2,
+        "options_fr": [
+          "Le jardinier",
+          "La notaire",
+          "L'horloger",
+          "Le gardien"
+        ],
+        "options_en": [
+          "The gardener",
+          "The notary",
+          "The watchmaker",
+          "The guard"
+        ],
+        "question_fr": "La notaire dit avoir vu une montre réparée à 20 h ; l'atelier est fermé depuis 18 h. Qui peut vérifier l'alibi ?",
+        "question_en": "The notary claims to have seen a repaired watch at 8 PM; the workshop closed at 6 PM. Who can verify the alibi?",
+        "hint_fr": "Cherche la personne qui répare les montres, pas celle qui signe le testament.",
+        "hint_en": "Find the person who repairs watches, not the person signing the will."
+      },
+      {
+        "type": "lock",
+        "answer": "514",
+        "question_fr": "Serrure finale : la SOMME des rangs du mot (deux chiffres), suivie du NOMBRE de lettres distinctes.",
+        "question_en": "Final lock: the SUM of the word's letter positions (two digits), then its number of distinct letters.",
+        "hint_fr": "La somme vaut 51 ; les quatre lettres sont toutes différentes.",
+        "hint_en": "The sum is 51; all four letters are distinct."
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "chapter": 8,
+    "difficulty": 10,
+    "title_fr": "La chambre des cinq miroirs",
+    "title_en": "The Five-Mirror Chamber",
+    "story_fr": "Une chambre piégée par un artiste : la séquence lumineuse commande le circuit, puis la mosaïque.",
+    "story_en": "An artist's chamber: a light sequence controls the circuit, then the mosaic.",
+    "stages": [
+      {
+        "type": "memory",
+        "answer": [
+          2,
+          0,
+          3,
+          1,
+          2,
+          3
+        ],
+        "question_fr": "Observe les six impulsions. Tu devras aussi conserver en mémoire les QUATRE premières.",
+        "question_en": "Watch six flashes. Also remember the FIRST four for the next mechanism.",
+        "hint_fr": "La séquence complète est : RUBIS, AMBRE, VERT, AZUR, RUBIS, VERT.",
+        "hint_en": "The full sequence is RED, AMBER, GREEN, BLUE, RED, GREEN."
+      },
+      {
+        "type": "wires",
+        "answer": [
+          1,
+          3,
+          0,
+          2
+        ],
+        "question_fr": "Relie les fils en ordre INVERSE des quatre premières lumières du mécanisme précédent.",
+        "question_en": "Connect the wires in REVERSE order of the first four lights from the previous mechanism.",
+        "hint_fr": "Inverse 2-0-3-1 pour obtenir 1-3-0-2.",
+        "hint_en": "Reverse 2-0-3-1 to get 1-3-0-2."
+      },
+      {
+        "type": "sliding",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "start": [
+          2,
+          8,
+          4,
+          1,
+          0,
+          3,
+          7,
+          6,
+          5
+        ],
+        "question_fr": "Restaure la mosaïque 1 à 8, case vide en bas à droite. Ne déplace que les cases voisines du vide.",
+        "question_en": "Restore the mosaic from 1 to 8, empty space bottom-right. Move only adjacent tiles.",
+        "hint_fr": "Résous la ligne supérieure avant de réorganiser les deux dernières.",
+        "hint_en": "Complete the top row before reorganizing the lower two."
+      },
+      {
+        "type": "mechanism",
+        "answer": [
+          3,
+          1,
+          2
+        ],
+        "question_fr": "Inscription : OUEST → EST → SUD. Place les cadrans dans cet ordre exact.",
+        "question_en": "Inscription: WEST → EAST → SOUTH. Set the dials in that exact order.",
+        "hint_fr": "Avec NORD=0 : OUEST=3, EST=1, SUD=2.",
+        "hint_en": "With NORTH=0: WEST=3, EAST=1, SOUTH=2."
+      },
+      {
+        "type": "logic",
+        "answer": 2,
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "question_fr": "Combien de lumières étaient répétées dans la séquence de six ? Choisis le NOMBRE de lumières distinctes.",
+        "question_en": "How many DISTINCT lights appeared in the six-flash sequence?",
+        "hint_fr": "RUBIS, AMBRE, VERT, AZUR : quatre couleurs distinctes.",
+        "hint_en": "RED, AMBER, GREEN, BLUE: four distinct colors."
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "chapter": 9,
+    "difficulty": 10,
+    "title_fr": "L'ultime contre-enquête",
+    "title_en": "The Final Counter-Investigation",
+    "story_fr": "Les témoins se contredisent. Un code César donne accès aux archives, mais les alibis cachent le dernier verrou.",
+    "story_en": "The witnesses contradict one another. A Caesar cipher opens the archives, but the alibis hide the last lock.",
+    "stages": [
+      {
+        "type": "deduction",
+        "answer": 1,
+        "options_fr": [
+          "Le directeur",
+          "La photographe",
+          "Le vigile",
+          "Le mécano"
+        ],
+        "options_en": [
+          "The director",
+          "The photographer",
+          "The guard",
+          "The mechanic"
+        ],
+        "question_fr": "La photo de 23 h 40 montre un flash ; seule une personne portait un appareil cette nuit-là. Qui interroger ?",
+        "question_en": "The 11:40 PM photo shows a flash; only one person carried a camera that night. Who should you question?",
+        "hint_fr": "Une photo avec flash suppose un appareil photo.",
+        "hint_en": "A flash photograph requires a camera."
+      },
+      {
+        "type": "cipher",
+        "answer": "UNITE",
+        "encoded": "XQLWH",
+        "shift": 3,
+        "question_fr": "Sur l'enveloppe, « XQLWH » a été décalé de trois lettres vers l'avant. Retrouve le mot d'origine.",
+        "question_en": "On the envelope, XQLWH was shifted three letters forward. Recover the original word.",
+        "hint_fr": "X→U, Q→N, L→I, W→T, H→E.",
+        "hint_en": "X→U, Q→N, L→I, W→T, H→E."
+      },
+      {
+        "type": "code",
+        "answer": "1490",
+        "question_fr": "Avec le mot déchiffré, prends les unités des rangs alphabétiques des QUATRE premières lettres (A=1).",
+        "question_en": "Using the decoded word, take the units digits of the FIRST FOUR alphabet positions (A=1).",
+        "hint_fr": "U=21, N=14, I=9, T=20 → unités 1,4,9,0.",
+        "hint_en": "U=21, N=14, I=9, T=20 → units 1,4,9,0."
+      },
+      {
+        "type": "memory",
+        "answer": [
+          0,
+          3,
+          2,
+          1,
+          2,
+          0
+        ],
+        "question_fr": "Retire les rideaux : mémorise les six signaux de la chambre du conseil.",
+        "question_en": "Draw the curtains: memorize the six signals from the council chamber.",
+        "hint_fr": "AMBRE, VERT, RUBIS, AZUR, RUBIS, AMBRE.",
+        "hint_en": "AMBER, GREEN, RED, BLUE, RED, AMBER."
+      },
+      {
+        "type": "logic",
+        "answer": 3,
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "question_fr": "Combien de couleurs DIFFÉRENTES ont été montrées dans la séquence ?",
+        "question_en": "How many DISTINCT colors appeared in the sequence?",
+        "hint_fr": "AMBRE, VERT, RUBIS, AZUR : quatre couleurs différentes.",
+        "hint_en": "AMBER, GREEN, RED, BLUE: four distinct colors."
+      }
+    ]
+  }
+]

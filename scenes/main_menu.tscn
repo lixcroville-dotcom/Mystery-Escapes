@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/app.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/backgrounds/menu.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/ui/seal_v5.png" id="3"]
 
 [node name="MysteryEscape" type="Control"]
 layout_mode = 3
@@ -32,68 +31,94 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LogoSeal" type="TextureRect" parent="EditorPreview"]
-layout_mode = 0
-offset_left = 257.0
-offset_top = 137.0
-offset_right = 462.0
-offset_bottom = 342.0
-texture = ExtResource("3")
-expand_mode = 1
-
 [node name="Title" type="Label" parent="EditorPreview"]
 layout_mode = 0
 offset_left = 38.0
-offset_top = 355.0
-offset_right = 679.0
-offset_bottom = 468.0
-theme_override_colors/font_color = Color(0.939, 0.831, 0.67, 1)
-theme_override_font_sizes/font_size = 65
+offset_top = 160.0
+offset_right = 682.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.96, 0.85, 0.66, 1)
+theme_override_font_sizes/font_size = 44
 text = "MYSTERY ESCAPE'S"
 horizontal_alignment = 1
 
-[node name="Header" type="Label" parent="EditorPreview"]
+[node name="Header" type="Panel" parent="EditorPreview"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 703.0
+offset_bottom = 119.0
+
+[node name="HeaderInfo" type="Label" parent="EditorPreview/Header"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 18.0
+offset_right = 670.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 21
+text = "DÉTECTIVE  •  NIVEAU 1                 💎 30    🟡 600"
+
+[node name="PlayPanel" type="Panel" parent="EditorPreview"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 324.0
+offset_right = 685.0
+offset_bottom = 715.0
+
+[node name="PlayLabel" type="Label" parent="EditorPreview/PlayPanel"]
 layout_mode = 0
 offset_left = 30.0
+offset_top = 20.0
+offset_right = 620.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 32
+text = "JOUER LE DOSSIER\nN° 01\nLE BUREAU VERROUILLÉ"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="EditorPreview/PlayPanel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 306.0
+offset_right = 599.0
+offset_bottom = 375.0
+text = "JOUER MAINTENANT"
+
+[node name="ModesPanel" type="Panel" parent="EditorPreview"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 744.0
+offset_right = 685.0
+offset_bottom = 896.0
+
+[node name="ModesButton" type="Button" parent="EditorPreview/ModesPanel"]
+layout_mode = 0
+offset_left = 53.0
 offset_top = 45.0
-offset_right = 698.0
-offset_bottom = 116.0
-theme_override_colors/font_color = Color(0.921, 0.866, 0.754, 1)
-theme_override_font_sizes/font_size = 23
-text = "DÉTECTIVE           ◈  30         ●  600"
-horizontal_alignment = 1
+offset_right = 594.0
+offset_bottom = 123.0
+text = "MODES DE JEU"
 
-[node name="FeaturedCase" type="Panel" parent="EditorPreview"]
+[node name="DailyPanel" type="Panel" parent="EditorPreview"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 545.0
-offset_right = 665.0
-offset_bottom = 795.0
+offset_left = 35.0
+offset_top = 925.0
+offset_right = 685.0
+offset_bottom = 1094.0
 
-[node name="FeaturedCaseText" type="Label" parent="EditorPreview/FeaturedCase"]
+[node name="DailyButton" type="Button" parent="EditorPreview/DailyPanel"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 39.0
-offset_right = 595.0
-offset_bottom = 128.0
-theme_override_font_sizes/font_size = 30
-text = "DOSSIER 01\nLE BUREAU VERROUILLÉ"
-horizontal_alignment = 1
-
-[node name="PlayButton" type="Button" parent="EditorPreview/FeaturedCase"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 142.0
-offset_right = 550.0
-offset_bottom = 223.0
-text = "COMMENCER L'ENQUÊTE"
+offset_left = 53.0
+offset_top = 58.0
+offset_right = 594.0
+offset_bottom = 140.0
+text = "DÉFI DU JOUR"
 
 [node name="PreviewInfo" type="Label" parent="EditorPreview"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 1041.0
-offset_right = 670.0
-offset_bottom = 1122.0
-theme_override_font_sizes/font_size = 23
-text = "100 DOSSIERS  •  9 MODES  •  ENFANT"
+offset_left = 35.0
+offset_top = 1153.0
+offset_right = 687.0
+offset_bottom = 1263.0
+theme_override_font_sizes/font_size = 18
+text = "ACCUEIL    •    DOSSIERS    •    CLASSEMENT    •    BOUTIQUE    •    PROFIL"
 horizontal_alignment = 1
