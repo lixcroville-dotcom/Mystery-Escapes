@@ -16,8 +16,8 @@ func _ready() -> void:
 		return
 	if not bool(settings.get("enabled", false)):
 		return
-	if not get_tree().root.has_node("MobileAds"):
-		return
+	# MobileAds est une classe globale fournie par le plugin, pas un Node de scene.
+	# Ne pas rechercher un noeud root/MobileAds : cette condition bloquait toutes les annonces.
 	var resource: Script = load("res://scripts/online/admob_native_adapter.gd")
 	if resource == null:
 		return
