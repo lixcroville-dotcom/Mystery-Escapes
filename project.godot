@@ -25,3 +25,7 @@ textures/default_filters/use_nearest_mipmap_filter=false
 [gui]
 theme/default_font_size=22
 
+
+[autoload]
+OnlineService="*res://scripts/online/online_service.gd"
+AdBridge="*res://scripts/online/ad_bridge.gd"

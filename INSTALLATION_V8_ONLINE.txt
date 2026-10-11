@@ -1,0 +1,23 @@
+MYSTERY ESCAPE’S V8 — PRÉPARATION ONLINE
+
+C’est une archive COMPLÈTE du projet, à installer directement sur le dépôt GitHub actuel. Rien à installer avant.
+
+1) Dans Windows CMD :
+cd /d "%USERPROFILE%\Documents\MysteryEscapesV8Upload"
+
+2) Décompresser CE ZIP dans le dépôt (conserver .git). Vérifier que project.godot est directement dans ce dossier.
+
+3) Contrôles :
+set PYTHONUTF8=1
+python tools\verify_v8.py
+python tools\verify_v8_deep.py
+
+4) Envoyer :
+git add -A
+git commit -m "V8 online foundation"
+git push origin main
+
+5) GitHub Actions :
+gh workflow run ios-ipa.yml --ref main
+
+En l’absence de configuration Firebase et AdMob, le nouveau classement indique honnêtement « non connecté ». Aucune publicité ou transaction réelle n’est active.

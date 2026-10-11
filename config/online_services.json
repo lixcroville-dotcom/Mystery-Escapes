@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "firebase": {
+    "enabled": false,
+    "project_id": "",
+    "api_key": "",
+    "anonymous_auth_enabled": false
+  },
+  "leaderboards": {
+    "enabled": false,
+    "collection": "public_leaderboards",
+    "page_size": 20
+  },
+  "ads": {
+    "enabled": false,
+    "test_mode": true,
+    "rewarded_enabled": false,
+    "interstitial_enabled": false,
+    "min_seconds_between_interstitials": 300,
+    "ios_app_id": "",
+    "android_app_id": "",
+    "ios_rewarded_unit_id": "",
+    "ios_interstitial_unit_id": "",
+    "android_rewarded_unit_id": "",
+    "android_interstitial_unit_id": ""
+  },
+  "purchases": {
+    "enabled": false,
+    "real_money_enabled": false
+  },
+  "lives": {
+    "enabled": false,
+    "unlimited": true
+  },
+  "privacy": {
+    "public_profile_opt_in": false
+  }
+}

@@ -1766,7 +1766,8 @@ func show_profile() -> void:
 		label(str(statistics[i*2+1]),x+13,y+54,280,62,32,theme_color,true)
 	btn(loc("SUCCÈS","ACHIEVEMENTS"),52,998,297,74,show_achievements,false)
 	btn(loc("JOURNAL","JOURNAL"),371,998,297,74,show_journal,false)
-	btn(loc("PARAMÈTRES","SETTINGS"),177,1082,365,58,show_settings,false,page,true)
+	btn(loc("MONDIAL","GLOBAL"),38,1082,310,58,show_online_leaderboard,false,page,true)
+	btn(loc("PARAMÈTRES","SETTINGS"),370,1082,310,58,show_settings,false,page,true)
 	navigation("profile")
 	fade_in()
 
@@ -2207,3 +2208,59 @@ func close_opening() -> void:
 			if is_instance_valid(old):
 				old.queue_free()
 		)
+
+
+# V8 online preview. Scores are NEVER uploaded directly from the client.
+var online_board_name: String = "global"
+var online_response_message: String = ""
+var online_entries: Array = []
+
+func show_online_leaderboard() -> void:
+    screen = "online_leaderboard"
+    wipe()
+    backdrop("menu", 0.65)
+    topbar(loc("CLASSEMENT MONDIAL", "GLOBAL LEADERBOARD"), show_profile)
+    label(loc("COMPÉTITION MONDIALE", "GLOBAL COMPETITION"),28,145,663,63,30,theme_color,true)
+    label(loc("Scores vérifiés côté serveur uniquement", "Server-validated scores only"),35,207,653,44,19,QUIET,true)
+    var tabs = ["global", "weekly", "monthly", "expert", "impossible", "daily", "marathon"]
+    var tab_names = [loc("MONDE","WORLD"),loc("SEMAINE","WEEK"),loc("MOIS","MONTH"),"EXPERT",loc("IMPOSSIBLE","IMPOSSIBLE"),loc("QUOTIDIEN","DAILY"),"MARATHON"]
+    for i in range(tabs.size()):
+        var col = i % 2
+        var row = int(i / 2)
+        btn(tab_names[i],45+col*328,280+row*79,302,63,Callable(self,"online_select_board").bind(tabs[i]),online_board_name==tabs[i],page,true)
+    box(38,612,645,482,Color("#152736ef"),18,theme_color)
+    if not OnlineService.is_online_enabled():
+        label(loc("MODE TEST • CLASSEMENT NON CONNECTÉ", "TEST MODE • OFFLINE LEADERBOARD"),57,670,607,77,26,GOLD,true)
+        label(loc("Le jeu reste jouable. Active Firebase pour consulter les vrais scores mondiaux.", "Play offline as normal. Configure Firebase to see real global scores."),62,784,592,169,22,PAPER,true)
+    elif online_response_message != "":
+        label(online_response_message,60,685,602,195,22,PAPER,true)
+    elif online_entries.is_empty():
+        label(loc("Aucun score publié dans ce classement.", "No published scores in this board."),60,702,601,122,24,PAPER,true)
+    else:
+        for i in range(mini(online_entries.size(), 8)):
+            var item: Dictionary = online_entries[i]
+            label("%02d   %s  •  %d pts" % [i+1,str(item.get("name","")),int(item.get("score",0))],70,644+i*53,582,48,20,PAPER,false)
+    navigation("profile")
+    fade_in()
+
+func online_select_board(board: String) -> void:
+    online_board_name = board
+    online_entries.clear()
+    online_response_message = loc("Connexion au classement…", "Loading leaderboard…")
+    if not OnlineService.ranking_loaded.is_connected(online_received):
+        OnlineService.ranking_loaded.connect(online_received)
+    if not OnlineService.ranking_failed.is_connected(online_failed):
+        OnlineService.ranking_failed.connect(online_failed)
+    OnlineService.fetch_public_ranking(board)
+    show_online_leaderboard()
+
+func online_received(entries: Array) -> void:
+    online_entries = entries
+    online_response_message = ""
+    if screen == "online_leaderboard":
+        show_online_leaderboard()
+
+func online_failed(message: String) -> void:
+    online_response_message = message
+    if screen == "online_leaderboard":
+        show_online_leaderboard()

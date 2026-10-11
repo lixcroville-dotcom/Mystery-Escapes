@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+   // No client-side direct score updates. Only Admin SDK can publish verified rankings.
+   match /public_leaderboards/{board}/entries/{entry} {
+     allow read: if board in ['global','weekly','monthly','expert','impossible','daily','marathon'];
+     allow write: if false;
+   }
+   match /{document=**} { allow read, write: if false; }
+ }
+}
