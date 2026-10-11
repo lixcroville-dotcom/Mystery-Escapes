@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
   "firebase": {
-    "enabled": false,
-    "project_id": "",
-    "api_key": "",
-    "anonymous_auth_enabled": false
+    "enabled": true,
+    "project_id": "mystery-escapes",
+    "api_key": "AIzaSyANt_GnW1-VO8nuN-m6fuLbpwyWjP6hABo",
+    "anonymous_auth_enabled": true,
+    "email_auth_enabled": true
   },
   "leaderboards": {
-    "enabled": false,
+    "enabled": true,
     "collection": "public_leaderboards",
     "page_size": 20
   },
@@ -17,12 +18,16 @@
     "rewarded_enabled": false,
     "interstitial_enabled": false,
     "min_seconds_between_interstitials": 300,
-    "ios_app_id": "",
+    "ios_app_id": "ca-app-pub-2527924468086613~8913216494",
     "android_app_id": "",
     "ios_rewarded_unit_id": "",
-    "ios_interstitial_unit_id": "",
+    "ios_interstitial_unit_id": "ca-app-pub-2527924468086613/3094833473",
     "android_rewarded_unit_id": "",
-    "android_interstitial_unit_id": ""
+    "android_interstitial_unit_id": "",
+    "ios_rewarded_coins_unit_id": "ca-app-pub-2527924468086613/7041817341",
+    "ios_rewarded_hint_unit_id": "ca-app-pub-2527924468086613/3082305310",
+    "coins_per_rewarded_ad": 100,
+    "interstitial_after_cases": 3
   },
   "purchases": {
     "enabled": false,

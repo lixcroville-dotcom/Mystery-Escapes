@@ -1849,11 +1849,21 @@ func show_shop() -> void:
 		label(str(shop_items[i][0]),64,y+12,540,43,26,theme_color)
 		label(str(shop_items[i][1]),65,y+58,460,43,19,QUIET)
 		btn(str(shop_items[i][2])+" ●",496,y+78,156,56,Callable(self,"buy_virtual").bind(i),true,page,true)
-	box(42,975,636,143,Color("#16202df2"))
-	label(loc("PUBLICITÉS ET ACHATS","ADS & PURCHASES"),54,984,611,42,25,theme_color,true)
-	label(loc("Désactivés dans ce prototype hors ligne. Aucun paiement ni pub réelle.","Disabled in this offline prototype. No real payments or ads."),65,1031,579,69,19,QUIET,true)
+	box(42,975,636,182,Color("#16202df2"))
+	label(loc("BONUS PUBLICITAIRES", "AD REWARDS"),54,983,611,42,25,theme_color,true)
+	btn(loc("VIDÉO +100 PIÈCES", "VIDEO +100 COINS"),56,1035,298,58,func():request_reward_ad("coins"),false,page,true)
+	btn(loc("VIDÉO +1 INDICE", "VIDEO +1 HINT"),365,1035,298,58,func():request_reward_ad("hint"),false,page,true)
+	label(loc("Mode test : nécessite le SDK AdMob iOS", "Test mode: AdMob iOS SDK required"),58,1100,604,44,17,QUIET,true)
 	navigation("shop")
 	fade_in()
+
+func request_reward_ad(kind: String) -> void:
+	if not AdBridge.ad_unavailable.is_connected(ad_is_unavailable):
+		AdBridge.ad_unavailable.connect(ad_is_unavailable)
+	AdBridge.show_rewarded(kind)
+
+func ad_is_unavailable(message: String) -> void:
+	popup(loc("VIDÉO INDISPONIBLE", "VIDEO UNAVAILABLE"), message)
 
 func buy_virtual(which: int) -> void:
 	var costs=[220,400,600]
@@ -2215,6 +2225,87 @@ var online_board_name: String = "global"
 var online_response_message: String = ""
 var online_entries: Array = []
 
+var login_email_box: LineEdit
+var login_password_box: LineEdit
+var online_auth_note: String = ""
+
+func show_online_account() -> void:
+	screen = "online_account"
+	wipe()
+	backdrop("menu", 0.65)
+	topbar(loc("COMPTE EN LIGNE", "ONLINE ACCOUNT"), show_profile)
+	label(loc("IDENTITÉ FIREBASE", "FIREBASE IDENTITY"),36,175,646,67,35,theme_color,true)
+	box(40,271,640,755,Color("#152736ef"),18,theme_color)
+	if OnlineService.is_authenticated():
+		label(loc("CONNECTÉ", "CONNECTED"),60,310,596,73,32,GREEN,true)
+		label(OnlineService.user_email if not OnlineService.user_email.is_empty() else loc("Joueur invité", "Guest player"),64,414,588,68,24,PAPER,true)
+		label(loc("Identifiant : ", "User ID: ") + OnlineService.user_id.substr(0,14) + "…",60,512,600,60,20,QUIET,true)
+		btn(loc("DÉCONNEXION", "LOG OUT"),100,718,520,70,online_logout,false,page,true)
+	else:
+		label(loc("JOUER EN INVITÉ", "PLAY AS GUEST"),56,308,610,52,27,GOLD,true)
+		btn(loc("CONNEXION INVITÉ", "GUEST SIGN IN"),103,366,514,72,online_guest_login,true,page,true)
+		label(loc("OU PAR E-MAIL", "OR BY EMAIL"),70,488,580,48,25,theme_color,true)
+		login_email_box = LineEdit.new()
+		login_email_box.placeholder_text = "Adresse e-mail"
+		login_email_box.position = Vector2(100,552)
+		login_email_box.size = Vector2(520,68)
+		login_email_box.max_length = 150
+		login_email_box.add_theme_font_size_override("font_size",22)
+		page.add_child(login_email_box)
+		login_password_box = LineEdit.new()
+		login_password_box.placeholder_text = loc("Mot de passe", "Password")
+		login_password_box.secret = true
+		login_password_box.position = Vector2(100,642)
+		login_password_box.size = Vector2(520,68)
+		login_password_box.add_theme_font_size_override("font_size",22)
+		page.add_child(login_password_box)
+		btn(loc("SE CONNECTER", "SIGN IN"),95,763,260,69,func():online_email_action(false),true,page,true)
+		btn(loc("CRÉER UN COMPTE", "REGISTER"),368,763,260,69,func():online_email_action(true),false,page,true)
+		label(loc("Session temporaire : reconnecte-toi après redémarrage.", "Session-only login: sign in again after restart."),67,864,591,76,18,QUIET,true)
+	if not online_auth_note.is_empty():
+		label(online_auth_note,59,1057,605,88,19,PAPER,true)
+	if not OnlineService.auth_success.is_connected(online_auth_success):
+		OnlineService.auth_success.connect(online_auth_success)
+	if not OnlineService.auth_failure.is_connected(online_auth_failure):
+		OnlineService.auth_failure.connect(online_auth_failure)
+	btn(loc("VOIR LE CLASSEMENT", "VIEW LEADERBOARD"),72,1157,576,65,show_online_leaderboard,false,page,true)
+	fade_in()
+
+func online_guest_login() -> void:
+	online_auth_note = loc("Connexion en cours…", "Signing in…")
+	OnlineService.login_anonymous()
+
+func online_email_action(is_register: bool) -> void:
+	if login_email_box == null or login_password_box == null:
+		return
+	var email := login_email_box.text.strip_edges()
+	var password := login_password_box.text
+	if not email.contains("@") or password.length() < 6:
+		online_auth_note = loc("Vérifie ton adresse et ton mot de passe (6 caractères minimum).", "Check email and password (minimum 6 characters).")
+		show_online_account()
+		return
+	online_auth_note = loc("Connexion en cours…", "Signing in…")
+	if is_register:
+		OnlineService.register_email(email,password)
+	else:
+		OnlineService.login_email(email,password)
+
+func online_auth_success(_uid: String, _email: String) -> void:
+	online_auth_note = loc("Connexion Firebase réussie", "Firebase login successful")
+	if screen == "online_account":
+		show_online_account()
+
+func online_auth_failure(message: String) -> void:
+	online_auth_note = message
+	if screen == "online_account":
+		# Keep existing text fields rather than rerendering while user types.
+		popup(loc("CONNEXION IMPOSSIBLE", "SIGN IN FAILED"), message)
+
+func online_logout() -> void:
+	OnlineService.logout()
+	online_auth_note = ""
+	show_online_account()
+
 func show_online_leaderboard() -> void:
 	screen = "online_leaderboard"
 	wipe()
@@ -2222,6 +2313,7 @@ func show_online_leaderboard() -> void:
 	topbar(loc("CLASSEMENT MONDIAL", "GLOBAL LEADERBOARD"), show_profile)
 	label(loc("COMPÉTITION MONDIALE", "GLOBAL COMPETITION"),28,145,663,63,30,theme_color,true)
 	label(loc("Scores vérifiés côté serveur uniquement", "Server-validated scores only"),35,207,653,44,19,QUIET,true)
+	btn(loc("COMPTE", "ACCOUNT"),520,1107,154,58,show_online_account,false,page,true)
 	var tabs = ["global", "weekly", "monthly", "expert", "impossible", "daily", "marathon"]
 	var tab_names = [loc("MONDE","WORLD"),loc("SEMAINE","WEEK"),loc("MOIS","MONTH"),"EXPERT",loc("IMPOSSIBLE","IMPOSSIBLE"),loc("QUOTIDIEN","DAILY"),"MARATHON"]
 	for i in range(tabs.size()):
