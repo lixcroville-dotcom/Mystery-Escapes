@@ -1,11 +1,16 @@
 rules_version = '2';
 service cloud.firestore {
- match /databases/{database}/documents {
-   // No client-side direct score updates. Only Admin SDK can publish verified rankings.
-   match /public_leaderboards/{board}/entries/{entry} {
-     allow read: if board in ['global','weekly','monthly','expert','impossible','daily','marathon'];
-     allow write: if false;
-   }
-   match /{document=**} { allow read, write: if false; }
- }
+  match /databases/{database}/documents {
+    // Public, server-written rankings. App clients CANNOT write scores.
+    match /public_leaderboards/{board}/entries/{uid} {
+      allow get, list: if board in ['global','expert','impossible','daily','marathon']
+        || board.matches('weekly_[0-9]+')
+        || board.matches('monthly_[0-9]{4}-[0-9]{2}')
+        || board.matches('country_[A-Z]{2}')
+        || board.matches('case_[0-9]{3}');
+      allow create, update, delete: if false;
+    }
+    // Private game-run state and public profile settings: Callable functions only.
+    match /{document=**} { allow read, write: if false; }
+  }
 }

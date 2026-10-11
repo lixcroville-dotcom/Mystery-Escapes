@@ -29,3 +29,4 @@ theme/default_font_size=22
 [autoload]
 OnlineService="*res://scripts/online/online_service.gd"
 AdBridge="*res://scripts/online/ad_bridge.gd"
+RankedClient="*res://scripts/online/ranked_client.gd"

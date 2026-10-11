@@ -1,0 +1,23 @@
+MYSTERY ESCAPE'S V8 — INSTALLATION EN MODE TEST
+==============================================
+1. Conserver une copie du depot GitHub V8 actuel et une sauvegarde iPhone.
+2. Extraire l'archive complète à la racine du dépôt, pas dans Documents.
+3. Dans CMD :
+    cd /d "%USERPROFILE%\Documents\MysteryEscapesV8Upload"
+    set PYTHONUTF8=1
+    python tools\verify_v8.py
+    python tools\verify_v8_deep.py
+    python tools\verify_online_setup.py
+    python tools\verify_v8_release.py
+    node --test backend\functions\test\scoring.test.js
+4. Si tous les tests passent :
+    git add -A
+    git commit -m "Mystery Escapes V8 notebook profiles leaderboard preparation"
+    git push origin main
+    gh workflow run ios-ipa.yml --ref main
+5. Suivre https://github.com/lixcroville-dotcom/Mystery-Escapes/actions
+6. Tester l'IPA sur iPhone. La compilation ne prouve PAS la fonctionnalité du backend.
+
+ATTENTION : Firebase Spark ne permet pas de deployer Cloud Functions ;
+la publication des scores n'est pas encore active. Les vraies annonces
+commerciales ne sont pas autorisées dans ce build (mode test uniquement).

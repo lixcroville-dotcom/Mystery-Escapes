@@ -134,13 +134,22 @@ func fetch_public_ranking(board_id: String = "global") -> void:
 		ranking_failed.emit("Classement mondial en attente de configuration Firebase")
 		return
 	# Query is restricted to publicly-readable, server-written score documents.
-	if not board_id in ["global", "weekly", "monthly", "expert", "impossible", "daily", "marathon"]:
+	var resolved_board: String = board_id
+	if board_id == "weekly":
+		# ISO-style Monday 00:00 UTC: identical to backend/functions/scoring.js.
+		resolved_board = "weekly_%d" % int(floor((Time.get_unix_time_from_system() + 259200.0) / 604800.0))
+	elif board_id == "monthly":
+		var utc = Time.get_datetime_dict_from_system(true)
+		resolved_board = "monthly_%04d-%02d" % [int(utc["year"]), int(utc["month"])]
+	var static_boards = ["global", "expert", "impossible", "daily", "marathon"]
+	var ok_board = resolved_board in static_boards or resolved_board.begins_with("weekly_") or resolved_board.begins_with("monthly_") or resolved_board.begins_with("country_") or resolved_board.begins_with("case_")
+	if not ok_board:
 		ranking_failed.emit("Classement inconnu")
 		return
 	var fb: Dictionary = config.get("firebase", {})
 	var project_id: String = str(fb.get("project_id", ""))
 	var collection: String = str(config.get("leaderboards",{}).get("collection","public_leaderboards"))
-	var url := "https://firestore.googleapis.com/v1/projects/%s/databases/(default)/documents/%s/%s/entries?pageSize=20" % [project_id.uri_encode(),collection.uri_encode(),board_id.uri_encode()]
+	var url := "https://firestore.googleapis.com/v1/projects/%s/databases/(default)/documents/%s/%s/entries?pageSize=20" % [project_id.uri_encode(),collection.uri_encode(),resolved_board.uri_encode()]
 	var req := HTTPRequest.new()
 	add_child(req)
 	busy = true

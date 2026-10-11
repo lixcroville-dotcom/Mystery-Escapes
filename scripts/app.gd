@@ -95,6 +95,10 @@ var child_level_offset: int = 100
 var child_level_count: int = 50
 var opening_layer: Control
 var opening_completed: bool = false
+var avatar_preview_v8: int = -1
+const AVATAR_COUNT_V8: int = 20
+const PROFILE_XP_ONCE_V8: int = 25
+const PROFILE_POINTS_ONCE_V8: int = 10
 # V6: drag-scrolling tracks input before child buttons can consume it.
 var touch_scrolls: Array = []
 var dragged_scroll: ScrollContainer
@@ -232,7 +236,7 @@ func _process(delta: float) -> void:
 			render_game()
 
 func fresh_save() -> Dictionary:
-	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0, "hints_stock":0, "impossible_clears":0, "impossible_tutorial_seen":false}
+	return {"name":"Détective", "coins":600, "gems":30, "xp":0, "best":{}, "runs":[], "solved":[], "completed":0, "daily_date":"", "daily_claim":"", "language":"fr", "sound":true, "music":true, "theme":0, "purchases":[], "achievements":[], "session":{}, "music_volume":25, "sfx_volume":55, "v3_audio_migrated":false, "haptics":false, "mode_records":{}, "mode_session":{}, "daily_streak":0, "last_login":"", "notebook":{}, "tutorial_seen":false, "text_scale":100, "reduced_motion":false, "avatar":0, "avatar_unlocked": [0,1,2,3], "profile_customization_claimed": [], "profile_points": 0, "profile_public_opt_in": false, "profile_country": "", "hints_stock":0, "impossible_clears":0, "impossible_tutorial_seen":false}
 
 func load_game() -> void:
 	save = fresh_save()
@@ -831,6 +835,8 @@ func start_case(n: int, is_daily: bool=false) -> void:
 		popup(loc("DOSSIER VERROUILLÉ","CASE LOCKED"),loc("Résous d'abord l'enquête précédente.","Solve the previous case first."))
 		return
 	selected_level=n
+	# A separate optional server verification channel; never blocks offline play.
+	RankedClient.start_for_case(int(levels[n].get("id",n+1)), "daily" if is_daily else active_mode)
 	stage_index=0
 	mistakes=0
 	hints_used=0
@@ -1001,6 +1007,7 @@ func mistake(msg: String="") -> void:
 func stage_complete() -> void:
 	if stage_transitioning: return
 	stage_transitioning=true
+	RankedClient.solved_stage(current_stage(),mistakes,hints_used,str(save.get("language","fr")))
 	if str(current_stage()["type"]) in ["code","lock","cipher","mechanism"]:
 		play_sound("lock_click")
 		play_sound("solved")
@@ -1061,7 +1068,7 @@ func case_complete() -> void:
 	screen="result"
 	wipe()
 	backdrop(BG_NAMES[int(levels[selected_level]["chapter"]) % BG_NAMES.size()],.62)
-	image("res://assets/ui/seal.png",230,140,260,260,page,.91)
+	image("res://assets/ui/detective_notebook_v8.png",230,140,260,260,page,.91)
 	label(loc("ENQUÊTE RÉSOLUE","CASE SOLVED"),48,442,624,82,46,theme_color,true)
 	label(property_text(levels[selected_level],"title"),45,533,630,78,29,PAPER,true)
 	box(46,660,626,303,Color("#142634ef"),25,theme_color)
@@ -1371,7 +1378,7 @@ func draw_wheels(as_letters: bool) -> void:
 		box(110,522,500,84,Color("#222f39"))
 		label(str(current_stage().get("encoded","")),132,535,456,57,37,theme_color,true)
 	else:
-		image("res://assets/ui/seal.png",275,495,170,170,page,.55)
+		image("res://assets/ui/detective_notebook_v8.png",275,495,170,170,page,.55)
 	for i in range(count):
 		var x=start+i*(wid+10)
 		btn("▲",x,670,wid,65,Callable(self,"turn_wheel").bind(i,1,alphabet.length()))
@@ -1683,10 +1690,51 @@ func play_tone_sequence() -> void:
 # Meta systems: profile, local records, collectibles, hints,
 # shop (virtual currency only), journal, settings, achievements.
 # -------------------------------------------------------------
+# V8: artwork unlocks progressively. Never award XP repeatedly for the same choice.
+func avatar_path_v8(index: int) -> String:
+	return "res://assets/ui/avatars/detective_%02d.png" % (posmod(index, AVATAR_COUNT_V8) + 1)
+
+func avatar_unlock_level_v8(index: int) -> int:
+	return 1 if index < 4 else 2 + int((index - 4) / 2)
+
+func avatar_is_available_v8(index: int) -> bool:
+	if index < 4 or user_level() >= avatar_unlock_level_v8(index):
+		return true
+	return (save.get("avatar_unlocked",[]) as Array).has(index)
+
+func avatar_price_v8(index: int) -> int:
+	return 150 + 50 * maxi(0,index - 4)
+
 func change_avatar(step: int) -> void:
-	save["avatar"]=(int(save.get("avatar",0))+step+2)%2
-	persist()
+	if avatar_preview_v8 < 0:
+		avatar_preview_v8 = clampi(int(save.get("avatar",0)),0,AVATAR_COUNT_V8-1)
+	avatar_preview_v8 = posmod(avatar_preview_v8 + step, AVATAR_COUNT_V8)
 	play_sound("paper")
+	show_profile()
+
+func select_avatar_v8() -> void:
+	var index = clampi(avatar_preview_v8,0,AVATAR_COUNT_V8-1)
+	if not avatar_is_available_v8(index):
+		var price = avatar_price_v8(index)
+		if int(save.get("coins",0)) < price:
+			popup(loc("AVATAR VERROUILLÉ", "LOCKED AVATAR"),loc("Débloqué au niveau %d, ou pour %d pièces." % [avatar_unlock_level_v8(index),price], "Unlock at level %d, or for %d coins." % [avatar_unlock_level_v8(index),price]))
+			return
+		save["coins"] = int(save.get("coins",0)) - price
+		var unlocked: Array = save.get("avatar_unlocked", [])
+		if not unlocked.has(index):
+			unlocked.append(index)
+			save["avatar_unlocked"] = unlocked
+	if int(save.get("avatar",0)) != index:
+		save["avatar"] = index
+		var rewarded: Array = save.get("profile_customization_claimed", [])
+		var claim: String = "avatar_%02d" % index
+		if not rewarded.has(claim):
+			rewarded.append(claim)
+			save["profile_customization_claimed"] = rewarded
+			save["xp"] = int(save.get("xp",0)) + PROFILE_XP_ONCE_V8
+			save["profile_points"] = int(save.get("profile_points",0)) + PROFILE_POINTS_ONCE_V8
+	persist()
+	play_sound("unlock")
 	show_profile()
 
 func show_tutorial_step(index: int) -> void:
@@ -1777,23 +1825,25 @@ func show_profile() -> void:
 	small_header(loc("IDENTITÉ","IDENTITY"))
 	label(loc("MON DOSSIER","MY DETECTIVE FILE"),40,143,643,65,43,theme_color,true)
 	box(39,236,641,398,Color("#182c3bef"))
-	var avatar_id=int(save.get("avatar",0))
-	if avatar_id==0:
-		image("res://assets/ui/agent_morgan.png",265,252,188,203,page,.95)
-	else:
-		image("res://assets/ui/seal.png",250,245,220,216,page,.88)
-	btn("‹",171,310,62,68,func():change_avatar(-1),false,page,true)
-	btn("›",494,310,62,68,func():change_avatar(1),false,page,true)
-	label(loc("NOM DU DÉTECTIVE","DETECTIVE NAME"),73,462,574,37,20,QUIET,true)
+	if avatar_preview_v8 < 0:
+		avatar_preview_v8 = clampi(int(save.get("avatar",0)),0,AVATAR_COUNT_V8-1)
+	var avatar_id = clampi(avatar_preview_v8,0,AVATAR_COUNT_V8-1)
+	image(avatar_path_v8(avatar_id),268,248,184,181,page,1.0 if avatar_is_available_v8(avatar_id) else .60)
+	btn("‹",171,305,62,68,func():change_avatar(-1),false,page,true)
+	btn("›",494,305,62,68,func():change_avatar(1),false,page,true)
+	label("%02d / %02d  •  %d PP" % [avatar_id+1,AVATAR_COUNT_V8,int(save.get("profile_points",0))],244,426,232,34,17,GOLD_BRIGHT,true)
+	var status = loc("ÉQUIPÉ", "EQUIPPED") if int(save.get("avatar",0)) == avatar_id else (loc("CHOISIR +25 XP", "EQUIP +25 XP") if avatar_is_available_v8(avatar_id) else loc("DÉBLOQUER : %d PIÈCES" % avatar_price_v8(avatar_id),"UNLOCK: %d COINS" % avatar_price_v8(avatar_id)))
+	btn(status,212,457,296,45,select_avatar_v8,avatar_is_available_v8(avatar_id),page,true)
+	label(loc("NOM DU DÉTECTIVE","DETECTIVE NAME"),73,504,574,32,19,QUIET,true)
 	txt_name=LineEdit.new()
 	txt_name.text=str(save.get("name","Détective"))
 	txt_name.max_length=20
 	txt_name.alignment=HORIZONTAL_ALIGNMENT_CENTER
-	txt_name.position=Vector2(95,517)
-	txt_name.size=Vector2(530,67)
-	txt_name.add_theme_font_size_override("font_size",27)
+	txt_name.position=Vector2(95,542)
+	txt_name.size=Vector2(530,56)
+	txt_name.add_theme_font_size_override("font_size",25)
 	page.add_child(txt_name)
-	btn(loc("ENREGISTRER","SAVE NAME"),207,591,306,55,store_username,true,page,true)
+	btn(loc("ENREGISTRER","SAVE NAME"),207,600,306,44,store_username,true,page,true)
 	var statistics=[loc("NIVEAU JOUEUR","PLAYER LEVEL"),str(user_level()),loc("DOSSIERS RÉSOLUS","CASES SOLVED"),str(solved_count())+" / 100",loc("EXPÉRIENCE","EXPERIENCE"),str(save.get("xp",0))+" XP",loc("RECORD CUMULÉ","TOTAL BEST SCORE"),str(total_score())+" PTS"]
 	for i in range(4):
 		var x=42+(i%2)*331; var y=664+int(i/2)*154
@@ -1808,11 +1858,19 @@ func show_profile() -> void:
 	fade_in()
 
 func store_username() -> void:
-	var name=txt_name.text.strip_edges()
-	if name.is_empty():name="Détective"
-	save["name"]=name.substr(0,20)
+	var name = txt_name.text.strip_edges()
+	if name.is_empty(): name = "Détective"
+	name = name.substr(0,20)
+	if name != str(save.get("name","Détective")):
+		var claimed: Array = save.get("profile_customization_claimed", [])
+		if not claimed.has("name_first_change"):
+			claimed.append("name_first_change")
+			save["profile_customization_claimed"] = claimed
+			save["xp"] = int(save.get("xp",0)) + 25
+			save["profile_points"] = int(save.get("profile_points",0)) + 10
+	save["name"] = name
 	persist()
-	popup(loc("PROFIL ENREGISTRÉ","PROFILE SAVED"),loc("Ton nouveau pseudonyme est enregistré sur cet appareil.","Your detective name is saved on this device."))
+	popup(loc("PROFIL ENREGISTRÉ","PROFILE SAVED"),loc("Pseudo enregistré sur cet appareil. Les bonus de personnalisation ne sont accordés qu'une fois par option.","Name saved on this device. Customization bonuses are awarded only once per option."))
 
 func total_score() -> int:
 	var sum=0
@@ -2198,14 +2256,14 @@ func show_opening() -> void:
 	add_child(opening_layer)
 	var image_bg = TextureRect.new()
 	image_bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	image_bg.texture = load("res://assets/ui/loading_background.png")
+	image_bg.texture = load("res://assets/ui/loading_background_v8.png")
 	image_bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image_bg.stretch_mode = TextureRect.STRETCH_SCALE
 	opening_layer.add_child(image_bg)
 	var emblem = TextureRect.new()
 	emblem.position = Vector2(177,225)
 	emblem.size = Vector2(366,366)
-	emblem.texture = load("res://assets/ui/seal_v5.png")
+	emblem.texture = load("res://assets/ui/detective_notebook_v8.png")
 	emblem.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	emblem.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	emblem.pivot_offset = emblem.size * 0.5
@@ -2248,10 +2306,13 @@ func show_opening() -> void:
 	opening_layer.add_child(skip)
 	if not motion_reduced:
 		emblem.modulate.a = 0.0
-		emblem.scale = Vector2(.89,.89)
+		emblem.scale = Vector2(.76,.89)
+		emblem.rotation = -.035
 		var intro = create_tween().set_parallel(true)
-		intro.tween_property(emblem,"modulate:a",1.0,1.0)
-		intro.tween_property(emblem,"scale",Vector2.ONE,1.3).set_trans(Tween.TRANS_SINE)
+		intro.tween_property(emblem,"modulate:a",1.0,.95)
+		intro.tween_property(emblem,"scale",Vector2.ONE,1.35).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		intro.tween_property(emblem,"rotation",.0,1.25).set_trans(Tween.TRANS_SINE)
+		# A short notebook-opening illusion, without a fake loading percentage.
 	get_tree().create_timer(3.8).timeout.connect(close_opening)
 
 func close_opening() -> void:
@@ -2294,7 +2355,9 @@ func show_online_account() -> void:
 		label(loc("CONNECTÉ", "CONNECTED"),60,310,596,73,32,GREEN,true)
 		label(OnlineService.user_email if not OnlineService.user_email.is_empty() else loc("Joueur invité", "Guest player"),64,414,588,68,24,PAPER,true)
 		label(loc("Identifiant : ", "User ID: ") + OnlineService.user_id.substr(0,14) + "…",60,512,600,60,20,QUIET,true)
-		btn(loc("DÉCONNEXION", "LOG OUT"),100,718,520,70,online_logout,false,page,true)
+		btn(loc("PAYS (OPTIONNEL) : ", "COUNTRY (OPTIONAL): ") + str(save.get("profile_country", "—")),100,605,520,62,cycle_profile_country_v8,false,page,true)
+		btn(loc("PROFIL PUBLIC : OUI", "PUBLIC PROFILE: YES") if bool(save.get("profile_public_opt_in",false)) else loc("PROFIL PUBLIC : NON", "PUBLIC PROFILE: NO"),100,685,520,62,toggle_public_rank_profile_v8,false,page,true)
+		btn(loc("DÉCONNEXION", "LOG OUT"),100,774,520,70,online_logout,false,page,true)
 	else:
 		label(loc("JOUER EN INVITÉ", "PLAY AS GUEST"),56,308,610,52,27,GOLD,true)
 		btn(loc("CONNEXION INVITÉ", "GUEST SIGN IN"),103,366,514,72,online_guest_login,true,page,true)
@@ -2350,6 +2413,7 @@ func online_email_action(is_register: bool) -> void:
 
 func online_auth_success(_uid: String, _email: String) -> void:
 	online_auth_note = loc("Connexion Firebase réussie", "Firebase login successful")
+	RankedClient.sync_profile(str(save.get("name","Détective")),str(save.get("profile_country","")),bool(save.get("profile_public_opt_in",false)))
 	if screen == "online_account":
 		show_online_account()
 
@@ -2358,6 +2422,21 @@ func online_auth_failure(message: String) -> void:
 	if screen == "online_account":
 		# Keep existing text fields rather than rerendering while user types.
 		popup(loc("CONNEXION IMPOSSIBLE", "SIGN IN FAILED"), message)
+
+func cycle_profile_country_v8() -> void:
+	var available = ["", "FR", "BE", "CH", "CA", "DE", "ES", "IT", "GB", "US"]
+	var current = str(save.get("profile_country", ""))
+	var pos = available.find(current)
+	save["profile_country"] = available[(pos+1) % available.size()]
+	persist()
+	RankedClient.sync_profile(str(save.get("name","Détective")),str(save["profile_country"]),bool(save.get("profile_public_opt_in",false)))
+	show_online_account()
+
+func toggle_public_rank_profile_v8() -> void:
+	save["profile_public_opt_in"] = not bool(save.get("profile_public_opt_in",false))
+	persist()
+	RankedClient.sync_profile(str(save.get("name","Détective")),str(save.get("profile_country","")),bool(save["profile_public_opt_in"]))
+	show_online_account()
 
 func online_logout() -> void:
 	OnlineService.logout()
@@ -2376,12 +2455,12 @@ func show_online_leaderboard() -> void:
 	label(loc("COMPÉTITION MONDIALE", "GLOBAL COMPETITION"),28,145,663,63,30,theme_color,true)
 	label(loc("Scores vérifiés côté serveur uniquement", "Server-validated scores only"),35,207,653,44,19,QUIET,true)
 	btn(loc("COMPTE", "ACCOUNT"),520,1107,154,58,show_online_account,false,page,true)
-	var tabs = ["global", "weekly", "monthly", "expert", "impossible", "daily", "marathon"]
-	var tab_names = [loc("MONDE","WORLD"),loc("SEMAINE","WEEK"),loc("MOIS","MONTH"),"EXPERT",loc("IMPOSSIBLE","IMPOSSIBLE"),loc("QUOTIDIEN","DAILY"),"MARATHON"]
+	var tabs = ["global", "weekly", "monthly", "country", "friends", "expert", "impossible", "daily", "marathon", "records"]
+	var tab_names = [loc("MONDE","WORLD"),loc("SEMAINE","WEEK"),loc("MOIS","MONTH"),loc("PAYS","COUNTRY"),loc("AMIS","FRIENDS"),"EXPERT",loc("IMPOSSIBLE","IMPOSSIBLE"),loc("QUOTIDIEN","DAILY"),"MARATHON",loc("RECORDS","RECORDS")]
 	for i in range(tabs.size()):
 		var col = i % 2
 		var row = int(i / 2)
-		btn(tab_names[i],45+col*328,280+row*79,302,63,Callable(self,"online_select_board").bind(tabs[i]),online_board_name==tabs[i],page,true)
+		btn(tab_names[i],45+col*328,260+row*67,302,55,Callable(self,"online_select_board").bind(tabs[i]),online_board_name==tabs[i],page,true)
 	box(38,612,645,482,Color("#152736ef"),18,theme_color)
 	if not OnlineService.is_online_enabled():
 		label(loc("MODE TEST • CLASSEMENT NON CONNECTÉ", "TEST MODE • OFFLINE LEADERBOARD"),57,670,607,77,26,GOLD,true)
@@ -2405,7 +2484,20 @@ func online_select_board(board: String) -> void:
 		OnlineService.ranking_loaded.connect(online_received)
 	if not OnlineService.ranking_failed.is_connected(online_failed):
 		OnlineService.ranking_failed.connect(online_failed)
-	OnlineService.fetch_public_ranking(board)
+	if board == "friends":
+		online_response_message = loc("Classement entre amis : nécessite le service de classement vérifié et les codes amis. Aucun faux score ne sera affiché.", "Friends: requires the verified ranking server and friend codes. No simulated scores.")
+	elif board == "country":
+		var country = str(save.get("profile_country", ""))
+		if country.length() != 2:
+			online_response_message = loc("Choisis ton pays dans le profil lorsque le service sécurisé sera déployé.", "Choose your country in your profile after the secure service is deployed.")
+		else:
+			OnlineService.fetch_public_ranking("country_" + country.to_upper())
+	elif board == "records":
+		var solved: Array = save.get("solved", [])
+		var case_id = int(solved.back()) if not solved.is_empty() else 1
+		OnlineService.fetch_public_ranking("case_%03d" % clampi(case_id,1,100))
+	else:
+		OnlineService.fetch_public_ranking(board)
 	show_online_leaderboard()
 
 func online_received(entries: Array) -> void:

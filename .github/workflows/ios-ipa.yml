@@ -36,7 +36,7 @@ jobs:
           test -f project.godot || { echo "project.godot absent a la racine du depot"; exit 1; }
           test -f export_presets.cfg || { echo "export_presets.cfg absent"; exit 1; }
           test -f scenes/main_menu.tscn || { echo "scenes/main_menu.tscn absent"; exit 1; }
-          test -f assets/ui/seal.png || { echo "assets/ui/seal.png absent"; exit 1; }
+          test -f assets/ui/detective_notebook_v8.png || { echo "logo V8 absent"; exit 1; }
           echo "Fichiers essentiels presents."
 
       - name: Valider 100 dossiers, juniors, defi impossible et ressources V6
@@ -46,6 +46,8 @@ jobs:
           python3 tools/verify_v8.py
           python3 tools/verify_v8_deep.py
           python3 tools/verify_online_setup.py
+          python3 tools/verify_v8_release.py
+          node --test backend/functions/test/*.test.js
 
       - name: Telecharger Godot macOS officiel
         shell: bash

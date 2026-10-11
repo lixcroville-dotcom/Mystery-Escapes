@@ -19,6 +19,9 @@ func _ready() -> void:
 		ads = cfg.get("ads", {})
 	MobileAds.initialize()
 
+func _production_ready() -> bool:
+	return bool(ads.get("production_approved", false)) and bool(ads.get("consent_ready", false)) and bool(ads.get("store_listing_linked", false)) and bool(ads.get("publisher_payment_profile_complete", false))
+
 func _reward_unit(kind: String) -> String:
 	if bool(ads.get("test_mode", true)):
 		return IOS_TEST_REWARDED if OS.get_name() == "iOS" else ANDROID_TEST_REWARDED
@@ -27,6 +30,9 @@ func _reward_unit(kind: String) -> String:
 
 func show_rewarded(kind: String) -> void:
 	if busy or kind not in ["coins", "hint", "double"]:
+		return
+	if not bool(ads.get("test_mode", true)) and not _production_ready():
+		ad_failed.emit("Publicités commerciales désactivées : validation AdMob et consentement requis")
 		return
 	busy = true
 	pending_kind = kind
@@ -61,6 +67,8 @@ func _cleanup() -> void:
 
 func show_interstitial() -> void:
 	if busy:
+		return
+	if not bool(ads.get("test_mode", true)) and not _production_ready():
 		return
 	var cb := InterstitialAdLoadCallback.new()
 	cb.on_ad_failed_to_load = func(_err: LoadAdError) -> void: pass

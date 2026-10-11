@@ -2,5 +2,11 @@
   "firestore": {
     "rules": "backend/firestore.rules",
     "indexes": "backend/firestore.indexes.json"
-  }
+  },
+  "functions": [
+    {
+      "source": "backend/functions",
+      "codebase": "ranking"
+    }
+  ]
 }

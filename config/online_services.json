@@ -10,7 +10,9 @@
   "leaderboards": {
     "enabled": true,
     "collection": "public_leaderboards",
-    "page_size": 20
+    "page_size": 20,
+    "server_validation_deployed": false,
+    "require_app_check_before_public_launch": true
   },
   "ads": {
     "enabled": true,
@@ -27,7 +29,11 @@
     "ios_rewarded_coins_unit_id": "ca-app-pub-2527924468086613/7041817341",
     "ios_rewarded_hint_unit_id": "ca-app-pub-2527924468086613/3082305310",
     "coins_per_rewarded_ad": 100,
-    "interstitial_after_cases": 3
+    "interstitial_after_cases": 3,
+    "production_approved": false,
+    "consent_ready": false,
+    "store_listing_linked": false,
+    "publisher_payment_profile_complete": false
   },
   "purchases": {
     "enabled": false,
