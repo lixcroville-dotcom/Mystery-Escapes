@@ -83,11 +83,37 @@ jobs:
           fi
           test -s assets/ui/ios_app_icon.png
 
+      - name: Installer officiellement AdMob 5 pour iOS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/install_admob_ci.py
+          # Enable official Godot editor plugin before export.
+          cat >> project.godot <<'ADMOB'
+
+          [editor_plugins]
+          enabled=PackedStringArray("res://addons/admob/plugin.cfg")
+
+          [admob/general]
+          ios/enabled=true
+          ios/app_id="ca-app-pub-2527924468086613~8913216494"
+          ADMOB
+
       - name: Importer le projet Godot
         shell: bash
         run: |
           set -euo pipefail
           "$GODOT_BIN" --headless --path . --import
+
+      - name: Verifier extension native AdMob iOS
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! find addons/admob/ios -type f \( -name '*.gdextension' -o -name '*.gdip' -o -name '*.a' -o -name '*.dylib' -o -name '*.xcframework' \) 2>/dev/null | grep -q .; then
+            echo 'Erreur: le plugin natif iOS AdMob n a pas ete installe.'
+            echo 'Ne pas publier un IPA avec des pubs fictives.'
+            exit 1
+          fi
 
       - name: Smoke test Godot - démarrage du jeu
         shell: bash

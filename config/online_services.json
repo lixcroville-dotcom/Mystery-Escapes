@@ -13,10 +13,10 @@
     "page_size": 20
   },
   "ads": {
-    "enabled": false,
+    "enabled": true,
     "test_mode": true,
-    "rewarded_enabled": false,
-    "interstitial_enabled": false,
+    "rewarded_enabled": true,
+    "interstitial_enabled": true,
     "min_seconds_between_interstitials": 300,
     "ios_app_id": "ca-app-pub-2527924468086613~8913216494",
     "android_app_id": "",

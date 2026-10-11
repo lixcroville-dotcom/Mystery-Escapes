@@ -610,14 +610,31 @@ func label(t: String, x: float,y: float,w: float,h: float, sz: int=24, col: Colo
 	var estimated_lines = maxf(1.0, ceil(float(t.length()) / glyphs_per_line))
 	if estimated_lines * float(sz) * 1.38 > h and t.length() > 18:
 		var fitting = maxi(12, int(floor(h / (1.55 * estimated_lines))))
-		node.add_theme_font_size_override("font_size",mini(int(round(sz * ui_scale)),fitting))
+		node.add_theme_font_size_override("font_size",mini(int(round(sz * ui_scale)),maxi(10,fitting)))
 	if t.length() > 105 and h <= 110:
 		node.add_theme_font_size_override("font_size", int(round(mini(sz, 18) * ui_scale)))
 	elif t.length() > 75 and h <= 105:
 		node.add_theme_font_size_override("font_size", int(round(mini(sz, 20) * ui_scale)))
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	(parent if parent != null else page).add_child(node)
+	# Measure actual wrapped text once theme/font is available, not just character counts.
+	call_deferred("fit_text_inside_label", node, h)
 	return node
+
+func fit_text_inside_label(node: Label, available_height: float) -> void:
+	if not is_instance_valid(node):
+		return
+	var font = node.get_theme_font("font")
+	if font == null:
+		return
+	var font_size: int = node.get_theme_font_size("font_size")
+	var alignment = HORIZONTAL_ALIGNMENT_CENTER if node.horizontal_alignment == HORIZONTAL_ALIGNMENT_CENTER else HORIZONTAL_ALIGNMENT_LEFT
+	while font_size > 11:
+		var measured: Vector2 = font.get_multiline_string_size(node.text, alignment, maxf(12.0,node.size.x-10.0), font_size)
+		if measured.y <= available_height - 5.0:
+			break
+		font_size -= 1
+	node.add_theme_font_size_override("font_size", font_size)
 
 func btn(t: String, x: float,y: float,w: float,h: float, pressed: Callable, primary: bool=false, parent: Control=null, small: bool=false) -> Button:
 	var node = Button.new()
@@ -721,7 +738,7 @@ func topbar(title_text: String, back: Callable) -> void:
 func navigation(active: String) -> void:
 	box(9,1157,702,114,Color("#0b1622f8"),20,Color("#926f4b99"))
 	var names = [loc("ACCUEIL","HOME"),loc("DOSSIERS","CASES"),loc("CLASSEMENT","RANKS"),loc("BOUTIQUE","SHOP"),loc("PROFIL","PROFILE")]
-	var callbacks = [Callable(self,"show_home"),Callable(self,"show_levels"),Callable(self,"show_leaderboard"),Callable(self,"show_shop"),Callable(self,"show_profile")]
+	var callbacks = [Callable(self,"show_home"),Callable(self,"show_levels"),Callable(self,"show_online_leaderboard"),Callable(self,"show_shop"),Callable(self,"show_profile")]
 	for i in range(5):
 		var b = btn(names[i],19+i*139,1178,134,74,callbacks[i], active==["home","levels","leaderboard","shop","profile"][i],page,true)
 		b.add_theme_font_size_override("font_size",16)
@@ -901,7 +918,7 @@ func render_game() -> void:
 	page.add_child(brief_scroll)
 	var briefing = Label.new()
 	briefing.text = property_text(current_stage(),"question")
-	briefing.custom_minimum_size.x = 500
+	briefing.custom_minimum_size.x = 488
 	briefing.add_theme_font_size_override("font_size", 18)
 	briefing.add_theme_color_override("font_color", PAPER)
 	briefing.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -955,7 +972,21 @@ func popup(title_text: String, body: String, confirm: Callable=Callable(), actio
 		stamp_anim.tween_property(stamp,"scale",Vector2(1.2,1.2),.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		stamp_anim.tween_property(stamp,"scale",Vector2.ONE,.18)
 	label(title_text,74,501,568,69,32,theme_color,true,modal_layer)
-	label(body,80,573,559,128,19,PAPER,true,modal_layer)
+	var message_scroll := ScrollContainer.new()
+	message_scroll.position = Vector2(80, 573)
+	message_scroll.size = Vector2(559, 128)
+	message_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	message_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	message_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	modal_layer.add_child(message_scroll)
+	var message_label := Label.new()
+	message_label.text = body
+	message_label.custom_minimum_size.x = 540
+	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	message_label.add_theme_font_size_override("font_size", 19)
+	message_label.add_theme_color_override("font_color", PAPER)
+	message_label.mouse_filter = Control.MOUSE_FILTER_PASS
+	message_scroll.add_child(message_label)
 	btn(action_text if action_text!="" else loc("CONTINUER","CONTINUE"),98,713,525,70,Callable(self,"close_popup").bind(confirm),true,modal_layer)
 	card.pivot_offset=card.size/2
 	card.scale=Vector2(.9,.9)
@@ -1014,6 +1045,8 @@ func case_complete() -> void:
 		earned+=180
 		save["daily_claim"]=daily_day
 	save["coins"]=int(save.get("coins",0))+earned
+	save["last_case_earned"] = earned
+	save["ad_double_claimed"] = false
 	play_sound("coins")
 	save["xp"]=int(save.get("xp",0))+200
 	var solved=save.get("solved",[]) as Array
@@ -1041,11 +1074,14 @@ func case_complete() -> void:
 		anim.tween_property(star,"position:y",star.position.y,2.2+float(particle_i%3)*.2).set_trans(Tween.TRANS_SINE)
 	label(loc("Temps : ","Time: ")+time_display(seconds)+loc("   •   Erreurs : ","   •   Errors: ")+str(mistakes),60,846,601,51,22,PAPER,true)
 	label("+"+str(earned)+loc(" PIÈCES"," COINS")+(loc("  •  NOUVEAU RECORD","  •  NEW RECORD") if score>previous else ""),56,907,606,45,19,GREEN,true)
-	if selected_level < main_level_count-1:
+	if daily_mode and not bool(save.get("ad_double_claimed", false)):
+		btn(loc("VIDÉO : DOUBLER LES PIÈCES", "VIDEO: DOUBLE COINS"),59,1004,606,76,func():request_reward_ad("double"),false)
+	elif selected_level < main_level_count-1:
 		btn(loc("DOSSIER SUIVANT  ›","NEXT CASE  ›"),59,1004,606,76,func(): start_case(selected_level+1),false)
 	else:
 		btn(loc("LES 100 DOSSIERS RÉSOLUS !","ALL 100 CASES COMPLETED!"),59,1004,606,76,show_levels,false)
 	btn(loc("RETOUR AU MENU","BACK TO HOME"),60,1090,602,74,show_home,true)
+	AdBridge.case_finished()
 	fade_in()
 
 func add_achievements(seconds: int) -> void:
@@ -1853,11 +1889,28 @@ func show_shop() -> void:
 	label(loc("BONUS PUBLICITAIRES", "AD REWARDS"),54,983,611,42,25,theme_color,true)
 	btn(loc("VIDÉO +100 PIÈCES", "VIDEO +100 COINS"),56,1035,298,58,func():request_reward_ad("coins"),false,page,true)
 	btn(loc("VIDÉO +1 INDICE", "VIDEO +1 HINT"),365,1035,298,58,func():request_reward_ad("hint"),false,page,true)
-	label(loc("Mode test : nécessite le SDK AdMob iOS", "Test mode: AdMob iOS SDK required"),58,1100,604,44,17,QUIET,true)
+	label(loc("Annonces de test Google • Connexion requise", "Google test ads • Internet required"),58,1100,604,44,17,QUIET,true)
 	navigation("shop")
 	fade_in()
 
+func _on_ad_reward_confirmed(kind: String) -> void:
+	if kind == "coins":
+		save["coins"] = int(save.get("coins", 0)) + 100
+	elif kind == "hint":
+		save["hints_stock"] = int(save.get("hints_stock", 0)) + 1
+	elif kind == "double":
+		if screen != "result" or bool(save.get("ad_double_claimed", false)):
+			return
+		save["coins"] = int(save.get("coins", 0)) + int(save.get("last_case_earned", 0))
+		save["ad_double_claimed"] = true
+	else:
+		return
+	persist()
+	popup(loc("RÉCOMPENSE REÇUE", "REWARD RECEIVED"), loc("Ton bonus a été ajouté !", "Your reward was added!"))
+
 func request_reward_ad(kind: String) -> void:
+	if not AdBridge.rewarded_ad_completed.is_connected(_on_ad_reward_confirmed):
+		AdBridge.rewarded_ad_completed.connect(_on_ad_reward_confirmed)
 	if not AdBridge.ad_unavailable.is_connected(ad_is_unavailable):
 		AdBridge.ad_unavailable.connect(ad_is_unavailable)
 	AdBridge.show_rewarded(kind)
@@ -2221,6 +2274,7 @@ func close_opening() -> void:
 
 
 # V8 online preview. Scores are NEVER uploaded directly from the client.
+var online_initial_fetch_started: bool = false
 var online_board_name: String = "global"
 var online_response_message: String = ""
 var online_entries: Array = []
@@ -2307,6 +2361,10 @@ func online_logout() -> void:
 	show_online_account()
 
 func show_online_leaderboard() -> void:
+	if online_response_message == "" and online_entries.is_empty() and not online_initial_fetch_started:
+		online_initial_fetch_started = true
+		online_select_board(online_board_name)
+		return
 	screen = "online_leaderboard"
 	wipe()
 	backdrop("menu", 0.65)

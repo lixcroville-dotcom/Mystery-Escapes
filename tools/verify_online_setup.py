@@ -6,7 +6,9 @@ assert cfg['firebase']['project_id']==pl['PROJECT_ID']=='mystery-escapes'
 assert pl['BUNDLE_ID']=='com.lixcroville.mysteryescapes'
 assert cfg['firebase']['api_key']==pl['API_KEY']
 assert cfg['ads']['test_mode'] is True
-assert cfg['ads']['enabled'] is False
+assert cfg['ads']['enabled'] is True
+assert 'admob_native_adapter.gd' in str((root/'scripts/online/admob_native_adapter.gd').name)
+assert cfg['ads']['test_mode'] is True
 assert cfg['purchases']['real_money_enabled'] is False
 assert cfg['lives']['unlimited'] is True
 assert cfg['ads']['coins_per_rewarded_ad']==100
