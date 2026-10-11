@@ -12,20 +12,29 @@ import urllib.request
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE = "https://api.github.com/repos/poingstudios/godot-admob-plugin/releases/tags/v5.1.0"
-HEADERS = {"User-Agent": "MysteryEscapes-CI", "Accept": "application/vnd.github+json"}
+# Direct, version-pinned GitHub release assets: no unauthenticated GitHub API requests.
+BASE = "https://github.com/poingstudios/godot-admob-plugin/releases/download/v5.1.0/"
+ASSETS = {
+    "poing-godot-admob-v5.1.0.zip": "8c53ff52719edf6a81cc7d32a9cdaad2d9e11693c85faca25008a1c19355726f",
+    "ios-template-v4.7.2.zip": "6e7f1c807761f9c0ad45d335ac4c74acd4bba7a31f9e1c7cd16a5220010cce71",
+}
+HEADERS = {"User-Agent": "MysteryEscapes-CI/1.0"}
 
-
-def download(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=120) as response:
-        return response.read()
-
-
-def matching_asset(assets, prefix):
-    options = [a for a in assets if a["name"].startswith(prefix) and a["name"].endswith(".zip")]
-    if len(options) != 1:
-        raise RuntimeError(f"Expected exactly one {prefix} zip, found {[x['name'] for x in options]}")
-    return options[0]
+def download_asset(name):
+    import hashlib
+    if name not in ASSETS:
+        raise ValueError("Unexpected plugin asset: " + name)
+    url = BASE + name
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=120) as response:
+            data = response.read()
+    except Exception as exc:
+        raise RuntimeError(f"Could not download official AdMob asset {name}: {exc}") from exc
+    actual = hashlib.sha256(data).hexdigest()
+    if actual != ASSETS[name]:
+        raise RuntimeError(f"AdMob asset SHA256 mismatch for {name}: {actual}")
+    print(f"Verified official release asset: {name}")
+    return data
 
 
 def unzip_checked(blob, label):
@@ -36,7 +45,7 @@ def unzip_checked(blob, label):
 
 
 def install_editor(asset):
-    archive = unzip_checked(download(asset["browser_download_url"]), "editor")
+    archive = unzip_checked(download_asset("poing-godot-admob-v5.1.0.zip"), "editor")
     filenames = [n for n in archive.namelist() if n.endswith("/plugin.cfg")]
     print("Plugin.cfg candidates:", filenames)
     # Supports release zips with or without a wrapper directory.
@@ -65,7 +74,7 @@ def install_editor(asset):
 
 
 def install_native(asset):
-    archive = unzip_checked(download(asset["browser_download_url"]), "iOS native")
+    archive = unzip_checked(download_asset("ios-template-v4.7.2.zip"), "iOS native")
     names = archive.namelist()
     print("Native template entries:", names[:35])
     candidates = [n for n in names if "addons/admob/ios/" in n]
@@ -104,11 +113,8 @@ def install_native(asset):
 
 
 def main():
-    payload = json.loads(download(RELEASE))
-    assets = payload.get("assets", [])
-    print("Release assets:", [a["name"] for a in assets])
-    install_editor(matching_asset(assets, "poing-godot-admob-v"))
-    install_native(matching_asset(assets, "ios-template-v4.7.2"))
+    install_editor(None)
+    install_native(None)
     print("Official AdMob plugin setup complete")
 
 
