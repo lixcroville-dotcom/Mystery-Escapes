@@ -14,6 +14,10 @@ var id_token: String = ""
 var user_email: String = ""
 var refresh_token: String = ""
 const TOKEN_PATH = "user://mystery_firebase_session.json"
+const AUTH_TIMEOUT_SECONDS: float = 20.0
+var _active_auth_request: HTTPRequest = null
+var _auth_attempt: int = 0
+
 
 func _ready() -> void:
 	var path := "res://config/online_services.json"
@@ -25,24 +29,46 @@ func _ready() -> void:
 func is_authenticated() -> bool:
 	return not id_token.is_empty() and not user_id.is_empty()
 
+func _finish_auth_request(req: HTTPRequest) -> bool:
+	# A timed-out/abandoned request must not be able to update a new login.
+	if req != _active_auth_request:
+		if is_instance_valid(req):
+			req.queue_free()
+		return false
+	_active_auth_request = null
+	auth_busy = false
+	if is_instance_valid(req):
+		req.queue_free()
+	return true
+
+func _auth_timeout(req: HTTPRequest) -> void:
+	if req != _active_auth_request:
+		return
+	_finish_auth_request(req)
+	auth_failure.emit("Délai dépassé. Vérifie Internet et réessaie.")
+
 func _request_auth(endpoint: String, payload: Dictionary) -> void:
 	if auth_busy:
-		auth_failure.emit("Connexion déjà en cours")
+		auth_failure.emit("Connexion en cours : attends quelques secondes, puis réessaie.")
 		return
 	var key := str(config.get("firebase", {}).get("api_key", ""))
 	if key.is_empty():
 		auth_failure.emit("Configuration Firebase absente")
 		return
-	auth_busy = true
 	var req := HTTPRequest.new()
+	req.timeout = AUTH_TIMEOUT_SECONDS
 	add_child(req)
+	_active_auth_request = req
+	auth_busy = true
 	req.request_completed.connect(_on_auth_result.bind(req))
 	var url := "https://identitytoolkit.googleapis.com/v1/accounts:%s?key=%s" % [endpoint, key.uri_encode()]
 	var result := req.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, JSON.stringify(payload))
 	if result != OK:
-		auth_busy = false
-		req.queue_free()
+		_finish_auth_request(req)
 		auth_failure.emit("Connexion réseau impossible (%d)" % result)
+		return
+	# Safety net for platforms where HTTPRequest never invokes its completion callback.
+	get_tree().create_timer(AUTH_TIMEOUT_SECONDS + 2.0).timeout.connect(_auth_timeout.bind(req))
 
 func login_anonymous() -> void:
 	_request_auth("signUp", {"returnSecureToken":true})
@@ -56,20 +82,29 @@ func register_email(email: String, password: String) -> void:
 		return
 	_request_auth("signUp", {"email":email.strip_edges(),"password":password,"returnSecureToken":true})
 
-func _on_auth_result(_result: int, http_code: int, _headers: PackedStringArray, body: PackedByteArray, req: HTTPRequest) -> void:
-	auth_busy = false
-	req.queue_free()
+func _on_auth_result(result: int, http_code: int, _headers: PackedStringArray, body: PackedByteArray, req: HTTPRequest) -> void:
+	if not _finish_auth_request(req):
+		return
+	if result != HTTPRequest.RESULT_SUCCESS:
+		auth_failure.emit("Erreur réseau Firebase (%d). Réessaie." % result)
+		return
 	var response = JSON.parse_string(body.get_string_from_utf8())
 	if typeof(response) != TYPE_DICTIONARY:
-		auth_failure.emit("Réponse Firebase invalide")
+		auth_failure.emit("Réponse Firebase invalide (HTTP %d)" % http_code)
 		return
 	if http_code < 200 or http_code >= 300:
-		var failure: Dictionary = response.get("error", {})
-		var message := str(failure.get("message", "HTTP %d" % http_code))
-		# Do not display untrusted server internals or sensitive details.
-		if message in ["EMAIL_EXISTS", "INVALID_LOGIN_CREDENTIALS", "EMAIL_NOT_FOUND", "INVALID_PASSWORD"]:
-			message = "Compte existant ou identifiants incorrects"
-		auth_failure.emit(message.substr(0,100))
+		var failure = response.get("error", {})
+		var message: String = "HTTP %d" % http_code
+		if typeof(failure) == TYPE_DICTIONARY:
+			message = str(failure.get("message", message))
+		match message:
+			"EMAIL_EXISTS": message = "Cette adresse possède déjà un compte. Utilise Se connecter."
+			"INVALID_LOGIN_CREDENTIALS", "EMAIL_NOT_FOUND", "INVALID_PASSWORD": message = "E-mail ou mot de passe incorrect."
+			"OPERATION_NOT_ALLOWED": message = "Cette méthode de connexion est désactivée sur Firebase."
+			"TOO_MANY_ATTEMPTS_TRY_LATER": message = "Trop de tentatives. Réessaie plus tard."
+			"WEAK_PASSWORD : Password should be at least 6 characters": message = "Mot de passe trop court."
+			_: message = "Firebase : " + message.substr(0,90)
+		auth_failure.emit(message)
 		return
 	id_token = str(response.get("idToken", ""))
 	user_id = str(response.get("localId", ""))
@@ -78,7 +113,6 @@ func _on_auth_result(_result: int, http_code: int, _headers: PackedStringArray, 
 	if not is_authenticated():
 		auth_failure.emit("Compte Firebase incomplet")
 		return
-	# Login is session-only: no sensitive tokens are written to the historical game save.
 	auth_success.emit(user_id, user_email)
 
 func logout() -> void:

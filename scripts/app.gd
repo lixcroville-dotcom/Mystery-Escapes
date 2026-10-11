@@ -2326,10 +2326,14 @@ func show_online_account() -> void:
 	fade_in()
 
 func online_guest_login() -> void:
+	if OnlineService.auth_busy:
+		return
 	online_auth_note = loc("Connexion en cours…", "Signing in…")
 	OnlineService.login_anonymous()
 
 func online_email_action(is_register: bool) -> void:
+	if OnlineService.auth_busy:
+		return
 	if login_email_box == null or login_password_box == null:
 		return
 	var email := login_email_box.text.strip_edges()
