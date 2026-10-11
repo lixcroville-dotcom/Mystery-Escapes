@@ -88,6 +88,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 tools/install_admob_ci.py
+          test -f addons/admob/plugin.cfg
           # Enable official Godot editor plugin before export.
           cat >> project.godot <<'ADMOB'
 
